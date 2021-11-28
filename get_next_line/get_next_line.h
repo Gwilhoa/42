@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/18 16:47:33 by gchatain          #+#    #+#             */
+/*   Updated: 2021/11/18 16:47:33 by gchatain         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+# include <stdlib.h>
+# include <stdio.h>
+# include <strings.h>
+# include <string.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+
+char	*reader(int fd, char *temp, char **reste);
+char	*ft_fullret(int r, char *str, int fd, char **reste);
+char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_strlen(char const *str);
+char	*ft_strdup(char const *src);
+char	*get_next_line(int fd);
+#endif
