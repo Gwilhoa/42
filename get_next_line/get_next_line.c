@@ -23,74 +23,59 @@ char	*ft_resetret(char *str, char **reste)
 	return (ret);
 }
 
-char	*ft_hasnewline(int i, char *str, char **reste)
+char	*ft_hasnewline(int i, int r, char *str, char **reste)
 {
 	if (str[i] == 0)
 		return(*reste);
-	if (*reste)
-		free(*reste);
 	*reste = ft_strdup(str + i + 1);
 	str[i + 1] = '\0';
-	return (str);
+	return (ft_strdup(str));
 }
 
-char	*reader(int fd, char *temp, char **reste)
+char	*get_next_line(int fd)
 {
 	int			i;
 	int			r;
 	char		*str;
+	char		*temp;
+	static char	*reste;
 
-	if (temp)
-	{
-		str = strdup(temp);
-		free(temp);
-	}
-	else {
-		str = malloc((BUFFER_SIZE) * sizeof(char *));
-		r = read(fd, str, BUFFER_SIZE);
-	}
+	if (!BUFFER_SIZE)
+		return (0);
 	i = 0;
-	if (*reste != NULL)
-		str = ft_resetret(str, &*reste);
+	str = malloc((BUFFER_SIZE) * sizeof(char *));
+	r = read(fd, str, BUFFER_SIZE);
+	if (reste != NULL)
+		str = ft_resetret(str, &reste);
 	while (i < ft_strlen(str))
 	{
-		if (str[i] == '\n' || str[i] == 0)
-			return (ft_hasnewline(i, str, &*reste));
+		if (str[i] == '\n')
+		{
+			
+			temp = ft_hasnewline(i, r, str, &reste);
+			free(str);
+			return (temp);
+		}
 		i++;
 	}
-	temp = ft_fullret(r, str, fd, &*reste);
+	temp = ft_fullret(r, &str, fd, &reste);
+	if (!temp)
+		return(str);
 	free(str);
 	return (temp);
 }
 
-char	*ft_fullret(int r, char *str, int fd, char **reste)
+char	*ft_fullret(int r, char **str, int fd, char **reste)
 {
 	char	*temp;
 	char	*plus;
-
-	if (r < BUFFER_SIZE)
-		return (str);
 	if (r == BUFFER_SIZE)
 	{
-		temp = reader(fd, 0, &*reste);
-		if (temp)
-			plus = ft_strjoin(str, temp);
-		else
-			return (str);
-		free(temp);
+		temp = get_next_line(fd);
+		plus = ft_strjoin(*str, temp);
+		temp = NULL;
 		return (plus);
 	}
 	return (0);
 }
 
-char	*get_next_line(int fd)
-{
-	char		*str;
-	static char	*reste;
-
-	str = malloc(sizeof(char *) * BUFFER_SIZE);
-	read(fd, str, BUFFER_SIZE);
-	if (!str || (ft_strlen(str) == 0 && !reste))
-		return (0);
-	return (reader(fd, str, &reste));
-}

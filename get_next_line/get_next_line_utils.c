@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:30:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/28 20:39:16 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/11/28 23:02:29 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_strlen(char const *str)
 {
 	int	i;
 
+	
 	i = 0;
 	while (str[i])
 		i++;
@@ -68,6 +69,7 @@ char	*ft_strdup(char const *src)
 	ret[i] = 0;
 	return (ret);
 }
+
 int main(void)
 {
 	int fd = open("test.txt",'r');
@@ -77,8 +79,8 @@ int main(void)
 	while (str)
 	{
 		printf("%s\n",str);
-		free(str);
+		if (str)
+			free(str);
 		str = get_next_line(fd);
 	}
-	free(str);
 }
