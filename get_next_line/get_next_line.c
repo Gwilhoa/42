@@ -12,70 +12,80 @@
 
 #include "get_next_line.h"
 
-char	*ft_resetret(char *str, char **reste)
-{
-	char	*ret;
+#ifndef BUFFER_SIZE
 
-	ret = ft_strjoin(*reste, str);
+#define BUFFER_SIZE 1
+
+#endif
+
+
+
+
+
+
+
+
+
+
+char	*resetret(char **reste, char *str)
+{
+	char	*temp;
+
+	temp = ft_strjoin(*reste, str);
+	free(str);
 	free(*reste);
 	*reste = NULL;
-	free(str);
-	return (ret);
+	return (temp);
 }
-
-char	*ft_hasnewline(int i, int r, char *str, char **reste)
-{
-	if (str[i] == 0)
-		return(*reste);
-	*reste = ft_strdup(str + i + 1);
-	str[i + 1] = '\0';
-	return (ft_strdup(str));
-}
-
 char	*get_next_line(int fd)
 {
-	int			i;
+	static char	*reste;
 	int			r;
 	char		*str;
-	char		*temp;
-	static char	*reste;
 
-	if (!BUFFER_SIZE)
-		return (0);
-	i = 0;
-	str = malloc((BUFFER_SIZE) * sizeof(char *));
+	str = malloc(sizeof(char *) * (BUFFER_SIZE + 1));
 	r = read(fd, str, BUFFER_SIZE);
-	if (reste != NULL)
-		str = ft_resetret(str, &reste);
-	while (i < ft_strlen(str))
+	if (fd < 0 || reste == NULL || ft_strlen(str) == 0 || r < 1)
+	{
+		free(str);
+		return (0);
+	}
+	return (reader(fd, str, &reste));
+}
+
+char	*reader(int fd, char *str, char **reste)
+{
+	int		ret;
+	int		i;
+	char	*temp;
+	char	*temp2;
+
+	i = 0;
+	if (!str)
+	{
+		str = malloc(sizeof(char *) * (BUFFER_SIZE + 1));
+		ret = read(fd, str, BUFFER_SIZE);
+		if (ret < 0)
+			return (0);
+		if (ret == 0)
+			return (str);
+	}
+	str[BUFFER_SIZE + 1] = '\0';
+	if (*reste)
+		str = resetret(&*reste, str);
+	while (str[i])
 	{
 		if (str[i] == '\n')
 		{
-			
-			temp = ft_hasnewline(i, r, str, &reste);
-			free(str);
-			return (temp);
+			*reste = ft_strdup(str + i + 1);
+			str[i + 1] = 0;
+			return (str);
 		}
 		i++;
 	}
-	temp = ft_fullret(r, &str, fd, &reste);
-	if (!temp)
-		return(str);
+	temp2 = reader(fd, 0, *&reste);
+	temp = ft_strjoin(str, temp2);
+	free(temp2);
 	free(str);
 	return (temp);
 }
-
-char	*ft_fullret(int r, char **str, int fd, char **reste)
-{
-	char	*temp;
-	char	*plus;
-	if (r == BUFFER_SIZE)
-	{
-		temp = get_next_line(fd);
-		plus = ft_strjoin(*str, temp);
-		temp = NULL;
-		return (plus);
-	}
-	return (0);
-}
-

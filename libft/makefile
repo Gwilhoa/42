@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 10:35:56 by gchatain          #+#    #+#              #
-#    Updated: 2021/11/14 17:52:56 by gchatain         ###   ########.fr        #
+#    Updated: 2021/11/29 10:37:51 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-%.c : %.o 
+%.o : %.c ${HEADER}
 	${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME):	${OBJS}

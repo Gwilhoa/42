@@ -22,8 +22,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
-char	*reader(int fd, char *temp);
-char	*ft_fullret(int r, char **str, int fd, char **reste);
+char	*reader(int fd, char *str, char **reste);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strlen(char const *str);
 char	*ft_strdup(char const *src);
