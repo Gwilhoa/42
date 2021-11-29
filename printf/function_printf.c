@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   function_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:35:18 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/27 18:12:37 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 10:26:03 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_func_p(unsigned long c)
+int	ft_func_p(unsigned long long c)
 {
-<<<<<<< HEAD
 	int		i;
 	char	*str;
 
@@ -22,15 +21,6 @@ int	ft_func_p(unsigned long c)
 	str = ft_changebase_p(c, "0123456789abcdef");
 	i = ft_func_s(str) + i;
 	free(str);
-=======
-	int	i;
-
-	i = 0;
-	if (c == 0)
-		return (ft_func_s(str));
-	i += ft_func_s("0x");
-	i += ft_func_x(c);
->>>>>>> parent of cf1e795 (fin printf)
 	return (i);
 }
 

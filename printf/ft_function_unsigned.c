@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_function_unsigned.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:18:28 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/27 18:12:24 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 10:22:59 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft_printf.h"
 
 #include "ft_printf.h"
 
@@ -32,7 +30,6 @@ int	ft_func_u(unsigned int c)
 	print_nb2(c, 1);
 	return (sizedigit(c));
 }
-<<<<<<< HEAD
 
 int	sizedigithex(unsigned long long n)
 {
@@ -71,5 +68,3 @@ char	*ft_changebase_p(unsigned long long nbr, char *base)
 	}
 	return (0);
 }
-=======
->>>>>>> parent of cf1e795 (fin printf)

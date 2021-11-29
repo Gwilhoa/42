@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 11:48:19 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/27 18:12:28 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/11/21 16:33:43 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_func_test(char c, va_list args)
 	else if (c == 'c')
 		size += ft_func_c(va_arg(args, int));
 	else if (c == 'p')
-		size += ft_func_p(va_arg(args, unsigned long));
+		size += ft_func_p(va_arg(args, unsigned long long));
 	else if (c == 'u')
 		size += ft_func_u(va_arg(args, unsigned int));
 	return (size);
@@ -52,8 +52,7 @@ int	ft_printf( const char *format, ...)
 			size += ft_func_c(c);
 		else
 		{
-			i++;
-			c = format[i];
+			c = format[++i];
 			if (c != '%')
 				size += ft_func_test(c, args);
 			else

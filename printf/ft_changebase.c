@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_changebase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 13:24:57 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/27 18:13:04 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 10:24:23 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	ft_func_x(long long c)
 {
-	char	*str;
 	int		i;
+	char	*str;
 
 	str = ft_changebase(c, "0123456789abcdef");
 	i = ft_func_s(str);
+	free(str);
 	return (i);
 }
 
@@ -85,10 +86,8 @@ char	*ft_changebase(unsigned int nbr, char *base)
 	int			i;
 	char		*ret;
 
-	ret = malloc(sizedigit(nbr) + 1 * sizeof(long));
+	ret = malloc((sizedigithex(nbr) + 1) * sizeof(char));
 	i = 0;
-	if (ft_strlen(base) == 0)
-		return (0);
 	if (check_base(base) == 1)
 	{
 		while (nbr >= (unsigned int)ft_strlen(base))
@@ -97,6 +96,8 @@ char	*ft_changebase(unsigned int nbr, char *base)
 			nbr = nbr / ft_strlen(base);
 		}
 		ret[i] = base[nbr % ft_strlen(base)];
+		i++;
+		ret[i] = 0;
 		ft_rev_tab(ret, ft_strlen(ret));
 		return (ret);
 	}

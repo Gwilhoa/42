@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:18:05 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/27 18:12:33 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/11/21 16:16:37 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@ void	ft_putstr_fd(char *str, int fd);
 int		ft_strlen(char const *str);
 int		sizedigit(long long n);
 int		ft_printf( const char *format, ...);
+int		check_base(char *str);
+void	ft_rev_tab(char *str, int sisze);
+int		sizedigithex(unsigned long long nbr);
 char	*ft_changebase(unsigned int nbr, char *base);
-int		ft_func_p(unsigned long c);
+char	*ft_changebase_p(unsigned long long nbr, char *base);
+int		ft_func_p(unsigned long long c);
 int		ft_func_x(long long c);
 int		ft_func_x2(int c);
 int		ft_func_f(double value);
