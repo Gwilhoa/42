@@ -8,9 +8,8 @@ int main(void)
 	str = get_next_line(fd);
 	while (str)
 	{
-		printf("%s\n",str);
-		if (str)
-			free(str);
+		printf("%s",str);
+		free(str);
 		str = get_next_line(fd);
 	}
 	free(str);
