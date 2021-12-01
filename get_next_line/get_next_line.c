@@ -26,6 +26,14 @@ int	ft_search(char *str, int charset)
 	return (-1);
 }
 
+char *freedomjoin(char str1, char str2)
+{
+	char	*temp;
+	temp = ft_strjoin(str1,str2);
+	free(str1);
+	return (temp);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*reste;
@@ -41,7 +49,7 @@ char	*get_next_line(int fd)
 	str[r] = '\0';
 	while (r > 0)
 	{
-		ret = ft_strjoin(ret, str);
+		ret = freedomjoin(ret, str);
 		n = ft_search(ret, '\n');
 		if (n != -1)
 		{
