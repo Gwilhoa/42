@@ -15,7 +15,9 @@
 int	ft_search(char *str, int charset)
 {
 	int	i;
-	while (str[i])
+
+	i = 0;
+	while (str[i] != 0)
 	{
 		if (str[i] == charset)
 			return (i);
@@ -26,30 +28,30 @@ int	ft_search(char *str, int charset)
 
 char	*get_next_line(int fd)
 {
-	char static	*reste;
+	static char	*reste;
 	char		str[BUFFER_SIZE + 1];
 	char		*ret;
 	int			r;
 	int			n;
 
+	ret = "";
 	if (reste)
 		ret = reste;
 	r = read(fd, str, BUFFER_SIZE);
+	str[r] = '\0';
 	while (r > 0)
 	{
-		str[r] = '\0';
-		n = ft_search(str, '\n');
+		ret = ft_strjoin(ret, str);
+		n = ft_search(ret, '\n');
 		if (n != -1)
 		{
-			if (str + n + 1)
-				reste = ft_strdup(str + n + 1);
-			str[n + 1] = 0;
-			return (ft_strjoin(ret, str));
+			free(reste);
+			reste = ft_strdup(ret + n + 1);
+			ret[n + 1] = 0;
+			return (ret);
 		}
-		ret = ft_strjoin(ret, str);
 		r = read(fd, str, BUFFER_SIZE);
+		str[r] = '\0';
 	}
-	if (r == 0)
-		return (ft_strjoin(ret, str));
 	return (0);
 }
