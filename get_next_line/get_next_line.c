@@ -26,7 +26,7 @@ int	ft_search(char *str, int charset)
 	return (-1);
 }
 
-char *freedomjoin(char str1, char str2)
+char *freedomjoin(char *str1, char *str2)
 {
 	char	*temp;
 	temp = ft_strjoin(str1,str2);
