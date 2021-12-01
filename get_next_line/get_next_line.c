@@ -31,21 +31,26 @@ char	*get_next_line(int fd)
 	static char	*reste;
 	char		str[BUFFER_SIZE + 1];
 	char		*ret;
+	char		*temp;
 	int			r;
 	int			n;
 
-	ret = "";
+	ret = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (reste)
+	{
+		free(ret);
 		ret = reste;
+	}
 	r = read(fd, str, BUFFER_SIZE);
 	str[r] = '\0';
 	while (r > 0)
 	{
-		ret = ft_strjoin(ret, str);
+		temp = ft_strjoin(ret, str);
+		free(ret);
+		ret = temp;
 		n = ft_search(ret, '\n');
 		if (n != -1)
 		{
-			free(reste);
 			reste = ft_strdup(ret + n + 1);
 			ret[n + 1] = 0;
 			return (ret);
