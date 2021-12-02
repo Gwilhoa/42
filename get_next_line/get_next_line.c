@@ -26,18 +26,42 @@ int	ft_search(char *str, int charset)
 	return (-1);
 }
 
+char	*ft_has_nl(char *ret, char **reste)
+{
+	char	*temp;
+
+	temp = ft_strdup(ret + ft_search(ret, '\n') + 1);
+	if (ft_strlen(temp) != 0)
+		*reste = ft_strdup(temp);
+	free(temp);
+	ret[ft_search(ret, '\n') + 1] = 0;
+	return (ret);
+}
+
+char	*ft_init(char *ret, char *str)
+{
+	char	*temp;
+
+	if (!ret)
+	{
+		ret = malloc(1);
+		ret[0] = 0;
+	}
+	temp = ft_strjoin(ret, str);
+	free(ret);
+	return (temp);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*reste;
 	char		str[BUFFER_SIZE + 1];
 	char		*ret;
-	char		*temp;
 	int			r;
 
 	ret = 0;
 	if (reste)
 	{
-		free(ret);
 		ret = ft_strdup(reste);
 		free(reste);
 		reste = NULL;
@@ -46,24 +70,9 @@ char	*get_next_line(int fd)
 	str[r] = '\0';
 	while (r > 0 || (ret && ft_search(ret, '\n') != -1))
 	{
-		if (!ret)
-		{
-			ret = malloc(1);
-			ret[0] = 0;
-		}
-		temp = ft_strjoin(ret, str);
-		free(ret);
-		ret = ft_strdup(temp);
-		free(temp);
+		ret = ft_init(ret, str);
 		if (ft_search(ret, '\n') != -1)
-		{
-			temp = ft_strdup(ret + ft_search(ret, '\n') + 1);
-			if (ft_strlen(temp) != 0)
-				reste = ft_strdup(temp);
-			free(temp);
-			ret[ft_search(ret, '\n') + 1] = 0;
-			return (ret);
-		}
+			return (ft_has_nl(ret, &reste));
 		r = read(fd, str, BUFFER_SIZE);
 		str[r] = '\0';
 	}
