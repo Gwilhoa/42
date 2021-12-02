@@ -3,7 +3,7 @@
 int main(void)
 {
 	setbuf(stdout, NULL);
-	int fd = open("files/multiple_nlx5",'r');
+	int fd = open("files/alternate_line_nl_no_nl",'r');
 	char *str;
 	int	limit;
 

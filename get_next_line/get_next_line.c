@@ -44,7 +44,7 @@ char	*get_next_line(int fd)
 	}
 	r = read(fd, str, BUFFER_SIZE);
 	str[r] = '\0';
-	while (r > 0)
+	while (r > 0 || (ret && ft_search(ret, '\n') != -1))
 	{
 		if (!ret)
 		{
