@@ -33,30 +33,38 @@ char	*get_next_line(int fd)
 	char		*ret;
 	char		*temp;
 	int			r;
-	int			n;
 
-	ret = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	ret = 0;
 	if (reste)
 	{
 		free(ret);
-		ret = reste;
+		ret = ft_strdup(reste);
+		free(reste);
+		reste = NULL;
 	}
 	r = read(fd, str, BUFFER_SIZE);
 	str[r] = '\0';
 	while (r > 0)
 	{
+		if (!ret)
+			ret = malloc(1);
 		temp = ft_strjoin(ret, str);
 		free(ret);
-		ret = temp;
-		n = ft_search(ret, '\n');
-		if (n != -1)
+		ret = ft_strdup(temp);
+		free(temp);
+		if (ft_search(ret, '\n') != -1)
 		{
-			reste = ft_strdup(ret + n + 1);
-			ret[n + 1] = 0;
+			temp = ft_strdup(ret + ft_search(ret, '\n') + 1);
+			if (ft_strlen(temp) != 0)
+				reste = ft_strdup(temp);
+			free(temp);
+			ret[ft_search(ret, '\n') + 1] = 0;
 			return (ret);
 		}
 		r = read(fd, str, BUFFER_SIZE);
 		str[r] = '\0';
 	}
-	return (0);
+	if (!ret)
+		return (0);
+	return (ret);
 }

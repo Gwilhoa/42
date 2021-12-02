@@ -11,7 +11,7 @@ int main(void)
 	limit = 10;
 	while (str)
 	{
-		printf("%s\n\n",str);
+		printf("'%s'\n",str);
 		free(str);
 		str = get_next_line(fd);
 	}
