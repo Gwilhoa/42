@@ -13,6 +13,7 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# include <limits.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <strings.h>

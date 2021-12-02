@@ -54,7 +54,7 @@ char	*ft_init(char *ret, char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*reste[1024];
+	static char	*reste[OPEN_MAX];
 	char		str[BUFFER_SIZE + 1];
 	char		*ret;
 	int			r;
