@@ -22,8 +22,12 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
+int	ft_search(char *str, int charset);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strlen(char const *str);
 char	*ft_strdup(char const *src);
 char	*get_next_line(int fd);
+char	*ft_has_nl(char *ret, char **reste);
+char	*ft_init(char *ret, char *str);
+
 #endif
