@@ -47,7 +47,10 @@ char	*get_next_line(int fd)
 	while (r > 0)
 	{
 		if (!ret)
+		{
 			ret = malloc(1);
+			ret[0] = 0;
+		}
 		temp = ft_strjoin(ret, str);
 		free(ret);
 		ret = ft_strdup(temp);
