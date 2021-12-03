@@ -26,13 +26,18 @@ int	ft_search(char *str, int charset)
 	return (-1);
 }
 
-char	*ft_has_nl(char *ret, char **reste)
+char	*ft_has_nl(char *ret, char *reste)
 {
 	char	*temp;
+	int		i;
 
+	i = 0;
 	temp = ft_strdup(ret + ft_search(ret, '\n') + 1);
-	if (ft_strlen(temp) != 0)
-		*reste = ft_strdup(temp);
+	while (temp[i] != 0)
+	{
+		reste[i] = temp[i];
+		i++;
+	}
 	free(temp);
 	ret[ft_search(ret, '\n') + 1] = 0;
 	return (ret);
@@ -54,29 +59,27 @@ char	*ft_init(char *ret, char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*reste;
+	static char	reste[BUFFER_SIZE + 1];
 	char		str[BUFFER_SIZE + 1];
 	char		*ret;
 	int			r;
 
 	ret = 0;
-	if (reste)
+	if (reste[0] != 0)
 	{
 		ret = ft_strdup(reste);
-		free(reste);
-		reste = NULL;
+		reste[0] = 0;
 	}
 	r = read(fd, str, BUFFER_SIZE);
-	str[r] = '\0';
 	while (r > 0 || (ret && ft_search(ret, '\n') != -1))
 	{
+		if (r == -1)
+			return (0);
+		str[r] = '\0';
 		ret = ft_init(ret, str);
 		if (ft_search(ret, '\n') != -1)
-			return (ft_has_nl(ret, &reste));
+			return (ft_has_nl(ret, reste));
 		r = read(fd, str, BUFFER_SIZE);
-		str[r] = '\0';
 	}
-	if (!ret)
-		return (0);
 	return (ret);
 }
