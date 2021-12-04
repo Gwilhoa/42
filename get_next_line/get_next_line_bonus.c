@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:25:15 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/18 16:25:15 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/04 17:54:49 by guilheimcha      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ char	*get_next_line(int fd)
 	int			r;
 
 	ret = 0;
-	if (rest[0] != 0)
+	if (rest[fd][0] != 0)
 	{
-		ret = ft_strdup(rest);
+		ret = ft_strdup(rest[fd]);
 		if (!ret)
 			return (0);
 		ft_cleaner(rest[fd]);

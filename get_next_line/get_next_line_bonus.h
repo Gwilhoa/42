@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:47:33 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/18 16:47:33 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/04 17:50:16 by guilheimcha      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <limits.h>
 
 int		ft_search(char *str, int charset);
 char	*ft_strjoin(char const *s1, char const *s2);
