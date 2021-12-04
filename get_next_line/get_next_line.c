@@ -39,6 +39,7 @@ char	*ft_has_nl(char *ret, char *reste)
 		i++;
 	}
 	free(temp);
+	reste[i] = 0;
 	ret[ft_search(ret, '\n') + 1] = 0;
 	return (ret);
 }
@@ -63,12 +64,15 @@ char	*get_next_line(int fd)
 	char		str[BUFFER_SIZE + 1];
 	char		*ret;
 	int			r;
+	int i;
 
 	ret = 0;
 	if (reste[0] != 0)
 	{
 		ret = ft_strdup(reste);
-		reste[0] = 0;
+		i = -1;
+		while ( i != BUFFER_SIZE + 1)
+			reste[++i] = 0;
 	}
 	r = read(fd, str, BUFFER_SIZE);
 	while (r > 0 || (ret && ft_search(ret, '\n') != -1))
