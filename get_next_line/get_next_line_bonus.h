@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:47:33 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/04 16:48:38 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/04 16:56:38 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strlen(char const *str);
 char	*ft_strdup(char const *src);
 char	*get_next_line(int fd);
-char	*ft_has_nl(char *ret, char **reste);
+char	*ft_has_nl(char *ret, char *reste);
 char	*ft_init(char *ret, char *str);
+void	ft_cleaner(char *reste);
 
 #endif

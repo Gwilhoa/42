@@ -29,6 +29,6 @@ char	*ft_strdup(char const *src);
 char	*get_next_line(int fd);
 char	*ft_has_nl(char *ret, char *reste);
 char	*ft_init(char *ret, char *str);
-void	ft_resetreste(char *reste);
+void	ft_cleaner(char *reste);
 
 #endif
