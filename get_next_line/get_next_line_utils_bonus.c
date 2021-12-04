@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:30:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/04 17:35:24 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/04 17:34:00 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_strlen(char const *str)
 {
