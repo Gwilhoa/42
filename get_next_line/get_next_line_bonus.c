@@ -77,7 +77,7 @@ void	ft_cleaner(char *rest)
 
 char	*get_next_line(int fd)
 {
-	static char	rest[BUFFER_SIZE + 1];
+	static char	rest[OPEN_MAX][BUFFER_SIZE + 1];
 	char		str[BUFFER_SIZE + 1];
 	char		*ret;
 	int			r;
@@ -88,7 +88,7 @@ char	*get_next_line(int fd)
 		ret = ft_strdup(rest);
 		if (!ret)
 			return (0);
-		ft_cleaner(rest);
+		ft_cleaner(rest[fd]);
 	}
 	r = read(fd, str, BUFFER_SIZE);
 	while (r > 0 || (ret && ft_search(ret, '\n') != -1))
@@ -98,7 +98,7 @@ char	*get_next_line(int fd)
 		str[r] = '\0';
 		ret = ft_init(ret, str);
 		if (ret && ft_search(ret, '\n') != -1)
-			return (ft_has_nl(ret, rest));
+			return (ft_has_nl(ret, rest[fd]));
 		r = read(fd, str, BUFFER_SIZE);
 	}
 	return (ret);
