@@ -66,9 +66,13 @@ void	ft_cleaner(char *rest)
 {
 	int	i;
 
-	i = -1;
-	while (i != BUFFER_SIZE + 1)
-		rest[++i] = 0;
+	i = 0;
+	while (rest[i] != 0)
+	{
+		rest[i] = 0;
+		i++;
+	}
+	rest[i] = 0;
 }
 
 char	*get_next_line(int fd)
