@@ -77,7 +77,7 @@ void	ft_cleaner(char *rest)
 
 char	*get_next_line(int fd)
 {
-	static char	rest[1024][BUFFER_SIZE + 1];
+	static char	rest[BUFFER_SIZE + 1][OPEN_MAX];
 	char		str[BUFFER_SIZE + 1];
 	char		*ret;
 	int			r;
