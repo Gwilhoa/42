@@ -83,7 +83,7 @@ char	*get_next_line(int fd)
 	int			r;
 
 	ret = 0;
-	if (rest[0] != 0)
+	if (fd >= 0 && rest[0] != 0)
 	{
 		ret = ft_strdup(rest);
 		if (!ret)

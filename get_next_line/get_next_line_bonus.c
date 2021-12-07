@@ -77,13 +77,13 @@ void	ft_cleaner(char *rest)
 
 char	*get_next_line(int fd)
 {
-	static char	rest[BUFFER_SIZE + 1][OPEN_MAX];
+	static char	rest[10240][BUFFER_SIZE + 1];
 	char		str[BUFFER_SIZE + 1];
 	char		*ret;
 	int			r;
 
 	ret = 0;
-	if (rest[fd][0] != 0)
+	if (fd >= 0 && rest[fd][0] != 0)
 	{
 		ret = ft_strdup(rest[fd]);
 		if (!ret)
