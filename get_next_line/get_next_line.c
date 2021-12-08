@@ -59,6 +59,7 @@ char	*ft_init(char *ret, char *str)
 	if (!temp)
 		return (0);
 	free(ret);
+	free(str);
 	return (temp);
 }
 
@@ -75,10 +76,21 @@ void	ft_cleaner(char *rest)
 	rest[i] = 0;
 }
 
+int	reader(char **str, int fd)
+{
+	char	*ret;
+	int		r;
+
+	ret = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	r = read(fd, ret, BUFFER_SIZE);
+	*str = ret;
+	return(r);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	rest[BUFFER_SIZE + 1];
-	char		str[BUFFER_SIZE + 1];
+	char		*str;
 	char		*ret;
 	int			r;
 
@@ -90,7 +102,7 @@ char	*get_next_line(int fd)
 			return (0);
 		ft_cleaner(rest);
 	}
-	r = read(fd, str, BUFFER_SIZE);
+	r = reader(&str, fd);
 	while (r > 0 || (ret && ft_search(ret, '\n') != -1))
 	{
 		if (r == -1)
@@ -99,7 +111,8 @@ char	*get_next_line(int fd)
 		ret = ft_init(ret, str);
 		if (ret && ft_search(ret, '\n') != -1)
 			return (ft_has_nl(ret, rest));
-		r = read(fd, str, BUFFER_SIZE);
+		r = reader(&str, fd);
 	}
+	free(str);
 	return (ret);
 }
