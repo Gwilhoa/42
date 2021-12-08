@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:30:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/04 17:34:00 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/08 13:39:39 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,18 @@ char	*ft_strdup(char const *src)
 	}
 	ret[i] = 0;
 	return (ret);
+}
+
+int	ft_search(char *str, int charset)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != 0)
+	{
+		if (str[i] == charset)
+			return (i);
+		i++;
+	}
+	return (-1);
 }

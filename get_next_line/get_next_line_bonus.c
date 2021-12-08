@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:25:15 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/04 17:54:49 by guilheimcha      ###   ########lyon.fr   */
+/*   Updated: 2021/12/08 13:39:24 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
-int	ft_search(char *str, int charset)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-	{
-		if (str[i] == charset)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
 
 char	*ft_has_nl(char *ret, char *rest)
 {
@@ -59,6 +45,7 @@ char	*ft_init(char *ret, char *str)
 	if (!temp)
 		return (0);
 	free(ret);
+	free(str);
 	return (temp);
 }
 
@@ -75,10 +62,21 @@ void	ft_cleaner(char *rest)
 	rest[i] = 0;
 }
 
+int	reader(char **str, int fd)
+{
+	char	*ret;
+	int		r;
+
+	ret = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	r = read(fd, ret, BUFFER_SIZE);
+	*str = ret;
+	return (r);
+}
+
 char	*get_next_line(int fd)
 {
-	static char	rest[10240][BUFFER_SIZE + 1];
-	char		str[BUFFER_SIZE + 1];
+	static char	rest[OPEN_MAX][BUFFER_SIZE + 1];
+	char		*str;
 	char		*ret;
 	int			r;
 
@@ -86,11 +84,9 @@ char	*get_next_line(int fd)
 	if (fd >= 0 && rest[fd][0] != 0)
 	{
 		ret = ft_strdup(rest[fd]);
-		if (!ret)
-			return (0);
 		ft_cleaner(rest[fd]);
 	}
-	r = read(fd, str, BUFFER_SIZE);
+	r = reader(&str, fd);
 	while (r > 0 || (ret && ft_search(ret, '\n') != -1))
 	{
 		if (r == -1)
@@ -99,7 +95,8 @@ char	*get_next_line(int fd)
 		ret = ft_init(ret, str);
 		if (ret && ft_search(ret, '\n') != -1)
 			return (ft_has_nl(ret, rest[fd]));
-		r = read(fd, str, BUFFER_SIZE);
+		r = reader(&str, fd);
 	}
+	free(str);
 	return (ret);
 }

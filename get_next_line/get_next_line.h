@@ -30,5 +30,6 @@ char	*get_next_line(int fd);
 char	*ft_has_nl(char *ret, char *reste);
 char	*ft_init(char *ret, char *str);
 void	ft_cleaner(char *reste);
+int		reader(char **str, int fd);
 
 #endif

@@ -12,20 +12,6 @@
 
 #include "get_next_line.h"
 
-int	ft_search(char *str, int charset)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-	{
-		if (str[i] == charset)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
 char	*ft_has_nl(char *ret, char *rest)
 {
 	char	*temp;
@@ -84,7 +70,7 @@ int	reader(char **str, int fd)
 	ret = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	r = read(fd, ret, BUFFER_SIZE);
 	*str = ret;
-	return(r);
+	return (r);
 }
 
 char	*get_next_line(int fd)
@@ -98,8 +84,6 @@ char	*get_next_line(int fd)
 	if (fd >= 0 && rest[0] != 0)
 	{
 		ret = ft_strdup(rest);
-		if (!ret)
-			return (0);
 		ft_cleaner(rest);
 	}
 	r = reader(&str, fd);

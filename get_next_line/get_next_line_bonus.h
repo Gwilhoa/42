@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:47:33 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/04 17:50:16 by guilheimcha      ###   ########lyon.fr   */
+/*   Updated: 2021/12/08 13:38:28 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char	*get_next_line(int fd);
 char	*ft_has_nl(char *ret, char *reste);
 char	*ft_init(char *ret, char *str);
 void	ft_cleaner(char *reste);
+int		reader(char **str, int fd);
 
 #endif
