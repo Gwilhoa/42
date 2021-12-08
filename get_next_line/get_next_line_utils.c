@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:30:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/08 13:35:01 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 16:14:42 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,4 @@ char	*ft_strdup(char const *src)
 	}
 	ret[i] = 0;
 	return (ret);
-}
-
-int	ft_search(char *str, int charset)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-	{
-		if (str[i] == charset)
-			return (i);
-		i++;
-	}
-	return (-1);
 }
