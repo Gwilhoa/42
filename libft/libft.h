@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:57:12 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/14 18:31:11 by gchatain         ###   ########.fr       */
+/*   Updated: 2021/12/15 11:26:55 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,22 @@ t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+void			ft_putnbr2_fd(unsigned int nb, int fd);
+int				sizedigit(long long n);
+int				ft_printf( const char *format, ...);
+int				check_base(char *str);
+void			ft_rev_tab(char *str, int sisze);
+int				sizedigithex(unsigned long long nbr);
+char			*ft_changebase(unsigned int nbr, char *base);
+char			*ft_changebase_p(unsigned long long nbr, char *base);
+int				ft_func_p(unsigned long long c);
+int				ft_func_x(long long c);
+int				ft_func_x2(int c);
+int				ft_func_f(double value);
+int				ft_func_c(int c);
+int				ft_func_i(int c);
+int				ft_func_s(char *str);
+int				ft_func_u(unsigned int c);
+void			print_nb(int nb, int fd);
 
 #endif
