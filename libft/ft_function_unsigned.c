@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:18:28 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/29 10:22:59 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/15 11:33:08 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	print_nb2(unsigned int nb, int fd)
 {

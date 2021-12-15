@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 13:24:57 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/29 10:24:23 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/15 11:32:59 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_func_x(long long c)
 {
