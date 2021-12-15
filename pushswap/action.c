@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 12:15:46 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/15 18:45:15 by gchatain         ###   ########.fr       */
+/*   Created: 2021/12/15 18:41:46 by gchatain          #+#    #+#             */
+/*   Updated: 2021/12/15 18:42:44 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-void		swap(t_list **this);
-void		push(t_list **this, int i);
-int			pop(t_list **this);
+void	swap(t_stack **this)
+{
+	int arg1;
+	int arg2;
 
-#endif
+	arg1 = pop(this);
+	arg2 = pop(this);
+	push(this, arg2);
+	push(this, arg1);
+}
+
+void	trade(t_stack **from, t_stack **to)
+{
+	int	elem;
+
+	if (from == 0)
+		return;
+	elem = pop(from);
+	push(to, elem);
+}

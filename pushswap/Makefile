@@ -3,18 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2021/12/15 12:12:31 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2021/12/15 17:12:25 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = push_swap.c
+SRCS = stack_function.c push_swap.c
 
 OBJS = ${SRCS:.c=.o}
 
-HEADER = libft.h
+LIBRARY = libft.a
+
+HEADER = libft.h push_swap.h
 
 NAME = push_swap
 
@@ -24,11 +26,11 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-%.o : %.c  ${HEADER}
+%.o : %.c  ${HEADER} ${LIBRARY}
 	${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME):	${OBJS}
-	${CC} ${CFLAGS} ${NAME} ${OBJS}
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY}
 
 all :		${NAME}
 

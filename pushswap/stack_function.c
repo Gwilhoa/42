@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:24:55 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/15 15:12:16 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/15 19:14:31 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,50 @@
 #include "libft.h"
 #include <stdlib.h>
 
-t_stack	*newstack(int *i)
+void	push(t_list **this, int i)
 {
-	t_stack	*stack;
+	t_list	*head;
 
-	stack = malloc(sizeof(t_stack));
-	stack->content = i;
-	stack->next = NULL;
-	return (stack);
-}
-
-void	push(t_stack *this, int *i)
-{
-	t_stack	*head;
-
-	head = malloc(sizeof(t_stack));
+	head = malloc(sizeof(t_list));
 	head->content = i;
-	head->next = this;
-	this = head;
+	head->next = *this;
+	*this = head;
 }
 
-int	pop(t_stack *this)
+int	pop(t_list **this)
 {
-	int	i;
+	int		i;
+	t_list	*temp;
 
-	i = this->content;
-	this = this->next;
+	temp = *this;
+	i = temp->content;
+	*this = temp->next;
 	return (i);
 }
 
-void	print(t_stack *this)
+void	rotate(t_list **this)
 {
-	t_stack	*temp;
+	int	elem;
 
-	temp = this;
-	while (temp->next)
+	elem = pop(this);
+	ft_lstadd_back(this, ft_lstnew(elem));
+}
+
+void	reverse(t_list **this)
+{
+	t_list *temp;
+	t_list *temp1;
+	int elem;
+
+	temp = *this;
+	temp1 = *this;
+	temp = temp->next;
+	while (temp->next != 0)
 	{
-		ft_printf("%d \n", temp->content);
 		temp = temp->next;
+		temp1 = temp1->next;
 	}
-	ft_printf("%d \n", temp->content);
+	elem = temp->content;
+	temp1->next = 0;
+	push(this, elem);
 }
