@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:24:55 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/15 13:14:33 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/15 15:12:16 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,23 @@ t_stack	*newstack(int *i)
 	return (stack);
 }
 
-int	pop(t_stack *this, int *i)
+void	push(t_stack *this, int *i)
 {
-	ft_printf("test\n");
 	t_stack	*head;
 
 	head = malloc(sizeof(t_stack));
-	if (!head)
-		return (0);
 	head->content = i;
 	head->next = this;
 	this = head;
-	return (1);
+}
+
+int	pop(t_stack *this)
+{
+	int	i;
+
+	i = this->content;
+	this = this->next;
+	return (i);
 }
 
 void	print(t_stack *this)

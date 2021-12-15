@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:46 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/15 14:32:43 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/15 15:09:25 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-int	pop(t_stack *this, int *i);
-t_stack	*newstack(int *i);
+void		push(t_stack *this, int *i);
+int			pop(t_stack *this);
+t_stack		*newstack(int *i);
 #endif
