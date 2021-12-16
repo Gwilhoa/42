@@ -4,6 +4,7 @@
 		"limits.h": "c",
 		"push_swap.h": "c",
 		"istream": "c",
-		"streambuf": "c"
+		"streambuf": "c",
+		"libft.h": "c"
 	}
 }

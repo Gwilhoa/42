@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:24:55 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/15 19:14:31 by gchatain         ###   ########.fr       */
+/*   Updated: 2021/12/16 23:57:59 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,46 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void	push(t_list **this, int i)
-{
-	t_list	*head;
-
-	head = malloc(sizeof(t_list));
-	head->content = i;
-	head->next = *this;
-	*this = head;
-}
-
 int	pop(t_list **this)
 {
 	int		i;
 	t_list	*temp;
 
 	temp = *this;
-	i = temp->content;
+	i = *(int *)temp->content;
 	*this = temp->next;
 	return (i);
 }
 
-void	rotate(t_list **this)
+void	push(t_list **this, int i)
 {
-	int	elem;
+	int	*p;
 
-	elem = pop(this);
-	ft_lstadd_back(this, ft_lstnew(elem));
+	p = malloc(sizeof(int));
+	*p = i;
+	ft_lstadd_front(this, ft_lstnew(p));
 }
 
-void	reverse(t_list **this)
+void	display(t_list *stack1, t_list *stack2)
 {
-	t_list *temp;
-	t_list *temp1;
-	int elem;
-
-	temp = *this;
-	temp1 = *this;
-	temp = temp->next;
-	while (temp->next != 0)
+	while (stack1 || stack2)
 	{
-		temp = temp->next;
-		temp1 = temp1->next;
+		if (!stack1)
+		{
+			ft_printf("  %d\n", *(int *)stack2->content);
+			stack2 = stack2->next;
+		}
+		else if (!stack2)
+		{
+			ft_printf("%d  \n", *(int *)stack1->content);
+			stack1 = stack1->next;
+		}
+		else
+		{
+			ft_printf("%d %d\n",
+				*(int *)stack1->content, *(int *)stack2->content);
+			stack1 = stack1->next;
+			stack2 = stack2->next;
+		}
 	}
-	elem = temp->content;
-	temp1->next = 0;
-	push(this, elem);
 }
