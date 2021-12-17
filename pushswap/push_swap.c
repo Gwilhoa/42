@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:12:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/17 12:19:11 by gchatain         ###   ########.fr       */
+/*   Updated: 2021/12/17 19:05:47 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,20 @@
 
 int	main(int argc, const char *argv[])
 {
+	char	str[3];
 	t_list	*stack1;
 	t_list	*stack2;
-	int		i;
-	int		temp;
 
 	stack2 = 0;
 	stack1 = 0;
-	i = 1;
-	while (i < argc)
+	if (init(&stack1, argv) == 0)
+		return (0);
+	display(stack1, stack2);
+	read(1, str, 2);
+	str[2] = 0;
+	if (str[0] == 's')
 	{
-		temp = ft_atoi(argv[i]);
-		if (temp == 0 && argv[i][0] != 48)
-		{
-			ft_printf("err0r");
-			return 0;
-		}
-		push(&stack1, temp);
-		i++;
+		ft_swap(&stack1, str);
 	}
 	display(stack1, stack2);
 	return (argc);
@@ -40,6 +36,7 @@ int	main(int argc, const char *argv[])
 
 void	display(t_list *stack1, t_list *stack2)
 {
+	ft_printf("---------------------\n");
 	while (stack1 || stack2)
 	{
 		if (!stack1)
@@ -60,4 +57,30 @@ void	display(t_list *stack1, t_list *stack2)
 			stack2 = stack2->next;
 		}
 	}
+	ft_printf("---------------------\n");
+}
+
+int	init(t_list **stack, const char **args)
+{
+	int	i;
+	int	temp;
+
+	i = 1;
+	while (args[i] != 0)
+	{
+		temp = ft_atoi(args[i]);
+		if (temp == 0 && args[i][0] != 48)
+		{
+			ft_printf("error");
+			return (0);
+		}
+		push(stack, temp);
+		i++;
+	}
+	return (1);
+}
+
+ft_swap(t_list **stack, char *str)
+{
+	
 }

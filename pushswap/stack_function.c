@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:24:55 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/17 11:37:30 by gchatain         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:51:32 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	pop(t_list **this)
 	int		i;
 	t_list	*temp;
 
+	if (!this || !*this)
+		return 0;
 	temp = *this;
 	i = *(int *)temp->content;
 	*this = temp->next;
