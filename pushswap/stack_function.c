@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:24:55 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/17 00:20:33 by gchatain         ###   ########.fr       */
+/*   Updated: 2021/12/17 10:56:14 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,25 @@ void	rotate(t_list **this)
 	*i = pop(this);
 	temp = ft_lstnew(i);
 	ft_lstadd_back(this, temp);
+}
+
+void	reverse_rotate(t_list **this)
+{
+	t_list	*t;
+	t_list	*temp;
+	t_list	*temp2;
+	int		i;
+
+	t = *this;
+	temp = t;
+	temp2 = temp->next;
+	while (temp2->next != 0)
+	{
+		temp2 = temp2->next;
+		temp = temp->next;
+	}
+	temp->next = NULL;
+	i = pop(&temp2);
+	*this = t;
+	push(this, i);
 }

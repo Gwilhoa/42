@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:12:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/17 00:07:28 by gchatain         ###   ########.fr       */
+/*   Updated: 2021/12/17 11:02:05 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ int	main(void)
 	push(&stack1, 9);
 	push(&stack1, 2);
 	push(&stack1, 1);
-	swap(&stack1);
+	reverse_rotate(&stack1);
 	display(stack1, stack2);
+	free(stack1);
+	free(stack2);
 	return (0);
 }
 
