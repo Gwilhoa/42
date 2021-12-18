@@ -6,7 +6,7 @@
 #    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2021/12/17 13:05:16 by gchatain         ###   ########.fr        #
+#    Updated: 2021/12/18 11:09:13 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-%.o : %.c  ${HEADER} ${LIBRARY}
+%.o : %.c  ${HEADER}
 	${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME):	${OBJS}
@@ -38,11 +38,12 @@ all :		${NAME}
 
 clean:
 	${RM} ${OBJS} ${OBJS_BONUS}
+	make -C libft fclean
 
 fclean:		clean
 	${RM} ${NAME}
 	${RM} ${LIBRARY}
-	rm -rf libft/*.o
+	make -C libft fclean
 
 re: fclean all
 

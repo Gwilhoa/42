@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:12:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/17 19:05:47 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/18 10:56:22 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, const char *argv[])
 	str[2] = 0;
 	if (str[0] == 's')
 	{
-		ft_swap(&stack1, str);
+		ft_swap(&stack1, &stack2, str[1]);
 	}
 	display(stack1, stack2);
 	return (argc);
@@ -80,7 +80,15 @@ int	init(t_list **stack, const char **args)
 	return (1);
 }
 
-ft_swap(t_list **stack, char *str)
+void	ft_swap(t_list **stack1, t_list **stack2, char c)
 {
-	
+	if (c == 'a')
+		swap(stack1);
+	else if (c == 'b')
+		swap(stack2);
+	else if (c == 's')
+	{
+		swap(stack1);
+		swap(stack2);
+	}
 }

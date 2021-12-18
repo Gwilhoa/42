@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:46 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/17 15:31:57 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/18 10:59:54 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void		swap(t_list **this);
 void		reverse_rotate(t_list **this);
 void		rotate(t_list **this);
 void		trade(t_list **from, t_list **to);
+void		ft_swap(t_list **stack1, t_list **stack2, char c);
 
 #endif
