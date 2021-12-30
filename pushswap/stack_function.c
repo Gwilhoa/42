@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:24:55 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/17 15:51:32 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2021/12/21 20:36:45 by guilheimcha      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	push(t_list **this, int i)
 
 void	swap(t_list **this)
 {
+	if (!this || !*this)
+		return ;
 	int	p1;
 	int	p2;
 

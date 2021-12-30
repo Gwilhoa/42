@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:12:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/18 10:56:22 by gchatain         ###   ########.fr       */
+/*   Updated: 2021/12/21 20:38:44 by guilheimcha      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, const char *argv[])
 	str[2] = 0;
 	if (str[0] == 's')
 	{
-		ft_swap(&stack1, &stack2, str[1]);
+		ft_push(&stack1, &stack2, str[1]);
 	}
 	display(stack1, stack2);
 	return (argc);
@@ -36,6 +36,7 @@ int	main(int argc, const char *argv[])
 
 void	display(t_list *stack1, t_list *stack2)
 {
+	push(&stack2, 4);
 	ft_printf("---------------------\n");
 	while (stack1 || stack2)
 	{
@@ -91,4 +92,12 @@ void	ft_swap(t_list **stack1, t_list **stack2, char c)
 		swap(stack1);
 		swap(stack2);
 	}
+}
+
+void	ft_push(t_list **stack1, t_list **stack2, char c)
+{
+	if (c == 'a')
+		trade(stack1, stack2);
+	if (c == 'b')
+		trade(stack2, stack1);
 }
