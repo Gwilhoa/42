@@ -5,34 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 10:57:36 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/24 15:40:22 by gchatain         ###   ########lyon.fr   */
+/*   Created: 2021/11/18 16:25:15 by gchatain          #+#    #+#             */
+/*   Updated: 2021/12/31 09:12:00 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int		ft_hasnl(const char *str)
+int	ft_strlen(char const *str)
 {
-	int i = 0;
-
-	while (str[i])
-	{
-		if (str[i] == '\n')
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-char ft_strlen(const char *str)
-{
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -43,89 +30,133 @@ char ft_strlen(const char *str)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
-	int i = 0;
-	int j = 0;
+	int		i;
+	int		s;
 
-	str = malloc(sizeof(char) + (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (!s1 || !s2)
+		return (0);
+	i = ft_strlen(s1);
+	s = ft_strlen(s2);
+	str = malloc((i + s) * sizeof(char) + 2);
+	if (!str)
+		return (0);
+	i = 0;
+	s = 0;
 	while (s1[i])
 	{
 		str[i] = s1[i];
 		i++;
 	}
-	while (s2[j])
+	while (s2[s])
 	{
-		str[i] = s2[j];
-		i++;
-		j++;
+		str[i + s] = s2[s];
+		s++;
 	}
-	str[i] = 0;
+	str[i + s] = 0;
+	free(s1);
+	free(s2);
 	return (str);
 }
 
-char	*ft_strdup(char const *str)
+char	*ft_strdup(char const *src)
 {
 	char	*ret;
-	int		i = 0;
+	int		i;
 
-	ret = malloc(sizeof(char) * ft_strlen(str) + 1);
-	while (str[i])
+	i = 0;
+	ret = malloc(ft_strlen(src) + 1 * sizeof(char));
+	if (!ret)
+		return (0);
+	while (src[i])
 	{
-		ret[i] = str[i];
+		ret[i] = src[i];
 		i++;
 	}
 	ret[i] = 0;
 	return (ret);
 }
+
+int	ft_search(char *str, int charset)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != 0)
+	{
+		if (str[i] == charset)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
 char	*get_next_line(int fd)
 {
-	static char *rest;
-	char *ret;
-	char *str;
-	int r = 1;
+	static char	rest[BUFFER_SIZE + 1];
+	char		*str;
+	char		*ret;
+	char		*temp;
+	int			r;
+	int			i;
 
 	ret = 0;
-	if (rest != 0)
+	if (fd >= 0 && *rest)
 	{
 		ret = ft_strdup(rest);
+		*rest = 0;
 	}
-	while (r > 0 || (ret && ft_hasnl(ret) != -1))
+	r = 1;
+	while (r > 0 || (ret && ft_search(ret, '\n') != -1))
 	{
-		if (!ret || ft_hasnl(ret) == -1)
+		if (!ret || ft_search(ret, '\n') == -1)
 		{
 			str = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 			r = read(fd, str, BUFFER_SIZE);
-			if (r == -1)
-				return (0);
-			if (r == 0 && ret)
-				return ret;
-			if (r == 0 && !ret)
-				return 0;
-			str[r] = 0;
+			if (r <= 0)
+			{
+				free(str);
+				return (ret);
+			}
+			str[r] = '\0';
 			if (!ret)
-				ret = malloc(0);
+			{
+				ret = malloc(1);
+				ret[0] = 0;
+			}
 			ret = ft_strjoin(ret, str);
+			if (!ret)
+				return (0);
 		}
-		if (ret && ft_hasnl(ret) != -1)
+		if (ret && ft_search(ret, '\n') != -1)
 		{
-			rest = ft_strdup(ret + ft_hasnl(ret) + 1);
-			ret[ft_hasnl(ret) + 1] = 0;
+			i = 0;
+			temp = ret + ft_search(ret, '\n') + 1;
+			while (temp[i] != 0)
+			{
+				rest[i] = temp[i];
+				i++;
+			}
+			rest[i] = 0;
+			ret[ft_search(ret, '\n') + 1] = 0;
 			return (ret);
 		}
 	}
-	return (ret);
+	return (0);
 }
 
 int main(int argc, char const *argv[])
 {
+	int fd = open("odyssey_du_b2k.txt", O_RDONLY);
 	char *str;
-	int fd = open("test.txt", O_RDONLY);
 
 	str = get_next_line(fd);
 	while (str)
 	{
-		printf("%s", str);
 		free(str);
-		str = get_next_line(fd);
+		str= get_next_line(fd);
+		printf("%s",str);
 	}
+	free(str);
+	
 	return 0;
 }
