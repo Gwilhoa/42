@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/14 17:49:48 by gchatain          #+#    #+#              #
-#    Updated: 2021/11/29 10:22:30 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/08 14:34:02 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_printf.c ft_changebase.c function_printf.c ft_strlen.c ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_function_unsigned.c
+SRCS = ft_printf.c putnbr.c printf_function.c
 
 OBJS = ${SRCS:.c=.o}
 

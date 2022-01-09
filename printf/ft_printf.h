@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:18:05 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/21 16:16:37 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/08 14:33:16 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,14 @@
 # include <unistd.h>
 # include <stdio.h>
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int nb, int fd);
-void	ft_putnbr2_fd(unsigned int nb, int fd);
-void	ft_putstr_fd(char *str, int fd);
-int		ft_strlen(char const *str);
-int		sizedigit(long long n);
-int		ft_printf( const char *format, ...);
-int		check_base(char *str);
-void	ft_rev_tab(char *str, int sisze);
-int		sizedigithex(unsigned long long nbr);
-char	*ft_changebase(unsigned int nbr, char *base);
-char	*ft_changebase_p(unsigned long long nbr, char *base);
-int		ft_func_p(unsigned long long c);
-int		ft_func_x(long long c);
-int		ft_func_x2(int c);
-int		ft_func_f(double value);
-int		ft_func_c(int c);
-int		ft_func_i(int c);
-int		ft_func_s(char *str);
-int		ft_func_u(unsigned int c);
-void	print_nb(int nb, int fd);
+int	putnbr(int nb);
+int	ft_putnbr(int nbr);
+int	ft_putchar(char c);
+int	ft_putstr(const char *str);
+int	ft_putunsigned(unsigned int nb);
+int	ft_puthexnbr(unsigned int nbr, const char *base);
+int	ft_putpointer(unsigned long long nbr);
+int	function_parser(va_list args, int c);
+int	ft_printf(const char *str, ...);
 
 #endif

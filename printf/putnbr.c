@@ -1,23 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   putnbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/08 18:12:20 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/19 17:06:14 by gchatain         ###   ########lyon.fr   */
+/*   Created: 2022/01/08 14:09:03 by gchatain          #+#    #+#             */
+/*   Updated: 2022/01/08 14:11:55 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_strlen(char const *str)
+int	putnbr(int nb)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
+	if (nb > 9)
+	{
+		i = putnbr(nb / 10);
+		i = i + putnbr(nb % 10);
+	}
+	else
+	{
+		i = i + ft_putchar(nb + 48);
+	}
 	return (i);
+}
+
+int	ft_putnbr(int nbr)
+{
+	int	size;
+
+	size = 0;
+	if (nbr == -2147483648)
+		return (ft_putstr("-2147483648"));
+	if (nbr < 0)
+	{
+		size = size + ft_putchar('-');
+		nbr = -nbr;
+	}
+	return (size + putnbr(nbr));
 }

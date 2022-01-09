@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_tri.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/08 14:23:22 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/19 17:02:46 by gchatain         ###   ########lyon.fr   */
+/*   Created: 2022/01/05 15:40:11 by gchatain          #+#    #+#             */
+/*   Updated: 2022/01/05 16:32:07 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
+#include "push_swap.h"
 
-void	print_nb(int nb, int fd)
+void	ft_tri3(t_list **stack)
 {
-	if (nb > 9)
-	{
-		print_nb(nb / 10, fd);
-		print_nb(nb % 10, fd);
-	}
-	else
-	{
-		ft_putchar_fd(nb + 48, fd);
-	}
-}
+	t_list	*temp;
 
-void	ft_putnbr_fd(int nb, int fd)
-{
-	if (nb == -2147483648)
+	if (temp->content > temp->next->content < temp->next->next->content)
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		swap(stack);
+		ft_printf("sa");
 	}
-	if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nb = nb * -1;
-	}
-	print_nb(nb, fd);
+	else if (temp->content)
+	
 }

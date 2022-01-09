@@ -6,58 +6,60 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 11:48:19 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/21 16:33:43 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/08 14:34:39 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdarg.h>
 
-int	ft_func_test(char c, va_list args)
+int	function_parser(va_list args, int c)
 {
 	int	size;
 
 	size = 0;
-	if (c == 'd' || c == 'i')
-		size += ft_func_i(va_arg(args, int));
-	else if (c == 'X')
-		size += ft_func_x2(va_arg(args, int));
+	if (c == 'c')
+		size = ft_putchar(va_arg(args, int));
 	else if (c == 's')
-		size += ft_func_s(va_arg(args, char *));
+		size = ft_putstr(va_arg(args, char *));
+	else if (c == 'i' || c == 'd')
+		size = ft_putnbr(va_arg(args, int));
 	else if (c == 'x')
-		size += ft_func_x((int) va_arg(args, int));
-	else if (c == 'c')
-		size += ft_func_c(va_arg(args, int));
+		size = ft_puthexnbr(va_arg(args, unsigned int),
+				"0123456789abcdef");
+	else if (c == 'X')
+		size = ft_puthexnbr(va_arg(args, unsigned int),
+				"0123456789ABCDEF");
 	else if (c == 'p')
-		size += ft_func_p(va_arg(args, unsigned long long));
+	{
+		size = ft_putstr("0x");
+		size = size + ft_putpointer(va_arg(args, unsigned long long));
+	}
+	else if (c == '%')
+		size = ft_putchar('%');
 	else if (c == 'u')
-		size += ft_func_u(va_arg(args, unsigned int));
+		size = ft_putunsigned(va_arg(args, unsigned int));
 	return (size);
 }
 
-int	ft_printf( const char *format, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
 	int		size;
 	char	c;
 
+	va_start(args, str);
 	i = 0;
 	size = 0;
-	va_start(args, format);
-	while (i < ft_strlen(format))
+	while (str[i])
 	{
-		c = format[i];
-		if (c != '%')
-			size += ft_func_c(c);
-		else
+		if (str[i] == '%')
 		{
-			c = format[++i];
-			if (c != '%')
-				size += ft_func_test(c, args);
-			else
-				size += ft_func_c('%');
+			i++;
+			function_parser(args, str[i]);
 		}
+		else
+			size = size + ft_putchar(str[i]);
 		i++;
 	}
 	va_end(args);
