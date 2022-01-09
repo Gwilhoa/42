@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:18:05 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/08 14:33:16 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:07:00 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <stdarg.h>
 
 int	putnbr(int nb);
 int	ft_putnbr(int nbr);

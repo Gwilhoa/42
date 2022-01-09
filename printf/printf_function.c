@@ -6,9 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 14:17:56 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/08 14:19:37 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:11:01 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

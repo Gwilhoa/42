@@ -6,9 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 14:09:03 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/08 14:11:55 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:09:36 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	putnbr(int nb)
 {

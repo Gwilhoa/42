@@ -5,6 +5,8 @@
 		"push_swap.h": "c",
 		"istream": "c",
 		"streambuf": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"ft_printf.h": "c",
+		"printf.h": "c"
 	}
 }

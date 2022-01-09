@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 11:48:19 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/08 14:34:39 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:07:13 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	int		i;
 	int		size;
-	char	c;
 
 	va_start(args, str);
 	i = 0;
