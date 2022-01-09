@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 11:48:19 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/09 22:07:13 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:17:01 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			function_parser(args, str[i]);
+			size = size + function_parser(args, str[i]);
 		}
 		else
 			size = size + ft_putchar(str[i]);
