@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 10:35:56 by gchatain          #+#    #+#              #
-#    Updated: 2021/12/18 11:08:32 by gchatain         ###   ########.fr        #
+#    Updated: 2022/01/10 12:57:55 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_
 ft_tolower.c ft_toupper.c ft_strmapi.c ft_striteri.c ft_putnbr_fd.c\
 ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c\
 ft_lstdelone.c ft_lstlast.c ft_lstnew.c ft_lstsize.c ft_lstiter.c ft_lstmap.c\
-ft_changebase.c ft_function_unsigned.c ft_printf.c function_printf.c
+ft_printf.c printf_function.c
+
 OBJS = ${SRCS:.c=.o}
 
 HEADER = libft.h
@@ -30,7 +31,7 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-%.o : %.c ${HEADER}
+%.o : %.c ${HEADER} Makefile
 	${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME):	${OBJS}
@@ -44,6 +45,6 @@ clean:
 fclean:		clean
 	${RM} ${NAME}
 
-re: fclean all
+re: fclean all bonus
 
 .PHONY: all clean fclean re

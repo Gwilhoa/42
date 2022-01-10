@@ -3,39 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 14:23:22 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/07 11:23:52 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/10 10:59:06 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	print_nb(int nb, int fd)
+int	print_nb(int nb, int fd)
 {
+	int	i;
+
 	if (nb > 9)
-	{
-		print_nb(nb / 10, fd);
-		print_nb(nb % 10, fd);
-	}
+		i = print_nb(nb / 10, fd) + print_nb(nb % 10, fd);
 	else
-	{
-		ft_putchar_fd(nb + 48, fd);
-	}
+		i = ft_putchar_fd(nb + 48, fd);
+	return (i);
 }
 
-void	ft_putnbr_fd(int nb, int fd)
+int	ft_putnbr_fd(int nb, int fd)
 {
+	int	i;
+
+	i = 0;
 	if (nb == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
+		return (ft_putstr_fd("-2147483648", fd));
 	if (nb < 0)
 	{
-		ft_putchar_fd('-', fd);
-		nb = nb * -1;
+		i += ft_putchar_fd('-', fd);
+		nb = -nb;
 	}
-	print_nb(nb, fd);
+	i += print_nb(nb, fd);
+	return (i);
 }

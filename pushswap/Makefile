@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2021/12/18 11:09:13 by gchatain         ###   ########.fr        #
+#    Updated: 2022/01/10 15:47:19 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = stack_function.c push_swap.c
+SRCS = main.c push_swap_utils.c
 
 OBJS = ${SRCS:.c=.o}
 

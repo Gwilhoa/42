@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:57:12 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/15 11:26:55 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/10 11:10:48 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -43,10 +44,9 @@ void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
-void			ft_putchar_fd(char c, int fd);
-void			ft_putstr_fd(char *str, int fd);
-void			ft_putnbr_fd(int nb, int fd);
-void			ft_putstr_fd(char *str, int fd);
+int				ft_putchar_fd(char c, int fd);
+int				ft_putstr_fd(char *str, int fd);
+int				ft_putnbr_fd(int nb, int fd);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 void			ft_putendl_fd(char *str, int fd);
 void			ft_lstadd_front(t_list **alst, t_list *n);
@@ -69,22 +69,10 @@ t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
-void			ft_putnbr2_fd(unsigned int nb, int fd);
-int				sizedigit(long long n);
-int				ft_printf( const char *format, ...);
-int				check_base(char *str);
-void			ft_rev_tab(char *str, int sisze);
-int				sizedigithex(unsigned long long nbr);
-char			*ft_changebase(unsigned int nbr, char *base);
-char			*ft_changebase_p(unsigned long long nbr, char *base);
-int				ft_func_p(unsigned long long c);
-int				ft_func_x(long long c);
-int				ft_func_x2(int c);
-int				ft_func_f(double value);
-int				ft_func_c(int c);
-int				ft_func_i(int c);
-int				ft_func_s(char *str);
-int				ft_func_u(unsigned int c);
-void			print_nb(int nb, int fd);
-
+int				putnbr(int nb);
+int				ft_putunsigned(unsigned int nb, int fd);
+int				ft_putchangebase(unsigned int nbr, const char *base, int fd);
+int				ft_putpointer(unsigned long long nbr, int fd);
+int				function_parser(va_list args, int c);
+int				ft_printf(const char *str, ...);
 #endif
