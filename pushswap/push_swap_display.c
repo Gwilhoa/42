@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:07:52 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/11 19:19:38 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/11 21:37:13 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/push_swap.h"
+#include "push_swap.h"
 
 int	lst_get_index(t_list *lst, int index)
 {
@@ -18,6 +18,8 @@ int	lst_get_index(t_list *lst, int index)
 	int	*ret;
 
 	i = 0;
+	if (index > ft_lstsize(lst))
+		return (0);
 	while (i < index)
 	{
 		lst = lst->next;
@@ -48,11 +50,16 @@ int	lst_get_bottom(t_list *lst)
 	return (*ret);
 }
 
-void	lst_add_front(t_list **lst, int nb)
+void	lst_display(t_list *stack)
 {
-	int	*ret;
+	int	size;
+	int	i;
 
-	ret = malloc(1 * sizeof(int));
-	ret[0] = nb;
-	ft_lstadd_front(lst, ft_lstnew(ret));
+	size = ft_lstsize(stack);
+	i = 0;
+	while (i < size)
+	{
+		ft_printf("%d\n", lst_get_index(stack, i));
+		i++;
+	}
 }

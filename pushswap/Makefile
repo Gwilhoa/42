@@ -6,11 +6,11 @@
 #    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/10 15:47:19 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/11 20:53:12 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c push_swap_utils.c
+SRCS = main.c push_swap_utils.c push_swap_display.c basic_function.c
 
 OBJS = ${SRCS:.c=.o}
 

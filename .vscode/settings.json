@@ -8,6 +8,20 @@
 		"libft.h": "c",
 		"ft_printf.h": "c",
 		"printf.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"__bit_reference": "c",
+		"__functional_03": "c",
+		"__mutex_base": "c",
+		"__node_handle": "c",
+		"array": "c",
+		"functional": "c",
+		"ios": "c",
+		"memory": "c",
+		"optional": "c",
+		"ostream": "c",
+		"sstream": "c",
+		"string_view": "c",
+		"tuple": "c",
+		"vector": "c"
 	}
 }
