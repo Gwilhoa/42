@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/17 12:08:52 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:19:25 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,4 @@ int	ft_complete_args(char const *argv[], t_list **lst)
 	}
 	return (1);
 }
+
