@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 10:35:56 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/11 20:26:07 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/17 11:22:36 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c\
+SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c\
 ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c\
 ft_putchar_fd.c ft_putendl_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_strjoin.c\
 ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c\
@@ -19,9 +19,7 @@ ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c\
 ft_lstdelone.c ft_lstlast.c ft_lstnew.c ft_lstsize.c ft_lstiter.c ft_lstmap.c\
 ft_printf.c printf_function.c
 
-SRCS =	${addprefix src/,${SRC}}
-
-OBJS = ${addprefix compiler/,${SRC:.c=.o}}}
+OBJS = ${SRCS:.c=.o}
 
 HEADER = libft.h
 
@@ -33,21 +31,22 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-${OBJS}: ${SRCS}
-
-${OBJP}/%.o: ${SRCP}%.c libft.h
-	${CC} ${CF} -c -o $@ $<
+%.o : %.c ${HEADER} makefile
+	@${CC} ${CFLAGS} -c $< -o $@
+	@norminette $< | grep -c 'OK!' | sed s/1/✅/ | sed s/0/❌/
 
 $(NAME):	${OBJS}
-	ar -rcs ${NAME}
+	@ar -rcs ${NAME} ${OBJS}
+	@printf "${NAME}: \n✅"
 
 all :		${NAME}
 
 clean:
-	${RM} ${OBJS}
+	@${RM} ${OBJS}
+	@printf "🗑️\n"
 
 fclean:		clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 
 re: fclean all
 

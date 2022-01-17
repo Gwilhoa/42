@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 10:35:56 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/10 12:57:55 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/17 11:45:01 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,14 @@ ft_tolower.c ft_toupper.c ft_strmapi.c ft_striteri.c ft_putnbr_fd.c\
 ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c\
 ft_lstdelone.c ft_lstlast.c ft_lstnew.c ft_lstsize.c ft_lstiter.c ft_lstmap.c\
 ft_printf.c printf_function.c
+
+HEAD =\
+ _     _  ____  _____ _____  \n\
+/ \   / \/  _ \/    //__ __\ \n\
+| |   | || | //|  __\  / \   \n\
+| |_/\| || |_\\| |     | |   \n\
+\____/\_/\____/\_/     \_/   \n\
+                             \n\
 
 OBJS = ${SRCS:.c=.o}
 
@@ -31,20 +39,24 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-%.o : %.c ${HEADER} Makefile
-	${CC} ${CFLAGS} -c $< -o $@
+%.o : %.c ${HEADER} makefile
+	@${CC} ${CFLAGS} -c $< -o $@
+	@printf "$< :"
+	@norminette $< | grep -c 'OK!' | sed s/1/✅/ | sed s/0/❌/
 
-$(NAME):	${OBJS}
-	ar -rcs ${NAME} ${OBJS}
+$(NAME): ${OBJS} 
+	@ar -rcs ${NAME} ${OBJS}
+	@printf "${NAME}: ✅\n"
 
-all :		${NAME}
+all :	${NAME}
 
 clean:
-	${RM} ${OBJS} ${OBJS_BONUS}
+	@${RM} ${OBJS}
+	@printf "libft : 🗑️\n"
 
 fclean:		clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 
-re: fclean all bonus
+re: fclean all
 
 .PHONY: all clean fclean re

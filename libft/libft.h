@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:57:12 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/13 13:56:00 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/17 11:00:54 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define STRING char *
 # include <string.h>
 # include <strings.h>
 # include <stdlib.h>
@@ -402,7 +403,6 @@ t_list			*ft_lstnew(void *content);
  * @return t_list* 
  */
 t_list			*ft_lstlast(t_list *lst);
-
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 int				putnbr(int nb);
@@ -411,7 +411,7 @@ int				ft_putchangebase(unsigned int nbr, const char *base, int fd);
 int				ft_putpointer(unsigned long long nbr, int fd);
 int				function_parser(va_list args, int c);
 /**
- * @brief permet d'afficher des donnes
+ * @brief permet d'afficher des données
  * 
  * @param str 
  * @param ... 

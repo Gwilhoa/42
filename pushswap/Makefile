@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/11 20:53:12 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/17 11:45:59 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,23 +27,28 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 %.o : %.c  ${HEADER}
-	${CC} ${CFLAGS} -c $< -o $@
+	@${CC} ${CFLAGS} -c $< -o $@
+	@printf "$< :"
+	@norminette $< | grep -c 'OK!' | sed s/1/✅/ | sed s/0/❌/
 
 $(NAME):	${OBJS}
-	make -C libft
-	cp libft/libft.a .
-	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY}
+	@printf "___libft___\n"
+	@make -s -C libft
+	@cp libft/libft.a .
+	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY}
+	@printf "${NAME}: ✅\n"
 
 all :		${NAME}
 
 clean:
-	${RM} ${OBJS} ${OBJS_BONUS}
-	make -C libft fclean
+	@${RM} ${OBJS}
+	@printf "push_swap : 🗑️\n"
+	@make -s -C libft fclean
+	@printf "________________\n"
 
 fclean:		clean
-	${RM} ${NAME}
-	${RM} ${LIBRARY}
-	make -C libft fclean
+	@${RM} ${NAME}
+	@${RM} ${LIBRARY}
 
 re: fclean all
 
