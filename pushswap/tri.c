@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:44:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/22 01:08:33 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/22 10:29:34 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,14 @@ int	tri_main(t_list **stacka, t_list **stackb)
 
 int	tri_bubble(t_list **stacka, t_list **stackb)
 {
-	int	m;
-
 	if (lst_get_top(*stackb) > lst_lowest(*stacka)
 		&& lst_get_top(*stackb) < lst_highest(*stacka))
 	{
-		m = search_place(*stacka, lst_get_top(*stackb));
 		while (lst_get_top(*stacka) < lst_get_top(*stackb)
 			|| lst_get_top(*stackb) < lst_get_bottom(*stacka))
 		{
-			if (m < ft_lstsize(*stacka) / 2)
+			if (search_place(*stacka, lst_get_top(*stackb))
+				< ft_lstsize(*stacka) / 2)
 				rotate(stacka, 'a');
 			else
 				reverse_rotate(stacka, 'a');
@@ -89,10 +87,9 @@ int	tri_bubble(t_list **stacka, t_list **stackb)
 	}
 	else
 	{
-		m = lst_lowest_index(*stacka);
 		while (lst_lowest_index(*stacka) != 0)
 		{
-			if (m < ft_lstsize(*stacka) / 2)
+			if (lst_lowest_index(*stacka) < ft_lstsize(*stacka) / 2)
 				rotate(stacka, 'a');
 			else
 				reverse_rotate(stacka, 'a');

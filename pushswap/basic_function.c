@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 20:39:24 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/21 16:31:53 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/22 10:16:27 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,4 @@ void	reverse_rotate(t_list **lst, char c)
 		return ;
 	lst_add_front(lst, lst_clear_bottom(lst));
 	ft_printf("rr%c\n", c);
-}
-
-void	double_rotate(t_list **stacka, t_list **stackb)
-{
-	rotate(stacka, 'c');
-	rotate(stackb, 'c');
-	ft_printf("rr\n");
 }

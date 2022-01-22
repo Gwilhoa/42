@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/22 00:02:51 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/22 10:16:38 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	main(int argc, char const *argv[])
 		return (0);
 	}
 	tri(&stacka, &stackb);
-	//lst_display(stacka);
 	exit(EXIT_SUCCESS);
 	return (argc);
 }

@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:46 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/21 16:18:25 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/22 10:16:45 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,14 +95,11 @@ int		lst_lowest_index(t_list *lst);
 
 int		search_place(t_list *lst, int index);
 
-void		double_rotate(t_list **stacka, t_list **stackb);
-
 /////
 int		ft_complete_args(char const *argv[], t_list **lst);
 int		tri(t_list **stacka, t_list **stackb);
 int		tri_three(t_list **stacka);
 int		tri_main(t_list **stacka, t_list **stackb);
 int		tri_bubble(t_list **stacka, t_list **stackb);
-
 
 #endif
