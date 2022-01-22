@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/17 12:19:25 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/22 00:02:51 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,17 @@ int	main(int argc, char const *argv[])
 	{
 		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
+		return (0);
 	}
-	lst_display(stacka);
-	lst_display(stackb);
+	if (lst_is_sort(stacka) == 1)
+	{
+		ft_printf("\n");
+		exit(EXIT_SUCCESS);
+		return (0);
+	}
+	tri(&stacka, &stackb);
+	//lst_display(stacka);
+	exit(EXIT_SUCCESS);
 	return (argc);
 }
 
@@ -55,7 +63,7 @@ int	ft_complete_args(char const *argv[], t_list **lst)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (!ft_isdigit(argv[i][j]))
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
 				return (0);
 			j++;
 		}
@@ -63,9 +71,8 @@ int	ft_complete_args(char const *argv[], t_list **lst)
 		j = 0;
 		if (lst_is_in(*lst, temp) == 1)
 			return (0);
-		lst_add_front(lst, temp);
+		lst_add_back(lst, temp);
 		i++;
 	}
 	return (1);
 }
-

@@ -6,11 +6,11 @@
 #    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/17 11:45:59 by gchatain         ###   ########.fr        #
+#    Updated: 2022/01/19 16:15:50 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c push_swap_utils.c push_swap_display.c basic_function.c
+SRCS = main.c push_swap_utils.c push_swap_display.c basic_function.c tri.c lst_high_low.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -32,7 +32,7 @@ CFLAGS = -Wall -Wextra -Werror
 	@norminette $< | grep -c 'OK!' | sed s/1/✅/ | sed s/0/❌/
 
 $(NAME):	${OBJS}
-	@printf "___libft___\n"
+	@echo ---libft---
 	@make -s -C libft
 	@cp libft/libft.a .
 	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 16:21:00 by gchatain          #+#    #+#             */
-/*   Updated: 2021/12/19 19:39:38 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/17 12:50:39 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int	main(void)
 	char	*str;
 	char	*file;
 
-	file = strjoin_gch("recits/", DIRSET);
+	file = ;
 	rd = open(DIRSET, O_WRONLY);
-	fd = open(file, O_RDONLY);
+	fd = open("odyssey_du_b2k.txt", O_RDONLY);
 	str = get_next_line(fd);
 	free(file);
 	while (str)
