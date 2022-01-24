@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:44:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/22 10:29:34 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/22 17:37:10 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ int	tri_main(t_list **stacka, t_list **stackb)
 	}
 	tri_three(stacka);
 	while (ft_lstsize(*stackb) > 0)
-	{
 		tri_bubble(stacka, stackb);
-	}
 	while (lst_is_sort(*stacka) == 0)
 	{
 		if (lst_lowest_index(*stacka) < ft_lstsize(*stacka) / 2)

@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/22 10:16:38 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/22 10:39:03 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ int	ft_complete_args(char const *argv[], t_list **lst)
 			j++;
 		}
 		temp = ft_atoi(argv[i]);
+		if ((temp == 0 && ft_strncmp(argv[i], "0", 1))
+			|| (temp == -1 && ft_strncmp(argv[i], "-1", 2)))
+			return (0);
 		j = 0;
 		if (lst_is_in(*lst, temp) == 1)
 			return (0);
