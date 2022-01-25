@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:46 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/22 10:16:45 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/25 14:13:02 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft.h"
+# include <limits.h>
 
 /**
  * @brief baisse tout les éléments le dernier se retrouve en haut
@@ -50,21 +51,6 @@ int		lst_get_top(t_list *lst);
 int		lst_get_bottom(t_list *lst);
 
 /**
- * @brief supprime le premier élément de la liste
- */
-int		lst_clear_top(t_list **lst);
-
-/**
- * @brief supprime le dernier élément de la liste
- */
-int		lst_clear_bottom(t_list **lst);
-
-/**
- * @brief ajoute un élément devant la liste
- */
-void	lst_add_front(t_list **lst, int nb);
-
-/**
  * @brief ajoute un élément derriere la liste
  */
 void	lst_add_back(t_list **lst, int nb);
@@ -94,6 +80,10 @@ int		lst_highest(t_list *lst);
 int		lst_lowest_index(t_list *lst);
 
 int		search_place(t_list *lst, int index);
+
+t_list	*get_top_link(t_list **lst);
+
+t_list	*get_bottom_link(t_list **lst);
 
 /////
 int		ft_complete_args(char const *argv[], t_list **lst);

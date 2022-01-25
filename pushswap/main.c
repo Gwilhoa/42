@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/22 10:39:03 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/25 14:16:52 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int	main(int argc, char const *argv[])
 	stackb = NULL;
 	if (ft_complete_args(argv, &stacka) == 0)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error", 2);
 		exit(EXIT_FAILURE);
-		return (0);
+		return (1);
 	}
 	if (lst_is_sort(stacka) == 1)
 	{
-		ft_printf("\n");
+		ft_putchar_fd('\n', 1);
 		exit(EXIT_SUCCESS);
-		return (0);
+		return (1);
 	}
 	tri(&stacka, &stackb);
 	exit(EXIT_SUCCESS);
@@ -39,9 +39,11 @@ int	main(int argc, char const *argv[])
 int	lst_is_in(t_list *lst, int nb)
 {
 	int	i;
+	int	size;
 
 	i = 0;
-	while (i < ft_lstsize(lst))
+	size = ft_lstsize(lst);
+	while (i < size)
 	{
 		if (lst_get_index(lst, i) == nb)
 			return (1);
@@ -56,8 +58,8 @@ int	ft_complete_args(char const *argv[], t_list **lst)
 	int	j;
 	int	temp;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (argv[++i])
 	{
 		j = 0;
 		while (argv[i][j])
@@ -67,14 +69,13 @@ int	ft_complete_args(char const *argv[], t_list **lst)
 			j++;
 		}
 		temp = ft_atoi(argv[i]);
-		if ((temp == 0 && ft_strncmp(argv[i], "0", 1))
-			|| (temp == -1 && ft_strncmp(argv[i], "-1", 2)))
+		if (ft_strncmp(ft_itoa(temp), argv[i], ft_strlen(argv[i]))
+			&& ft_strncmp(argv[i], "-0", 2))
 			return (0);
 		j = 0;
 		if (lst_is_in(*lst, temp) == 1)
 			return (0);
 		lst_add_back(lst, temp);
-		i++;
 	}
 	return (1);
 }

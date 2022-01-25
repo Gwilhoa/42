@@ -3,57 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:10:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/21 18:19:02 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/25 13:51:47 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	lst_clear_top(t_list **lst)
-{
-	int		ret;
-	t_list	*temp;
-
-	ret = lst_get_top(*lst);
-	temp = *lst;
-	*lst = temp->next;
-	free(temp->content);
-	free(temp);
-	return (ret);
-}
-
-int	lst_clear_bottom(t_list **lst)
-{
-	t_list	*stack;
-	t_list	*temp;
-	t_list	*temp2;
-	int		ret;
-
-	ret = lst_get_bottom(*lst);
-	stack = *lst;
-	temp = stack;
-	temp2 = temp->next;
-	while (temp2->next)
-	{
-		temp2 = temp2->next;
-		temp = temp->next;
-	}
-	temp->next = NULL;
-	*lst = stack;
-	return (ret);
-}
-
-void	lst_add_front(t_list **lst, int nb)
-{
-	int	*ret;
-
-	ret = malloc(1 * sizeof(int));
-	ret[0] = nb;
-	ft_lstadd_front(lst, ft_lstnew(ret));
-}
 
 void	lst_add_back(t_list **lst, int nb)
 {
@@ -66,16 +23,44 @@ void	lst_add_back(t_list **lst, int nb)
 
 int	lst_is_sort(t_list *lst)
 {
-	int	i;
+	t_list	*val;
 
-	i = lst_lowest_index(lst);
-	while (i < ft_lstsize(lst))
+	val = lst->next;
+	while (val)
 	{
-		if (lst_get_index(lst, i) < lst_get_index(lst, i - 1))
-		{
+		if (*(int *) val->content < *(int *) lst->content)
 			return (0);
-		}
-		i++;
+		val = val->next;
+		lst = lst->next;
 	}
 	return (1);
+}
+
+t_list	*get_top_link(t_list **lst)
+{
+	t_list	*stack;
+
+	stack = *lst;
+	*lst = stack->next;
+	stack->next = NULL;
+	return (stack);
+}
+
+t_list	*get_bottom_link(t_list **lst)
+{
+	t_list	*stack;
+	t_list	*temp;
+	t_list	*temp2;
+
+	stack = *lst;
+	temp = stack;
+	temp2 = temp->next;
+	while (temp2->next)
+	{
+		temp2 = temp2->next;
+		temp = temp->next;
+	}
+	temp->next = NULL;
+	*lst = stack;
+	return (temp2);
 }

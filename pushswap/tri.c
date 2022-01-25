@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tri.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:44:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/22 17:37:10 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:12:50 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int	tri(t_list **stacka, t_list **stackb)
 {
-	if (ft_lstsize(*stacka) == 2)
+	int	size;
+
+	size = ft_lstsize(*stacka);
+	if (size == 2)
 	{
 		swap(stacka, 'a');
 		return (0);
 	}
-	if (ft_lstsize(*stacka) == 3)
+	if (size == 3)
 		return (tri_three(stacka));
 	return (tri_main(stacka, stackb));
 }
@@ -44,19 +47,27 @@ int	tri_three(t_list **stacka)
 int	tri_main(t_list **stacka, t_list **stackb)
 {
 	int	m;
+	int	size;
+	int	high;
 
+	size = ft_lstsize(*stacka);
 	m = (lst_lowest(*stacka) + lst_highest(*stacka)) / 1.25;
-	while (ft_lstsize(*stacka) != 3)
+	while (size != 3)
 	{
-		if (lst_highest(*stacka) < m)
-			m = (lst_lowest(*stacka) + lst_highest(*stacka)) / 1.25;
-		else if (lst_get_top(*stacka) >= m)
+		high = lst_highest(*stacka);
+		if (high < m)
+			m = (lst_lowest(*stacka) + high) / 1.25;
+		if (lst_get_top(*stacka) >= m)
+		{
 			push(stacka, stackb, 'b');
+			size--;
+		}
 		else
 			rotate(stacka, 'a');
 	}
 	tri_three(stacka);
-	while (ft_lstsize(*stackb) > 0)
+	size = ft_lstsize(*stackb);
+	while (size-- > 0)
 		tri_bubble(stacka, stackb);
 	while (lst_is_sort(*stacka) == 0)
 	{
