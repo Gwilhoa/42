@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tri.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:44:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/26 12:22:55 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/26 13:59:03 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,24 +48,26 @@ int	tri_main(t_list **stacka, t_list **stackb, int size)
 {
 	int	m;
 	int	high;
+	int	i;
 
+	i = size;
 	m = (lst_lowest(*stacka) + lst_highest(*stacka)) / 1.25;
-	while (size != 3)
+	while (i != 3)
 	{
 		high = lst_highest(*stacka);
 		if (high < m)
 			m = (lst_lowest(*stacka) + high) / 1.25;
-		if (lst_get_top(*stacka) >= m || size < 10)
+		if (lst_get_top(*stacka) >= m || size == 4)
 		{
 			push(stacka, stackb, 'b');
-			size--;
+			i--;
 		}
 		else
 			rotate(stacka, 'a');
 	}
 	tri_three(stacka);
-	size = ft_lstsize(*stackb);
-	while (size-- > 0)
+	i = ft_lstsize(*stackb);
+	while (i-- > 0)
 		tri_bubble(stacka, stackb);
 	lst_scroll(stacka);
 	return (0);
