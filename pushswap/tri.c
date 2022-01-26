@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tri.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:44:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/25 16:12:50 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 12:22:55 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	tri(t_list **stacka, t_list **stackb)
 	}
 	if (size == 3)
 		return (tri_three(stacka));
-	return (tri_main(stacka, stackb));
+	return (tri_main(stacka, stackb, ft_lstsize(*stacka)));
 }
 
 int	tri_three(t_list **stacka)
@@ -44,20 +44,18 @@ int	tri_three(t_list **stacka)
 	return (0);
 }
 
-int	tri_main(t_list **stacka, t_list **stackb)
+int	tri_main(t_list **stacka, t_list **stackb, int size)
 {
 	int	m;
-	int	size;
 	int	high;
 
-	size = ft_lstsize(*stacka);
 	m = (lst_lowest(*stacka) + lst_highest(*stacka)) / 1.25;
 	while (size != 3)
 	{
 		high = lst_highest(*stacka);
 		if (high < m)
 			m = (lst_lowest(*stacka) + high) / 1.25;
-		if (lst_get_top(*stacka) >= m)
+		if (lst_get_top(*stacka) >= m || size < 10)
 		{
 			push(stacka, stackb, 'b');
 			size--;
@@ -69,13 +67,7 @@ int	tri_main(t_list **stacka, t_list **stackb)
 	size = ft_lstsize(*stackb);
 	while (size-- > 0)
 		tri_bubble(stacka, stackb);
-	while (lst_is_sort(*stacka) == 0)
-	{
-		if (lst_lowest_index(*stacka) < ft_lstsize(*stacka) / 2)
-			rotate(stacka, 'a');
-		else
-			reverse_rotate(stacka, 'a');
-	}
+	lst_scroll(stacka);
 	return (0);
 }
 
