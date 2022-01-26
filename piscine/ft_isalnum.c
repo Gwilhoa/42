@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr >     +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 22:34:48 by gchatain          #+#    #+#             */
-/*   Updated: 2021/09/16 22:34:48 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/26 14:32:37 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-	if (c >= 48  && c <= 57)
-		return 1;
+	if (c >= 48 && c <= 57)
+		return (1);
 	if (((c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z')))
+			|| (c >= 'a' && c <= 'z')))
 	{
 		return (1);
 	}
-	return 0;
+	return (0);
 }

@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr >     +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 22:25:32 by gchatain          #+#    #+#             */
-/*   Updated: 2021/09/16 22:25:32 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/26 14:34:12 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-int	ft_isprint(int c)
 
+int	ft_isprint(int c)
 {
 	if (!((c > 31 && c < 127)))
-		{
-			return (0);
-		}
+		return (0);
 	return (1);
 }

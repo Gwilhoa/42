@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr >     +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 22:35:07 by gchatain          #+#    #+#             */
-/*   Updated: 2021/09/16 22:35:07 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/26 14:33:50 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-	if (c >= 48  && c <= 57)
-		return 1;
-	return 0;
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }
-

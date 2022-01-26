@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 14:37:13 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/08 14:37:26 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 14:37:53 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);

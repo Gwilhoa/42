@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 14:38:14 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/08 14:38:19 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 14:32:02 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
 void	ft_is_negative(int n)
 {
-	if (n >= 0 )
+	if (n >= 0)
 	{
 		write(1, "P", 1);
 	}

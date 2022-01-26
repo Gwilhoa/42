@@ -6,45 +6,42 @@
 #    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/10 12:18:09 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/26 15:15:13 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = 
+END=$'\x1b[0m
+RED=$'\x1b[31m
+GREEN=$'\x1b[32m
+BLUE=$'\x1b[34m
 
-OBJS = ${SRCS:.c=.o}
-
-LIBRARY = libft.a
-
-HEADER = libft.h so_long.h
-
-NAME = so_long
-
-CC = gcc
-
-RM = rm -f
-
-CFLAGS = -Wall -Wextra -Werror
-
-%.o : %.c  ${HEADER}
-	${CC} ${CFLAGS} -c $< -o $@
-
-$(NAME):	${OBJS}
-	make -C libft
-	cp libft/libft.a .
-	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY}
-
-all :		${NAME}
-
+LST_SRCS        = test.c
+LST_OBJS        =   ${LST_SRCS:.c=.o}
+SRCS = $(addprefix sources/,$(LST_SRCS))
+OBJS = $(addprefix .objects/,$(LST_OBJS))
+INCLUDES    = includes/fdf.h libmlx.dylib
+CC          = gcc
+CFLAGS      = -Wall -Wextra -Werror
+LIBX        = -lmlx -framework OpenGL -framework AppKit
+NAME        =   fdf
+RM          =   rm -f
+all:        ${NAME}
+.objects/%.o:       sources/%.c ${INCLUDES}
+            mkdir -p .objects
+            @${CC} ${CFLAGS}  -I includes libmlx/libmlx.dylib -c $< -o $@
+            @echo "${BLUE}[BUILD]${END} $@"
+${NAME}:    ${OBJS} ${INCLUDES} Makefile
+            make -C ./libft
+            make -C ./libmlx
+            gcc ${OBJS} libft/*.o -I includes libmlx/libmlx.dylib -o $@
+            @echo "${GREEN}[CREATE]${END} ${NAME}"
 clean:
-	${RM} ${OBJS} ${OBJS_BONUS}
-	make -C libft fclean
-
-fclean:		clean
-	${RM} ${NAME}
-	${RM} ${LIBRARY}
-	make -C libft fclean
-
-re: fclean all
-
-.PHONY: all clean fclean re
+            @${RM} ${OBJS}
+            make clean -C ./libft
+            make clean -C ./libmlx
+            @echo "${RED}[DELETE]${END} *.o"
+fclean:     clean
+            @${RM} -r ${NAME} fdf .objects
+            @echo "${RED}[DELETE]${END} ${NAME}"
+re:         fclean all
+.PHONY:     all clean fclean re
