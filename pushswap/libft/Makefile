@@ -1,19 +1,19 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 10:35:56 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/26 15:47:32 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/27 10:51:59 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-END=$'\x1b[0m
-RED=$'\x1b[31m
-GREEN=$'\x1b[32m
-BLUE=$'\x1b[34m
+END= 
+RED= 
+GREEN= 
+BLUE= 
 
 LST_SRCS =   ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c\
 ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c\
@@ -38,7 +38,7 @@ all:        ${NAME}
 .objects/%.o:		sources/%.c ${INCLUDES}
 		@mkdir -p .objects
 		@${CC} ${CFLAGS} -c $< -o $@
-		@echo "${BLUE}[BUILD]${END} $<" | sed s/sources/${NAME}/ && norminette $< | grep -c 'OK!' | sed s/1/✅/ | sed s/0/❌/
+		@echo "${BLUE}[BUILD]${END} $@" | sed s/sources/${NAME}/ && norminette $< | grep -c 'OK!' | sed s/1/✅/ | sed s/0/❌/
 
 ${NAME}:	${OBJS} ${INCLUDES} Makefile
 			@ar -rcs ${NAME} ${OBJS}

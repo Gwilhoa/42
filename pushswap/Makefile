@@ -3,18 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/26 15:47:22 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/27 10:43:20 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-END=$'\x1b[0m
-RED=$'\x1b[31m
-GREEN=$'\x1b[32m
-BLUE=$'\x1b[34m
-
+END= 
+RED= 
+GREEN= 
+BLUE= 
 LST_SRCS =   main.c push_swap_utils.c push_swap_display.c basic_function.c tri.c lst_high_low.c
 
 LST_OBJS = ${LST_SRCS:.c=.o}
@@ -37,7 +36,7 @@ all:        ${NAME}
 ${NAME}:	${OBJS} ${INCLUDES} Makefile
 			@make -C libft
 			@${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY}
-			@echo "${GREEN}[CREATE]${END} ${NAME}"
+			@echo "[CREATE]${END} ${NAME}"
 
 clean:
 			@${RM} ${OBJS}
