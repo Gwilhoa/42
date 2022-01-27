@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/27 13:06:35 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/27 13:12:21 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,6 @@ void	ft_initstack(t_list **temp, t_list **lst)
 	{
 		nbr[lst_lowest_index(*temp)] = i;
 		lst_replace_index(temp, lst_lowest_index(*temp));
-		i++;
-	}
-	i = 0;
-	while (ft_lstsize(*temp) > i)
-	{
-		ft_putnbr_fd(nbr[i], 1);
 		i++;
 	}
 	i = 0;
