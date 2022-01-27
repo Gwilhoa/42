@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:44:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/26 13:59:03 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 15:07:24 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ int	tri_main(t_list **stacka, t_list **stackb, int size)
 	int	i;
 
 	i = size;
-	m = (lst_lowest(*stacka) + lst_highest(*stacka)) / 1.25;
+	m = 450;
 	while (i != 3)
 	{
 		high = lst_highest(*stacka);
 		if (high < m)
-			m = (lst_lowest(*stacka) + high) / 1.25;
+			m = m - 50;
 		if (lst_get_top(*stacka) >= m || size == 4)
 		{
 			push(stacka, stackb, 'b');

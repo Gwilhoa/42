@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:46 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/27 11:55:02 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:29:15 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int		lst_lowest(t_list *lst);
 int		lst_highest(t_list *lst);
 
 int		lst_lowest_index(t_list *lst);
+
+int		lst_highest_index(t_list *lst);
 
 int		search_place(t_list *lst, int index);
 

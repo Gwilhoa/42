@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/27 13:12:21 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:27:58 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ int	main(int argc, char const *argv[])
 	temp = NULL;
 	stacka = NULL;
 	stackb = NULL;
-	if (argc < 1)
-	{
-		exit(EXIT_SUCCESS);
-		return (1);
-	}
 	if (ft_complete_args(argv, &stacka, &temp) == 0)
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -83,19 +78,25 @@ void	ft_initstack(t_list **temp, t_list **lst)
 {
 	int	*nbr;
 	int	i;
+	int	size;
 
+	size = ft_lstsize(*temp);
 	i = 0;
-	nbr = ft_calloc(ft_lstsize(*temp), sizeof(int));
-	while (ft_lstsize(*temp) > i)
+	nbr = ft_calloc(size, sizeof(int));
+	if (lst_highest(*temp) == INT_MAX)
+	{
+		nbr[lst_highest_index(*temp)] = size;
+		i++;
+	}
+	while (size > i)
 	{
 		nbr[lst_lowest_index(*temp)] = i;
 		lst_replace_index(temp, lst_lowest_index(*temp));
 		i++;
 	}
 	i = 0;
-	while (ft_lstsize(*temp) > i)
+	while (size > i)
 		lst_add_back(lst, nbr[i++]);
-	lst_display(*lst);
 	return ;
 }
 
@@ -120,7 +121,7 @@ int	ft_complete_args(char const *argv[], t_list **lst, t_list **temp1)
 			&& ft_strncmp(argv[i], "-0", 2))
 			return (0);
 		j = 0;
-		if (lst_is_in(*lst, temp) == 1)
+		if (lst_is_in(*temp1, temp) == 1)
 			return (0);
 		lst_add_back(temp1, temp);
 	}
