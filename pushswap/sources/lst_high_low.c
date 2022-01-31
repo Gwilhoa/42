@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lst_high_low.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:14:57 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/31 16:27:45 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 22:49:10 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	lst_lowest_index(t_list *lst)
 {
@@ -22,9 +22,9 @@ int	lst_lowest_index(t_list *lst)
 	low = INT_MAX;
 	while (lst)
 	{
-		if (*(int *)lst->content < low)
+		if (lst->content < low)
 		{
-			low = *(int *)lst->content;
+			low = lst->content;
 			index = i;
 		}
 		lst = lst->next;
@@ -43,9 +43,9 @@ int	lst_highest_index(t_list *lst)
 	high = INT_MIN;
 	while (lst)
 	{
-		if (*(int *)lst->content > high)
+		if (lst->content > high)
 		{
-			high = *(int *)lst->content;
+			high = lst->content;
 			index = i;
 		}
 		lst = lst->next;
@@ -62,13 +62,21 @@ int	lst_highest(t_list *lst)
 	return (lst_get_index(lst, nb));
 }
 
-void	lst_scroll(t_list **lst)
+void	lst_scroll(t_list **lst, int size)
 {
 	while (lst_is_sort(*lst) == 0)
 	{
-		if (lst_lowest_index(*lst) < ft_lstsize(*lst) / 2)
+		if (lst_lowest_index(*lst) < size / 2)
 			rotate(lst, 'a');
 		else
 			reverse_rotate(lst, 'a');
 	}
+}
+
+int	lst_lowest(t_list *lst)
+{
+	int	nb;
+
+	nb = lst_lowest_index(lst);
+	return (lst_get_index(lst, nb));
 }

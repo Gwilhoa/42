@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:47:21 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/10 04:02:59 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 22:39:27 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	ft_is_charset(char str, char *charset)
 {

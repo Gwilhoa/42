@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 12:35:10 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/14 10:10:53 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:39:32 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strdup(char const *src)
 {

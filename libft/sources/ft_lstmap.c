@@ -6,20 +6,20 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:11:36 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/10 14:45:10 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 22:45:01 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int))
 {
 	t_list	*new_lst;
 	t_list	*new_elem;
 
 	if (!lst || !f)
 		return (NULL);
-	new_elem = ft_lstnew(f(lst->content));
+	new_elem = ft_lstnew(*(int *)f(lst->content));
 	if (!new_elem)
 	{
 		ft_lstclear(&lst, del);
@@ -29,7 +29,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	lst = lst->next;
 	while (lst)
 	{
-		new_elem = ft_lstnew(f(lst->content));
+		new_elem = ft_lstnew(*(int *)f(lst->content));
 		if (!new_elem)
 		{
 			ft_lstclear(&lst, del);

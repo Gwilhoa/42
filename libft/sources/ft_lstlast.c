@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 10:17:51 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/08 10:17:51 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:38:01 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:57:12 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/17 12:44:57 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:44:06 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int				content;
 	struct s_list	*next;
 }	t_list;
 
@@ -195,7 +195,7 @@ void			*ft_memset(void *s, int c, size_t n);
  * @param lst liste
  * @param del fonction
  */
-void			ft_lstdelone(t_list *lst, void (*del)(void *));
+void			ft_lstdelone(t_list *lst, void (*del)(int));
 
 /**
  * @brief ecrit dans un file descriptor le charactere c 
@@ -267,7 +267,7 @@ void			ft_lstadd_back(t_list **alst, t_list *n);
  * @param lst t_list
  * @param del fonction
  */
-void			ft_lstclear(t_list **lst, void (*del)(void *));
+void			ft_lstclear(t_list **lst, void (*del)(int));
 
 /**
  * @brief effectue une fonction sur chaque element de la liste
@@ -275,7 +275,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
  * @param lst t_list
  * @param f  fonction
  */
-void			ft_lstiter(t_list *lst, void (*f)(void *));
+void			ft_lstiter(t_list *lst, void (*f)(int));
 
 /**
  * @brief coupe un pointeur en plusieurs pointeur selon charset
@@ -394,7 +394,7 @@ size_t			ft_strlcpy(char *dest, const char *src, size_t size);
  * @param content 
  * @return t_list* 
  */
-t_list			*ft_lstnew(void *content);
+t_list			*ft_lstnew(int content);
 
 /**
  * @brief renvoie le dernier maillon d'une liste chainee
@@ -403,8 +403,7 @@ t_list			*ft_lstnew(void *content);
  * @return t_list* 
  */
 t_list			*ft_lstlast(t_list *lst);
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int));
 int				putnbr(int nb);
 int				ft_putunsigned(unsigned int nb, int fd);
 int				ft_putchangebase(unsigned int nbr, const char *base, int fd);

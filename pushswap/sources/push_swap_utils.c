@@ -3,22 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:10:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/25 13:51:47 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 22:51:34 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	lst_add_back(t_list **lst, int nb)
 {
-	int	*ret;
-
-	ret = malloc(1 * sizeof(int));
-	ret[0] = nb;
-	ft_lstadd_back(lst, ft_lstnew(ret));
+	ft_lstadd_back(lst, ft_lstnew(nb));
 }
 
 int	lst_is_sort(t_list *lst)
@@ -28,7 +24,7 @@ int	lst_is_sort(t_list *lst)
 	val = lst->next;
 	while (val)
 	{
-		if (*(int *) val->content < *(int *) lst->content)
+		if (val->content < lst->content)
 			return (0);
 		val = val->next;
 		lst = lst->next;

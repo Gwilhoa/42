@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 10:56:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/10/04 10:56:27 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:38:24 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {

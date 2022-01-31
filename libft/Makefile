@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 10:35:56 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/31 16:54:18 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/31 22:45:33 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,15 +50,15 @@ all:        ${NAME}
 
 ${NAME}:	${OBJS} ${INCLUDES} Makefile
 			@ar -rcs ${NAME} ${OBJS}
-			@printf "${ERASE}${GREEN}[DONE]${END} ${NAME}"
+			@printf "${ERASE}${GREEN}[DONE]${END} ${NAME}\n"
 
 clean:
 			@${RM} ${OBJS}
-			@echo "${RED}[DELETE]${END} objects directory"
+			@printf "${RED}[DELETE]${END} objects directory"
 
 fclean:	clean
 			@${RM} -r ${NAME} .objects
-			@echo "${RED}[DELETE]${END} ${NAME}"
+			@printf "${ERASE}${RED}[DELETE]${END} ${NAME}\n"
 
 re:		fclean all
 

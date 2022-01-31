@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:42:59 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/03 08:42:59 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:39:19 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_putendl_fd(char *str, int fd)
 {

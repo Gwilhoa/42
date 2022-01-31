@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/31 19:05:38 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 22:50:23 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,13 @@ int	main(int argc, char const *argv[])
 	return (argc);
 }
 
-int	lst_is_in(t_list *lst, int nb, int size)
+int	lst_is_in(t_list *lst, int nb)
 {
-	int	i;
-
-	i = 0;
-	while (i < size)
+	while (lst)
 	{
-		if (lst_get_index(lst, i) == nb)
+		if (lst->content == nb)
 			return (1);
-		i++;
+		lst = lst->next;
 	}
 	return (0);
 }
@@ -60,24 +57,23 @@ void	lst_replace_index(t_list **lst, int index)
 	base = *lst;
 	temp = base;
 	i = 0;
-	if (index > ft_lstsize(temp))
-		return ;
 	while (i < index)
 	{
 		temp = temp->next;
 		i++;
 	}
-	*(int *) temp->content = INT_MAX;
+	temp->content = INT_MAX;
 	*lst = base;
 	return ;
 }
 
-void	ft_initstack(t_list **temp, t_list **lst,int size)
+void	ft_initstack(t_list **temp, t_list **lst)
 {
 	int	*nbr;
 	int	i;
+	int	size;
 
-
+	size = ft_lstsize(*temp);
 	i = 0;
 	nbr = ft_calloc(size, sizeof(int));
 	if (lst_highest(*temp) == INT_MAX)
@@ -118,10 +114,10 @@ int	ft_complete_args(char const *argv[], t_list **lst, t_list **temp1)
 			&& ft_strncmp(argv[i], "-0", 2))
 			return (0);
 		j = 0;
-		if (lst_is_in(*temp1, temp, i) == 1)
+		if (lst_is_in(*temp1, temp) == 1)
 			return (0);
 		lst_add_back(temp1, temp);
 	}
-	ft_initstack(temp1, lst, i);
+	ft_initstack(temp1, lst);
 	return (1);
 }

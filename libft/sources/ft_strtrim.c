@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 09:56:34 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/10 18:45:09 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 22:40:11 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 unsigned long int	ft_start(char const *s1, char const *set)
 {

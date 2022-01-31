@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/31 18:32:14 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/01/31 23:06:01 by gchatain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ ${NAME}:	compilation ${OBJS} ${INCLUDES} Makefile compilation
 
 clean:
 			${RM} ${OBJS}
-			make fclean -C libft
+			@make fclean -s -C libft
 			printf "${RED}[DELETE]${END} *.o"
 
 fclean:	clean
@@ -59,7 +59,8 @@ fclean:	clean
 re:		fclean all
 
 compilation:
-	make -C libft
+	make -s -C libft
+
 .PHONY:	all clean fclean re compilation
 
 .SILENT:
