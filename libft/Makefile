@@ -1,19 +1,28 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 10:35:56 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/27 10:52:34 by gchatain         ###   ########.fr        #
+#    Updated: 2022/01/31 16:54:18 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-END= 
-RED= 
-GREEN= 
-BLUE= 
+ERASE		=	\033[2K\r
+GREY		=	\033[30m
+RED			=	\033[31m
+GREEN		=	\033[32m
+YELLOW		=	\033[33m
+BLUE		=	\033[34m
+PINK		=	\033[35m
+CYAN		=	\033[36m
+WHITE		=	\033[37m
+BOLD		=	\033[1m
+UNDER		=	\033[4m
+SUR			=	\033[7m
+END			=	\033[0m
 
 LST_SRCS =   ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c\
 ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c\
@@ -35,23 +44,25 @@ RM          = rm -f
 
 all:        ${NAME}
 
-.objects/%.o:		sources/%.c ${INCLUDES}
-		@mkdir -p .objects
+.objects/%.o:		sources/%.c ${INCLUDES} | .objects
 		@${CC} ${CFLAGS} -c $< -o $@
-		@echo "${BLUE}[BUILD]${END} $@" | sed s/sources/${NAME}/ && norminette $< | grep -c 'OK!' | sed s/1/✅/ | sed s/0/❌/
+		@printf "${ERASE}${YELLOW}[BUILD]${END} $@"
 
 ${NAME}:	${OBJS} ${INCLUDES} Makefile
 			@ar -rcs ${NAME} ${OBJS}
-			@echo "${GREEN}[CREATE]${END} ${NAME}"
+			@printf "${ERASE}${GREEN}[DONE]${END} ${NAME}"
 
 clean:
 			@${RM} ${OBJS}
-			@echo "${RED}[DELETE]${END} *.o"
+			@echo "${RED}[DELETE]${END} objects directory"
 
 fclean:	clean
 			@${RM} -r ${NAME} .objects
 			@echo "${RED}[DELETE]${END} ${NAME}"
 
 re:		fclean all
+
+.objects:
+	@mkdir -p .objects
 
 .PHONY:	all clean fclean re

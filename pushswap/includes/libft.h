@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:57:12 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/17 11:00:54 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:44:57 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int				ft_isdigit(int c);
  * @brief savoir si un nombre fais partie 
  * des charactere visible de la table ascii
  * 
- * @param c 
+ * @param c
  * @return int 
  */
 int				ft_isprint(int c);

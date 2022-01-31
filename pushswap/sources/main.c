@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/27 14:27:58 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 19:05:38 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	main(int argc, char const *argv[])
 {
@@ -27,7 +27,7 @@ int	main(int argc, char const *argv[])
 		exit(EXIT_FAILURE);
 		return (1);
 	}
-	if (ft_lstsize(stacka) <= 1 || lst_is_sort(stacka) == 1)
+	if (argc - 1 <= 1 || lst_is_sort(stacka) == 1)
 	{
 		exit(EXIT_SUCCESS);
 		return (1);
@@ -37,13 +37,11 @@ int	main(int argc, char const *argv[])
 	return (argc);
 }
 
-int	lst_is_in(t_list *lst, int nb)
+int	lst_is_in(t_list *lst, int nb, int size)
 {
 	int	i;
-	int	size;
 
 	i = 0;
-	size = ft_lstsize(lst);
 	while (i < size)
 	{
 		if (lst_get_index(lst, i) == nb)
@@ -74,13 +72,12 @@ void	lst_replace_index(t_list **lst, int index)
 	return ;
 }
 
-void	ft_initstack(t_list **temp, t_list **lst)
+void	ft_initstack(t_list **temp, t_list **lst,int size)
 {
 	int	*nbr;
 	int	i;
-	int	size;
 
-	size = ft_lstsize(*temp);
+
 	i = 0;
 	nbr = ft_calloc(size, sizeof(int));
 	if (lst_highest(*temp) == INT_MAX)
@@ -121,10 +118,10 @@ int	ft_complete_args(char const *argv[], t_list **lst, t_list **temp1)
 			&& ft_strncmp(argv[i], "-0", 2))
 			return (0);
 		j = 0;
-		if (lst_is_in(*temp1, temp) == 1)
+		if (lst_is_in(*temp1, temp, i) == 1)
 			return (0);
 		lst_add_back(temp1, temp);
 	}
-	ft_initstack(temp1, lst);
+	ft_initstack(temp1, lst, i);
 	return (1);
 }

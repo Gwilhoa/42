@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 20:39:24 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/24 14:41:51 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 18:38:42 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	swap(t_list **lst, char c)
 	t_list	*top;
 	t_list	*second;
 
-	if (ft_lstsize(*lst) <= 1)
-		return ;
 	top = get_top_link(lst);
 	second = get_top_link(lst);
 	ft_lstadd_front(lst, top);
@@ -39,8 +37,6 @@ void	push(t_list **from, t_list **to, char c)
 
 void	rotate(t_list **lst, char c)
 {
-	if (ft_lstsize(*lst) <= 1)
-		return ;
 	ft_lstadd_back(lst, get_top_link(lst));
 	ft_putchar_fd('r', 1);
 	ft_putchar_fd(c, 1);
@@ -49,8 +45,6 @@ void	rotate(t_list **lst, char c)
 
 void	reverse_rotate(t_list **lst, char c)
 {
-	if (ft_lstsize(*lst) <= 1)
-		return ;
 	ft_lstadd_front(lst, get_bottom_link(lst));
 	ft_putstr_fd("rr", 1);
 	ft_putchar_fd(c, 1);

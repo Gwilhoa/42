@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_high_low.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:14:57 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/26 12:04:10 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/31 16:27:45 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,6 @@ int	lst_highest_index(t_list *lst)
 		i++;
 	}
 	return (index);
-}
-
-int	lst_lowest(t_list *lst)
-{
-	int	nb;
-
-	nb = lst_lowest_index(lst);
-	return (lst_get_index(lst, nb));
 }
 
 int	lst_highest(t_list *lst)

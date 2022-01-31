@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_display.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:07:52 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/19 13:05:58 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:40:27 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int	lst_get_index(t_list *lst, int index)
 	int	*ret;
 
 	i = 0;
-	if (index > ft_lstsize(lst))
-		return (0);
 	while (i < index)
 	{
 		lst = lst->next;

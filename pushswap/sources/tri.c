@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:44:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/27 15:07:24 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 18:53:15 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	tri(t_list **stacka, t_list **stackb)
 	}
 	if (size == 3)
 		return (tri_three(stacka));
-	return (tri_main(stacka, stackb, ft_lstsize(*stacka)));
+	return (tri_main(stacka, stackb, size));
 }
 
 int	tri_three(t_list **stacka)
@@ -50,23 +50,25 @@ int	tri_main(t_list **stacka, t_list **stackb, int size)
 	int	high;
 	int	i;
 
+	high = lst_highest(*stacka);
 	i = size;
-	m = 450;
+	m = high / 1.25;
 	while (i != 3)
 	{
-		high = lst_highest(*stacka);
 		if (high < m)
-			m = m - 50;
+			m = m / 1.25;
 		if (lst_get_top(*stacka) >= m || size == 4)
 		{
 			push(stacka, stackb, 'b');
 			i--;
+			if (lst_get_top(*stackb) == high)
+				high = lst_highest(*stacka);
 		}
 		else
 			rotate(stacka, 'a');
 	}
 	tri_three(stacka);
-	i = ft_lstsize(*stackb);
+	i = size - 3;
 	while (i-- > 0)
 		tri_bubble(stacka, stackb);
 	lst_scroll(stacka);
@@ -75,7 +77,7 @@ int	tri_main(t_list **stacka, t_list **stackb, int size)
 
 int	tri_bubble(t_list **stacka, t_list **stackb)
 {
-	if (lst_get_top(*stackb) > lst_lowest(*stacka)
+	if (lst_get_top(*stackb) > 0
 		&& lst_get_top(*stackb) < lst_highest(*stacka))
 	{
 		while (lst_get_top(*stacka) < lst_get_top(*stackb)
