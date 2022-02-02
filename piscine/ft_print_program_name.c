@@ -6,11 +6,12 @@
 /*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 08:13:49 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/17 14:30:10 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 13:40:16 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
 void	ft_str_print(char *str)
 {
 	int	i;

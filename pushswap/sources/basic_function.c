@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   basic_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 20:39:24 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/31 21:30:59 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/02 16:42:46 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	swap(t_list **lst, char c)
 {

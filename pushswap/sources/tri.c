@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   tri.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:44:39 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/31 21:57:39 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/02 16:11:40 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	tri(t_list **stacka, t_list **stackb)
 {
@@ -24,7 +24,8 @@ int	tri(t_list **stacka, t_list **stackb)
 	}
 	if (size == 3)
 		return (tri_three(stacka));
-	return (tri_main(stacka, stackb, size));
+	tri_main(stacka, stackb, size);
+	return (0);
 }
 
 int	tri_three(t_list **stacka)
@@ -44,7 +45,7 @@ int	tri_three(t_list **stacka)
 	return (0);
 }
 
-int	tri_main(t_list **stacka, t_list **stackb, int size)
+void	tri_main(t_list **stacka, t_list **stackb, int size)
 {
 	int	m;
 	int	high;
@@ -71,7 +72,6 @@ int	tri_main(t_list **stacka, t_list **stackb, int size)
 	while (i-- > 0)
 		tri_bubble(stacka, stackb);
 	lst_scroll(stacka, size);
-	return (0);
 }
 
 int	tri_bubble(t_list **stacka, t_list **stackb)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/31 23:06:01 by gchatain         ###   ########.fr        #
+#    Updated: 2022/02/02 16:53:27 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,39 +27,49 @@ END			=	\033[0m
 LST_SRCS =   main.c push_swap_utils.c push_swap_display.c basic_function.c tri.c lst_high_low.c
 INC = 0
 LST_OBJS = ${LST_SRCS:.c=.o}
-LIBRARY = libft/libft.a
+AR_LIBFT := libft/libft.a
+DIR_LIBFT	:= libft
 SRCS = $(addprefix sources/,$(LST_SRCS))
 OBJS = $(addprefix .objects/,$(LST_OBJS))
-INCLUDES    = includes/libft.h includes/push_swap.h
+INCLUDES    = includes/push_swap.h libft/includes/libft.h
+DIR_INCLUDES = $(sort $(addprefix -I, $(dir $(INCLUDES))))
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
 NAME        = push_swap
 RM          = rm -f
+NORM        = $(shell norminette | grep -c 'Error!')
 
+ifeq ($(NORM), 0)
+	NORM_RET = "${ERASE}${GREEN}[DONE]${END} ${NAME}"
+else
+	NORM_RET = "${ERASE}${RED}[NORM]${END} ${NAME}"
+endif
 all:        ${NAME}
 
-.objects/%.o:		sources/%.c ${INCLUDES}
-			mkdir -p .objects
-			${CC} ${CFLAGS} -c $< -o $@
+.objects/%.o:	sources/%.c ${INCLUDES} | .objects
+			${CC} ${CFLAGS} -c $< -o $@ ${DIR_INCLUDES}
 			printf "${ERASE}${BLUE}[BUILD]${END} $<"
 
-${NAME}:	compilation ${OBJS} ${INCLUDES} Makefile compilation
-			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY}
-			echo "${ERASE}${GREEN}[DONE]${END} ${NAME}"
+${NAME}:	${OBJS} ${INCLUDES} Makefile ${LIBRARY} $(AR_LIBFT)
+			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${AR_LIBFT} ${DIR_INCLUDES}
+			printf $(NORM_RET)
 
 clean:
 			${RM} ${OBJS}
 			@make fclean -s -C libft
-			printf "${RED}[DELETE]${END} *.o"
+			printf "${RED}[DELETE]${END} directory .objects"
 
 fclean:	clean
 			${RM} -r ${NAME} .objects
 			printf "${ERASE}${RED}[DELETE]${END} ${NAME}\n"
 
-re:		fclean all
+re:			fclean all
 
-compilation:
-	make -s -C libft
+.objects:
+			mkdir -p .objects
+
+$(AR_LIBFT):
+	$(MAKE) -C libft
 
 .PHONY:	all clean fclean re compilation
 

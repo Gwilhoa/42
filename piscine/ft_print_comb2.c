@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 12:35:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/08 16:10:56 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 13:39:45 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
+
 void	putchar( char c)
 {
 	write(1, &c, 1);

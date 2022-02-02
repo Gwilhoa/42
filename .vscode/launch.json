@@ -4,12 +4,25 @@
 	// Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
 	"configurations": [
+		
+		{
+			"name": "(lldb) Lancer",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "/Users/gchatain/Documents/42/pushswap/push_swap",
+			"args": ["5","4", "3", "2", "1"],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb"
+		},
 		{
 			"name": "gcc - Générer et déboguer le fichier actif",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${fileDirname}/${fileBasenameNoExtension}",
-			"args": [],
+			"program": "/Users/gchatain/Documents/42/pushswap/push_swap",
+			"args": ["5","4", "3", "2", "1"],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 10:35:56 by gchatain          #+#    #+#              #
-#    Updated: 2022/01/31 22:45:33 by gchatain         ###   ########.fr        #
+#    Updated: 2022/02/02 14:51:59 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ LST_OBJS = ${LST_SRCS:.c=.o}
 SRCS = $(addprefix sources/,$(LST_SRCS))
 OBJS = $(addprefix .objects/,$(LST_OBJS))
 INCLUDES    = includes/libft.h
+DIR_INCLUDES = $(sort $(addprefix -I, $(dir $(INCLUDES))))
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
 NAME        = libft.a
@@ -45,24 +46,26 @@ RM          = rm -f
 all:        ${NAME}
 
 .objects/%.o:		sources/%.c ${INCLUDES} | .objects
-		@${CC} ${CFLAGS} -c $< -o $@
-		@printf "${ERASE}${YELLOW}[BUILD]${END} $@"
+		${CC} ${CFLAGS} -c $< -o $@ ${DIR_INCLUDES}
+		printf "${ERASE}${YELLOW}[BUILD]${END} $@"
 
 ${NAME}:	${OBJS} ${INCLUDES} Makefile
-			@ar -rcs ${NAME} ${OBJS}
-			@printf "${ERASE}${GREEN}[DONE]${END} ${NAME}\n"
+		ar -rcs ${NAME} ${OBJS}
+		printf "${ERASE}${GREEN}[DONE]${END} ${NAME}\n"
 
 clean:
-			@${RM} ${OBJS}
-			@printf "${RED}[DELETE]${END} objects directory"
+		${RM} ${OBJS}
+		printf "${RED}[DELETE]${END} objects directory"
 
 fclean:	clean
-			@${RM} -r ${NAME} .objects
-			@printf "${ERASE}${RED}[DELETE]${END} ${NAME}\n"
+		${RM} -r ${NAME} .objects
+		printf "${ERASE}${RED}[DELETE]${END} ${NAME}\n"
 
 re:		fclean all
 
 .objects:
-	@mkdir -p .objects
+		mkdir -p .objects
 
 .PHONY:	all clean fclean re
+
+.SILENT:

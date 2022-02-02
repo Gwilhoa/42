@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:46 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/31 22:23:49 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/02 12:44:13 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_list	*get_bottom_link(t_list **lst);
 
 int		tri(t_list **stacka, t_list **stackb);
 int		tri_three(t_list **stacka);
-int		tri_main(t_list **stacka, t_list **stackb, int size);
+void	tri_main(t_list **stacka, t_list **stackb, int size);
 int		tri_bubble(t_list **stacka, t_list **stackb);
 
 int		lst_lowest(t_list *lst);

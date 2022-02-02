@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 14:38:37 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/09 08:51:54 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 13:39:03 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
 void	number_print( int a, int b, int c)
 {
 	a = a + 48;
