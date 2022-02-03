@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:35:15 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/02 14:25:40 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/03 22:22:00 by gwilhoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int	main(void)
 {
@@ -21,11 +21,10 @@ int	main(void)
 	int		fd;
 
 	size = 16;
-	ft_putstr_fd("test",1);
 	fd = open("test.ber", O_RDONLY);
 	link = mlx_init();
 	fen = mlx_new_window(link, 500, 500, "test");
-	wall = mlx_xpm_file_to_image(link, "sources/sprites/wall.xpm", &size, &size);
+	wall = mlx_xpm_file_to_image(link, "sprites/wall.xpm", &size, &size);
 	mlx_put_image_to_window(link, fen, wall, 0, 0);
 	mlx_loop(link);
 	return (0);

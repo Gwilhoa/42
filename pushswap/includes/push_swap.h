@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:46 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/02 19:45:52 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:54:42 by gwilhoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	push(t_list **from, t_list **to, char c);
 void	rotate(t_list **lst, char c);
 void	reverse_rotate(t_list **lst, char c);
 
-int		ft_complete_args(char const *argv[], t_list **lst, t_list **temp1);
+int		ft_complete_args(char const **argv, t_list **lst, t_list **temp1);
+int		compare(int nb, const char *str);
 int		lst_is_in(t_list *lst, int nb);
 int		search_place(t_list *lst, int index);
 int		lst_is_sort(t_list *lst);

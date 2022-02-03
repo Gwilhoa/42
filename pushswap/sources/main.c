@@ -6,7 +6,7 @@
 /*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:18:59 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/03 10:19:34 by gwilhoa          ###   ########.fr       */
+/*   Updated: 2022/02/03 16:53:10 by gwilhoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,26 @@
 
 int	main(int argc, char const *argv[])
 {
-	t_list	*stacka;
-	t_list	*stackb;
-	t_list	*temp;
+	t_list		*stacka;
+	t_list		*stackb;
+	t_list		*temp;
+	const char	**args;
 
 	temp = NULL;
 	stacka = NULL;
 	stackb = NULL;
-	if (argc > 1 && ft_complete_args(argv, &stacka, &temp) == 0)
+	if (argc == 2 && ft_strlen(argv[1]) > 1)
+		args = (const char **)ft_split(argv[1], ' ');
+	else
+		args = argv + 1;
+	if (argc > 1 && ft_complete_args(args, &stacka, &temp) == 0)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
 		return (1);
 	}
-	if (argc - 1 <= 1 || lst_is_sort(stacka) == 1)
-	{
-		exit(EXIT_SUCCESS);
-		return (1);
-	}
-	tri(&stacka, &stackb);
+	if (argc - 1 > 0 && !(lst_is_sort(stacka) == 1))
+		tri(&stacka, &stackb);
 	exit(EXIT_SUCCESS);
 	return (argc);
 }
@@ -94,28 +95,16 @@ void	ft_initstack(t_list **temp, t_list **lst)
 	return ;
 }
 
-int	ft_complete_args(char const *argv[], t_list **lst, t_list **temp1)
+int	ft_complete_args(char const **argv, t_list **lst, t_list **temp1)
 {
 	int		i;
-	int		j;
 	int		temp;
 
-	i = 0;
+	i = -1;
 	while (argv[++i])
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
-				return (0);
-			j++;
-		}
 		temp = ft_atoi(argv[i]);
-		if (ft_strncmp(ft_itoa(temp), argv[i], ft_strlen(argv[i]))
-			&& ft_strncmp(argv[i], "-0", 2))
-			return (0);
-		j = 0;
-		if (lst_is_in(*temp1, temp) == 1)
+		if (compare(temp, argv[i]) == 0 || lst_is_in(*temp1, temp) == 1)
 			return (0);
 		lst_add_back(temp1, temp);
 	}

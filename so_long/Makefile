@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/02 12:57:19 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/02/03 22:25:31 by gwilhoa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,23 +31,31 @@ LST_OBJS = ${LST_SRCS:.c=.o}
 LIBRARY = libft/libft.a
 SRCS = $(addprefix sources/,$(LST_SRCS))
 OBJS = $(addprefix .objects/,$(LST_OBJS))
-INCLUDES    = includes/libft.h includes/so_long.h includes/get_next_line_bonus.h
+INCLUDES    = includes/get_next_line_bonus.h libft/includes/libft.h includes/so_long.h mlx/mlx.h
+DIR_INCLUDES = $(sort $(addprefix -I, $(dir $(INCLUDES))))
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
 NAME        = so_long
 RM          = rm -f
 LIBX        = -I /usr/X11/include -g -L ./mlx -l mlx -framework OpenGL -framework AppKit
+NORM        = $(shell norminette | grep -c 'Error!')
+
+ifeq ($(NORM), 0)
+	NORM_RET = "${ERASE}${GREEN}[DONE]${END} ${NAME}"
+else
+	NORM_RET = "${ERASE}${RED}[NORM]${END} ${NAME}"
+endif
 
 all:        ${NAME}
 
 .objects/%.o:		sources/%.c ${INCLUDES}
 			mkdir -p .objects
-			${CC} ${CFLAGS} -c $< -o $@
+			${CC} ${CFLAGS} -c $< -o $@ $^{}
 			printf "${ERASE}${BLUE}[BUILD]${END} $<"
 
 ${NAME}:	compilation ${OBJS} ${INCLUDES} Makefile compilation
 			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY} ${LIBX}
-			echo "${ERASE}${GREEN}[DONE]${END} ${NAME}"
+			printf $(NORM_RET)
 
 clean:
 			${RM} ${OBJS}

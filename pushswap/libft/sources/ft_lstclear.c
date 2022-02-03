@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:07:18 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/02 19:43:57 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:51:14 by gwilhoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	ft_lstclear(t_list **lst)
 		free(*lst);
 		(*lst) = t;
 	}
+	t = NULL;
 }
