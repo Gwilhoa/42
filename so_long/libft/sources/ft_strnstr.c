@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 11:02:53 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/31 22:40:02 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/02 14:54:20 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:47:21 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/28 15:45:09 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 20:29:48 by gwilhoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
 int	ft_is_in_charset(char *charset, char c)
 {
 	int	i;

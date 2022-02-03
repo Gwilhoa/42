@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:57:12 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/31 22:44:06 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/02 19:28:17 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,7 +267,7 @@ void			ft_lstadd_back(t_list **alst, t_list *n);
  * @param lst t_list
  * @param del fonction
  */
-void			ft_lstclear(t_list **lst, void (*del)(int));
+void			ft_lstclear(t_list **lst);
 
 /**
  * @brief effectue une fonction sur chaque element de la liste
@@ -403,7 +403,7 @@ t_list			*ft_lstnew(int content);
  * @return t_list* 
  */
 t_list			*ft_lstlast(t_list *lst);
-t_list			*ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(int));
 int				putnbr(int nb);
 int				ft_putunsigned(unsigned int nb, int fd);
 int				ft_putchangebase(unsigned int nbr, const char *base, int fd);

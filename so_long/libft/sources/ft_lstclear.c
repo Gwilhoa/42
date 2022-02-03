@@ -6,13 +6,13 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:07:18 by gchatain          #+#    #+#             */
-/*   Updated: 2022/01/31 22:42:11 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/02 19:20:50 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(int))
+void	ft_lstclear(t_list **lst)
 {
 	t_list	*t;
 
@@ -21,7 +21,7 @@ void	ft_lstclear(t_list **lst, void (*del)(int))
 	while (*lst)
 	{
 		t = (*lst)->next;
-		ft_lstdelone(*lst, del);
+		free(lst);
 		(*lst) = t;
 	}
 }
