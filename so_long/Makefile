@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+         #
+#    By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/03 22:31:47 by gwilhoa          ###   ########.fr        #
+#    Updated: 2022/02/03 22:37:15 by guilheimcha      ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ CFLAGS      = -Wall -Wextra -Werror
 NAME        = so_long
 RM          = rm -f
 LIBX        = -I /usr/X11/include -g -L ./mlx -l mlx -framework OpenGL -framework AppKit
-NORM        = $(shell norminette | grep -c 'Error!')
+NORM        = $(shell norminette sources | grep -c 'Error!')
 
 ifeq ($(NORM), 0)
 	NORM_RET = "${ERASE}${GREEN}[DONE]${END} ${NAME}"
@@ -50,11 +50,11 @@ all:        ${NAME}
 
 .objects/%.o:		sources/%.c ${INCLUDES}
 			mkdir -p .objects
-			${CC} ${CFLAGS} -c $< -o $@ $^{}
+			${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
 			printf "${ERASE}${BLUE}[BUILD]${END} $<"
 
 ${NAME}:	compilation ${OBJS} ${INCLUDES} Makefile compilation
-			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY} ${LIBX}
+			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY} ${LIBX} $(DIR_INCLUDES)
 			printf $(NORM_RET)
 
 clean:

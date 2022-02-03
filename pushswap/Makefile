@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
+#    By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/02 16:53:27 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/02/03 22:37:39 by guilheimcha      ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
 NAME        = push_swap
 RM          = rm -f
-NORM        = $(shell norminette | grep -c 'Error!')
+NORM        = $(shell norminette sources | grep -c 'Error!')
 
 ifeq ($(NORM), 0)
 	NORM_RET = "${ERASE}${GREEN}[DONE]${END} ${NAME}"
