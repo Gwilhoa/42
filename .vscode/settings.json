@@ -24,6 +24,7 @@
 		"tuple": "c",
 		"vector": "c",
 		"cstdlib": "c",
-		"utility": "c"
+		"utility": "c",
+		"so_long.h": "c"
 	}
 }
