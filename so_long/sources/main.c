@@ -6,7 +6,7 @@
 /*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:35:15 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/04 11:40:26 by gwilhoa          ###   ########.fr       */
+/*   Updated: 2022/02/04 11:43:13 by gwilhoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	complete_matrice(int fd, t_long **game, STRING str)
 	while (str)
 	{
 		temp->matrice[i] = str;
-		str = get_next_line(str);
+		str = get_next_line(fd);
 		i++;
 	}
 	temp->matrice[i] = NULL;
