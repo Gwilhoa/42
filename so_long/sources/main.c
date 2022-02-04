@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:35:15 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/04 11:43:13 by gwilhoa          ###   ########.fr       */
+/*   Updated: 2022/02/04 11:55:29 by guilheimcha      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int argc, char const *argv[])
 {
 	void	*link;
 	void	*fen;
-	int		fd;
 	t_long	*game;
 
 	if (init(argc, argv, &game) == 0)
@@ -26,7 +25,8 @@ int	main(int argc, char const *argv[])
 		return (0);
 	}
 	link = mlx_init();
-	fen = mlx_new_window(link, game->height, game->width, "so_long");
+	ft_printf("%d\n", game->width);
+	fen = mlx_new_window(link, game->height*32, game->width*32, "so_long");
 	mlx_loop(link);
 	return (0);
 }
@@ -34,7 +34,6 @@ int	main(int argc, char const *argv[])
 int	init(int argc, char const *argv[], t_long **game)
 {
 	int		fd;
-	int		*ret;
 	STRING	str;
 	t_long	*temp;
 
@@ -48,10 +47,10 @@ int	init(int argc, char const *argv[], t_long **game)
 	temp->height = ft_strlen(str);
 	if (complete_matrice(fd, &temp, str) == 0)
 	{
-		game = &temp;
+		*game = temp;
 		return (0);
 	}
-	game = &temp;
+	*game = temp;
 	return (1);
 }
 
@@ -71,7 +70,7 @@ int	complete_matrice(int fd, t_long **game, STRING str)
 	}
 	temp->matrice[i] = NULL;
 	temp->width = i;
-	game = &temp;
+	*game = temp;
 	if (temp->height < temp->width)
 		return (0);
 	return (1);

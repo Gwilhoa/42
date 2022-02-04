@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:41:29 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/04 11:27:08 by gwilhoa          ###   ########.fr       */
+/*   Updated: 2022/02/04 11:45:20 by guilheimcha      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ typedef struct s_long
 {
 	int		width;
 	int		height;
-	STRING	**matrice;
+	STRING	*matrice;
 }	t_long;
+
+int	init(int argc, char const *argv[], t_long **game);
+int	complete_matrice(int fd, t_long **game, STRING str);
 
 #endif
