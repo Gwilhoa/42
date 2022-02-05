@@ -79,6 +79,6 @@ int	complete_matrice(int fd, t_long **game, STRING str)
 
 int	move(int keycode, t_long *game)
 {
-	ft_putchar_fd('t',1);
-	return (keycode);
+	ft_putnbr_fd(keycode, 1);
+	return (game->width);
 }
