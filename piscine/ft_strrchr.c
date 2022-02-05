@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 09:58:33 by gchatain          #+#    #+#             */
-/*   Updated: 2021/11/29 12:46:20 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/05 07:34:54 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	char *str = (char*)s;
-	int i;
-	int p;
+	char	*str;
+	int		i;
+	int		p;
 
+	str = (char *) s;
 	i = 0;
 	p = -1;
-
 	while (s[i])
 	{
 		if (s[i] == c)
@@ -28,6 +28,6 @@ char *ft_strrchr(const char *s, int c)
 		i++;
 	}
 	if (p == -1)
-		return 0;
-	return str+p;
+		return (0);
+	return (str + p);
 }

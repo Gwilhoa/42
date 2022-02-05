@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 14:01:11 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/12 11:20:28 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/05 07:36:35 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;

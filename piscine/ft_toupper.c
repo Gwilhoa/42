@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr >     +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 22:36:21 by gchatain          #+#    #+#             */
-/*   Updated: 2021/09/16 22:36:21 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/05 07:33:18 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c > 96 && c < 123)
-		return c - 32;
-	return c;
+		return (c - 32);
+	return (c);
 }

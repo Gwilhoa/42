@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:18:27 by gchatain          #+#    #+#             */
-/*   Updated: 2021/08/22 17:03:36 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/05 07:24:27 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,4 @@ char	*ft_strcat(char *dest, char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
-
-int main(int argc, char const *argv[])
-{
-	/* code */
-	return 0;
 }

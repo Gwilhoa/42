@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 09:02:52 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/14 10:46:32 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/05 07:36:28 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;

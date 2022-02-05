@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 14:57:33 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/13 09:48:06 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/05 07:22:50 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
+
 char	*ft_strlowcase(char *str)
 {
 	int		i;

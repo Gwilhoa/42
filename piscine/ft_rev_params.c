@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 18:19:57 by gchatain          #+#    #+#             */
-/*   Updated: 2021/07/15 18:20:18 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/05 07:24:14 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
 void	ft_str_print(char *str)
 {
 	int	i;

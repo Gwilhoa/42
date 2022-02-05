@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:06:03 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/05 06:42:52 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/05 12:46:23 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int argc, char const *argv[])
 {
 	void	*link;
 	void	*fen;
+	void	*func;
+	func = move();
 	t_long	*game;
 
 	if (init(argc, argv, &game) == 0)
@@ -25,9 +27,9 @@ int	main(int argc, char const *argv[])
 		return (0);
 	}
 	link = mlx_init();
-	ft_printf("%d\n", game->height);
 	fen = mlx_new_window(link, game->height * 32, game->width * 32, "so_long");
 	refresh(link, fen, game);
+	mlx_key_hook(fen, func, &game);
 	mlx_loop(link);
 	return (0);
 }
@@ -45,7 +47,7 @@ int	init(int argc, char const *argv[], t_long **game)
 	str = get_next_line(fd);
 	if (!str)
 		return (0);
-	temp->height = ft_strlen(str);
+	temp->height = ft_strlen(str) - 1;
 	if (complete_matrice(fd, &temp, str) == 0)
 	{
 		*game = temp;
@@ -70,9 +72,20 @@ int	complete_matrice(int fd, t_long **game, STRING str)
 		i++;
 	}
 	temp->matrice[i] = NULL;
-	temp->width = i;
+	temp->width = i - 1;
 	*game = temp;
 	if (temp->height < temp->width)
 		return (0);
 	return (1);
+}
+
+int *move()
+{
+	int	i;
+	int	*s;
+
+	i = 5;
+	s = &i;
+	ft_putchar_fd('t',1);
+	return (s);
 }
