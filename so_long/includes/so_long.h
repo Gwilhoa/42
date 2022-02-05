@@ -27,7 +27,7 @@ typedef struct s_long
 int		init(int argc, char const *argv[], t_long **game);
 int		complete_matrice(int fd, t_long **game, STRING str);
 void	refresh(void *link, void *fen, t_long *game);
-int		*move(void);
+int		move(int keycode, t_long *game);
 
 void	setfloor(void *link, void *fen, int i, int j);
 void	setwall(void *link, void *fen, int i, int j);

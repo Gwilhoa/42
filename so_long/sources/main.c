@@ -16,10 +16,8 @@ int	main(int argc, char const *argv[])
 {
 	void	*link;
 	void	*fen;
-	void	*func;
 	t_long	*game;
 
-	func = move();
 	if (init(argc, argv, &game) == 0)
 	{
 		ft_putstr_fd("Error\n map format", 1);
@@ -79,13 +77,8 @@ int	complete_matrice(int fd, t_long **game, STRING str)
 	return (1);
 }
 
-int	*move(int keycode, t_long *game)
+int	move(int keycode, t_long *game)
 {
-	int	i;
-	int	*s;
-
-	i = 5;
-	s = &i;
 	ft_putchar_fd('t',1);
-	return (s);
+	return (keycode);
 }
