@@ -26,8 +26,8 @@ int	main(int argc, char const *argv[])
 	}
 	link = mlx_init();
 	ft_printf("%d\n", game->height);
-	fen = mlx_new_window(link, game->height*32, game->width*32, "so_long");
-	refresh(game);
+	fen = mlx_new_window(link, game->height * 32, game->width * 32, "so_long");
+	refresh(link, fen, game);
 	mlx_loop(link);
 	return (0);
 }
