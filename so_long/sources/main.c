@@ -16,8 +16,10 @@ int	main(int argc, char const *argv[])
 {
 	void	*link;
 	void	*fen;
+	void	*func;
 	t_long	*game;
 
+	func = move();
 	if (init(argc, argv, &game) == 0)
 	{
 		ft_putstr_fd("Error\n map format", 1);
