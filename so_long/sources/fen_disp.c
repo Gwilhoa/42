@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	refresh(void *link, void *fen, t_long *game)
+void	refresh(t_long *game)
 {
 	int	i;
 	int	j;
@@ -24,72 +24,39 @@ void	refresh(void *link, void *fen, t_long *game)
 		while (j < game->height)
 		{
 			if (game->matrice[i][j] == '0')
-				setfloor(link, fen, j, i);
+				mlx_put_image_to_window(game->link, game->fen, game->floor,
+					i * 32, j * 32);
 			if (game->matrice[i][j] == '1')
-				setwall(link, fen, j, i);
+				mlx_put_image_to_window(game->link, game->fen, game->wall,
+					i * 32, j * 32);
 			if (game->matrice[i][j] == 'P')
-				setperso(link, fen, j, i);
+				mlx_put_image_to_window(game->link, game->fen, game->perso,
+					i * 32, j * 32);
 			if (game->matrice[i][j] == 'C')
-				setitem(link, fen, j, i);
+				mlx_put_image_to_window(game->link, game->fen, game->items,
+					i * 32, j * 32);
 			if (game->matrice[i][j] == 'E')
-				setexit(link, fen, j, i);
+				mlx_put_image_to_window(game->link, game->fen, game->exit,
+					i * 32, j * 32);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	setfloor(void *link, void *fen, int i, int j)
+void	init_image(t_long **game)
 {
+	t_long	*temp;
 	int		*s;
 	int		n;
-	void	*img;
 
 	s = &n;
-	img = mlx_xpm_file_to_image(link, "sprites/floor.xpm", s, s);
-	mlx_put_image_to_window(link, fen, img, i * 32, j * 32);
+	temp = *game;
+	temp->floor = mlx_xpm_file_to_image(temp->link, "sprites/floor.xpm", s, s);
+	temp->wall = mlx_xpm_file_to_image(temp->link, "sprites/wall.xpm", s, s);
+	temp->items = mlx_xpm_file_to_image(temp->link, "sprites/items.xpm", s, s);
+	temp->exit = mlx_xpm_file_to_image(temp->link, "sprites/exit.xpm", s, s);
+	temp->perso = mlx_xpm_file_to_image(temp->link, "sprites/perso.xpm", s, s);
+	*game = temp;
 }
 
-void	setwall(void *link, void *fen, int i, int j)
-{
-	int		*s;
-	int		n;
-	void	*img;
-
-	s = &n;
-	img = mlx_xpm_file_to_image(link, "sprites/wall.xpm", s, s);
-	mlx_put_image_to_window(link, fen, img, i * 32, j * 32);
-}
-
-void	setperso(void *link, void *fen, int i, int j)
-{
-	int		*s;
-	int		n;
-	void	*img;
-
-	s = &n;
-	img = mlx_xpm_file_to_image(link, "sprites/perso.xpm", s, s);
-	mlx_put_image_to_window(link, fen, img, i * 32, j * 32);
-}
-
-void	setitem(void *link, void *fen, int i, int j)
-{
-	int		*s;
-	int		n;
-	void	*img;
-
-	s = &n;
-	img = mlx_xpm_file_to_image(link, "sprites/items.xpm", s, s);
-	mlx_put_image_to_window(link, fen, img, i * 32, j * 32);
-}
-
-void	setexit(void *link, void *fen, int i, int j)
-{
-	int		*s;
-	int		n;
-	void	*img;
-
-	s = &n;
-	img = mlx_xpm_file_to_image(link, "sprites/exit.xpm", s, s);
-	mlx_put_image_to_window(link, fen, img, i * 32, j * 32);
-}

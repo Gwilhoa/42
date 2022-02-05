@@ -19,20 +19,26 @@
 
 typedef struct s_long
 {
+	void	*link;
+	void	*fen;
 	int		width;
 	int		height;
+	int		p_x;
+	int		p_y;
+
+	void	*floor;
+	void	*wall;
+	void	*perso;
+	void	*items;
+	void	*exit;
+
 	STRING	*matrice;
 }	t_long;
 
 int		init(int argc, char const *argv[], t_long **game);
 int		complete_matrice(int fd, t_long **game, STRING str);
-void	refresh(void *link, void *fen, t_long *game);
+void	refresh(t_long *game);
 int		move(int keycode, t_long *game);
-
-void	setfloor(void *link, void *fen, int i, int j);
-void	setwall(void *link, void *fen, int i, int j);
-void	setperso(void *link, void *fen, int i, int j);
-void	setitem(void *link, void *fen, int i, int j);
-void	setexit(void *link, void *fen, int i, int j);
+void	init_image(t_long **game);
 
 #endif

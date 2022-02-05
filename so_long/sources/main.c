@@ -14,8 +14,6 @@
 
 int	main(int argc, char const *argv[])
 {
-	void	*link;
-	void	*fen;
 	t_long	*game;
 
 	if (init(argc, argv, &game) == 0)
@@ -24,10 +22,11 @@ int	main(int argc, char const *argv[])
 		exit(EXIT_FAILURE);
 		return (0);
 	}
-	link = mlx_init();
-	fen = mlx_new_window(link, game->height * 32, game->width * 32, "so_long");
-	refresh(link, fen, game);
-	mlx_key_hook(fen, move, &game);
+	game->link = mlx_init();
+	game->fen = mlx_new_window(link, game->height * 32,
+			game->width * 32, "so_long");
+	refresh(game);
+	mlx_key_hook(game->fen, move, &game);
 	mlx_loop(link);
 	return (0);
 }
@@ -38,6 +37,7 @@ int	init(int argc, char const *argv[], t_long **game)
 	STRING	str;
 	t_long	*temp;
 
+	init_image(&temp);
 	temp = malloc(1 * sizeof(t_long));
 	if (argc != 2)
 		return (0);
