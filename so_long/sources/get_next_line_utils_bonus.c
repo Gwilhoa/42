@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 15:30:27 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/03 17:05:47 by gwilhoa          ###   ########.fr       */
+/*   Created: 2022/02/04 12:05:42 by gchatain          #+#    #+#             */
+/*   Updated: 2022/02/04 12:05:49 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

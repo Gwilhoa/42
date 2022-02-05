@@ -24,7 +24,8 @@ typedef struct s_long
 	STRING	*matrice;
 }	t_long;
 
-int	init(int argc, char const *argv[], t_long **game);
-int	complete_matrice(int fd, t_long **game, STRING str);
+int		init(int argc, char const *argv[], t_long **game);
+int		complete_matrice(int fd, t_long **game, STRING str);
+void	refresh(t_long *game);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 12:35:15 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/04 11:55:29 by guilheimcha      ###   ########lyon.fr   */
+/*   Created: 2022/02/04 12:06:03 by gchatain          #+#    #+#             */
+/*   Updated: 2022/02/04 12:06:03 by gchatain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char const *argv[])
 	link = mlx_init();
 	ft_printf("%d\n", game->width);
 	fen = mlx_new_window(link, game->height*32, game->width*32, "so_long");
+	refresh(game);
 	mlx_loop(link);
 	return (0);
 }
