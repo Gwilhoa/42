@@ -16,8 +16,6 @@ int	main(int argc, char const *argv[])
 {
 	void	*link;
 	void	*fen;
-	void	*func;
-	func = move();
 	t_long	*game;
 
 	if (init(argc, argv, &game) == 0)
@@ -29,7 +27,7 @@ int	main(int argc, char const *argv[])
 	link = mlx_init();
 	fen = mlx_new_window(link, game->height * 32, game->width * 32, "so_long");
 	refresh(link, fen, game);
-	mlx_key_hook(fen, func, &game);
+	mlx_key_hook(fen, move, &game);
 	mlx_loop(link);
 	return (0);
 }
