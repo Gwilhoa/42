@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:06:11 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/05 06:37:21 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/05 06:43:42 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	refresh(t_long *game)
 	int	j;
 
 	i = 0;
-	while (i < game->height)
+	while (i < game->width)
 	{
 		j = 0;
-		while (j < game->width)
+		while (j < game->height)
 		{
-			game->matrice[i][j];
+			//game->matrice[i][j];
 			ft_putchar_fd(game->matrice[i][j], 1);
 			j++;
 		}

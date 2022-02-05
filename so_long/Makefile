@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/03 22:37:15 by guilheimcha      ###   ########lyon.fr    #
+#    Updated: 2022/02/05 06:39:35 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ UNDER		=	\033[4m
 SUR			=	\033[7m
 END			=	\033[0m
 
-LST_SRCS =  main.c get_next_line_bonus.c get_next_line_utils_bonus.c
+LST_SRCS =  main.c get_next_line_bonus.c get_next_line_utils_bonus.c fen_disp.c\
+			
 INC = 0
 LST_OBJS = ${LST_SRCS:.c=.o}
 LIBRARY = libft/libft.a

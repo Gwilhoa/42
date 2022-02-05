@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:06:03 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/04 12:06:03 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/05 06:42:52 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char const *argv[])
 		return (0);
 	}
 	link = mlx_init();
-	ft_printf("%d\n", game->width);
+	ft_printf("%d\n", game->height);
 	fen = mlx_new_window(link, game->height*32, game->width*32, "so_long");
 	refresh(game);
 	mlx_loop(link);
