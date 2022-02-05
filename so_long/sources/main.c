@@ -79,7 +79,7 @@ int	complete_matrice(int fd, t_long **game, STRING str)
 	return (1);
 }
 
-int *move()
+int	*move(int keycode, t_long *game)
 {
 	int	i;
 	int	*s;
