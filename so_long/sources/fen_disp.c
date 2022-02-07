@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:06:11 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/05 07:19:07 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 11:42:58 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,29 @@
 
 void	refresh(t_long *game)
 {
-	int	i;
-	int	j;
+	int	y;
+	int	x;
+	int	count;
 
-	i = 0;
-	while (i < game->width)
+	y = -1;
+	count = 0;
+	while (y++ < game->width)
 	{
-		j = 0;
-		while (j < game->height)
+		x = -1;
+		while (x++ < game->height)
 		{
-			if (game->matrice[i][j] == '0')
-				mlx_put_image_to_window(game->link, game->fen, game->floor,
-					i * 32, j * 32);
-			if (game->matrice[i][j] == '1')
-				mlx_put_image_to_window(game->link, game->fen, game->wall,
-					i * 32, j * 32);
-			if (game->matrice[i][j] == 'P')
-				mlx_put_image_to_window(game->link, game->fen, game->perso,
-					i * 32, j * 32);
-			if (game->matrice[i][j] == 'C')
-				mlx_put_image_to_window(game->link, game->fen, game->items,
-					i * 32, j * 32);
-			if (game->matrice[i][j] == 'E')
-				mlx_put_image_to_window(game->link, game->fen, game->exit,
-					i * 32, j * 32);
-			j++;
+			if (game->matrice[y][x] == '1')
+				put_image(game, game->wall, x, y);
+			else if (game->matrice[y][x] == 'C')
+			{
+				put_image(game, game->items, x, y);
+				count++;
+			}
+			else
+				put_image(game, game->floor, x, y);
 		}
-		i++;
 	}
+	put_image(game, game->perso, game->p_x, game->p_y);
 }
 
 void	init_image(t_long **game)
@@ -60,3 +55,11 @@ void	init_image(t_long **game)
 	*game = temp;
 }
 
+void	put_image(t_long *game, void *image, int x, int y)
+{
+	int	*s;
+	int	n;
+
+	s = &n;
+	mlx_put_image_to_window(game->link, game->fen, image, x * 32, y * 32);
+}
