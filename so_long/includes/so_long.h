@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:41:29 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/07 10:58:50 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/08 12:28:42 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include "get_next_line_bonus.h"
 # include "libft.h"
 
+# define LEFT_BIND 0
+# define RIGHT_BIND 2
+# define UP_BIND 13
+# define DOWN_BIND 1
+# define ESCAPE_BIND 53
+
 typedef struct s_long
 {
 	void	*link;
@@ -25,9 +31,8 @@ typedef struct s_long
 	int		height;
 	int		p_x;
 	int		p_y;
-	int		e_x;
-	int		e_y;
 	int		count_items;
+	int		count;
 
 	void	*floor;
 	void	*wall;
@@ -41,9 +46,12 @@ typedef struct s_long
 int		init(int argc, char const *argv[], t_long **game);
 int		complete_matrice(int fd, t_long **game, STRING str);
 void	refresh(t_long *game);
-int		move(int keycode, t_long *game);
+int		move(int keycode, t_long **game);
 void	init_image(t_long **game);
 void	put_image(t_long *game, void *image, int x, int y);
 int		verif_matrice(t_long **game);
+int		move_matrice(t_long **game, int x, int y);
+int		ft_close(t_long *temp);
+int		init_perso(t_long **game, int x, int y);
 
 #endif

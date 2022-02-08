@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fen_disp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:06:11 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/07 11:42:58 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/08 09:10:32 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	refresh(t_long *game)
 {
 	int	y;
 	int	x;
-	int	count;
 
 	y = -1;
-	count = 0;
 	while (y++ < game->width)
 	{
 		x = -1;
@@ -28,10 +26,9 @@ void	refresh(t_long *game)
 			if (game->matrice[y][x] == '1')
 				put_image(game, game->wall, x, y);
 			else if (game->matrice[y][x] == 'C')
-			{
 				put_image(game, game->items, x, y);
-				count++;
-			}
+			else if (game->matrice[y][x] == 'E')
+				put_image(game, game->exit, x, y);
 			else
 				put_image(game, game->floor, x, y);
 		}

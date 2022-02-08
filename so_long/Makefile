@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/05 06:39:35 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/02/08 12:48:56 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ SUR			=	\033[7m
 END			=	\033[0m
 
 LST_SRCS =  main.c get_next_line_bonus.c get_next_line_utils_bonus.c fen_disp.c\
-			
+			moves.c
 INC = 0
 LST_OBJS = ${LST_SRCS:.c=.o}
-LIBRARY = libft/libft.a
+LIBRARY = libft/libft.a mlx/libmlx.a
 SRCS = $(addprefix sources/,$(LST_SRCS))
 OBJS = $(addprefix .objects/,$(LST_OBJS))
 INCLUDES    = includes/get_next_line_bonus.h libft/includes/libft.h includes/so_long.h mlx/mlx.h
@@ -49,12 +49,12 @@ endif
 
 all:        ${NAME}
 
-.objects/%.o:		sources/%.c ${INCLUDES}
-			mkdir -p .objects
+.objects/%.o:		sources/%.c | .objects
 			${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
 			printf "${ERASE}${BLUE}[BUILD]${END} $<"
 
-${NAME}:	compilation ${OBJS} ${INCLUDES} Makefile compilation
+${NAME}:	${OBJS} ${INCLUDES} Makefile libft/libft.a mlx/libmlx.a
+			$(compilation)
 			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY} ${LIBX} $(DIR_INCLUDES)
 			printf $(NORM_RET)
 
@@ -74,6 +74,8 @@ compilation:
 	make -s -C libft
 	make -s -C mlx
 
+.objects:
+			mkdir -p .objects
 .PHONY:	all clean fclean re compilation
 
 .SILENT:
