@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 12:55:49 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/09 13:00:05 by gchatain         ###   ########lyon.fr   */
+/*   Created: 2022/02/09 12:56:27 by gchatain          #+#    #+#             */
+/*   Updated: 2022/02/09 16:50:50 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-#define PIPEX_H
+#include "minitalk.h"
 
-# include "libft.h"
+int	main(void)
+{
+	pid_t	pid;
 
-#endif
+	pid = getpid();
+	ft_putnbr_fd(pid, 1);
+	return (0);
+}

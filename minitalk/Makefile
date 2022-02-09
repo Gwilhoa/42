@@ -6,7 +6,7 @@
 #    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/09 13:08:32 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/02/09 18:46:39 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,51 +24,59 @@ UNDER		=	\033[4m
 SUR			=	\033[7m
 END			=	\033[0m
 
-LST_SRCS =   main.c
-LST_OBJS = ${LST_SRCS:.c=.o}
-AR_LIBFT := libft/libft.a
-DIR_LIBFT	:= libft
-SRCS = $(addprefix sources/,$(LST_SRCS))
-OBJS = $(addprefix .objects/,$(LST_OBJS))
-INCLUDES    = includes/pipex.h libft/includes/libft.h
+LST_SRCS_SRV =   main.c
+LST_OBJS_SRV = ${LST_SRCS_SRV:.c=.o}
+SRCS_SRV = $(addprefix sources/,$(LST_SRCS_SRV))
+OBJS_SRV = $(addprefix .objects/,$(LST_OBJS_SRV))
+
+
+LST_SRCS_CLT =
+LST_OBJS_CLT = ${LST_SRCS_SRV:.c=.o}
+SRCS_CLT = $(addprefix sources/,$(LST_SRCS_CLT))
+OBJS_CLT = $(addprefix .objects/,$(LST_OBJS_SRV))
+
+
+INCLUDES    = includes/minitalk.h libft/includes/libft.h
 DIR_INCLUDES = $(sort $(addprefix -I, $(dir $(INCLUDES))))
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
-NAME        = pipex
 RM          = rm -f
 NORM        = $(shell norminette sources | grep -c 'Error!')
 
 ifeq ($(NORM), 0)
-	NORM_RET = "${ERASE}${GREEN}[DONE]${END} ${NAME}"
+	NORM_RET = "${ERASE}${GREEN}[DONE]${END} minitalk"
 else
-	NORM_RET = "${ERASE}${RED}[NORM]${END} ${NAME}"
+	NORM_RET = "${ERASE}${RED}[NORM]${END} minitalk"
 endif
-all:        ${NAME}
+all:        server client
 
 .objects/%.o:	sources/%.c ${INCLUDES} | .objects
 			${CC} ${CFLAGS} -c $< -o $@ ${DIR_INCLUDES}
 			printf "${ERASE}${BLUE}[BUILD]${END} $<"
 
-${NAME}:	${OBJS} ${INCLUDES} Makefile ${LIBRARY} $(AR_LIBFT)
-			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${AR_LIBFT} ${DIR_INCLUDES}
+server:	${OBJS_SRV} ${INCLUDES} Makefile libft/libft.a 
+			${CC} ${CFLAGS} -o server ${OBJS_SRV} ${DIR_INCLUDES} libft/libft.a
+			printf $(NORM_RET)
+
+client:	${OBJS_SLT} ${INCLUDES} Makefile libft/libft.a 
+			${CC} ${CFLAGS} -o client ${OBJS} ${DIR_INCLUDES} libft/libft.a
 			printf $(NORM_RET)
 
 clean:
 			${RM} ${OBJS}
-			@make fclean -s -C libft
 			printf "${RED}[DELETE]${END} directory .objects"
+libft/libft.a:
+	make -s -C libft
 
 fclean:	clean
 			${RM} -r ${NAME} .objects
+			make fclean -s -C libft
 			printf "${ERASE}${RED}[DELETE]${END} ${NAME}\n"
 
 re:			fclean all
 
 .objects:
 			mkdir -p .objects
-
-$(AR_LIBFT):
-	$(MAKE) -C libft
 
 .PHONY:	all clean fclean re compilation
 

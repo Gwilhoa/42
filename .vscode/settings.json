@@ -25,6 +25,7 @@
 		"vector": "c",
 		"cstdlib": "c",
 		"utility": "c",
-		"so_long.h": "c"
+		"so_long.h": "c",
+		"minitalk.h": "c"
 	}
 }

@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 08:36:27 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/09 13:10:05 by gchatain         ###   ########lyon.fr   */
+/*   Created: 2022/02/09 12:55:49 by gchatain          #+#    #+#             */
+/*   Updated: 2022/02/09 16:49:44 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int	ft_putstr_fd(const char *str, int fd)
-{
-	int	i;
+# include <stdio.h>
+# include "libft.h"
 
-	if (!str)
-		return (ft_putstr_fd("(null)", fd));
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar_fd(str[i], fd);
-		i++;
-	}
-	return (i);
-}
+
+#endif

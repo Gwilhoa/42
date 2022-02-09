@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 12:56:27 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/09 13:19:09 by gchatain         ###   ########lyon.fr   */
+/*   Created: 2021/07/08 18:12:20 by gchatain          #+#    #+#             */
+/*   Updated: 2022/02/09 11:50:33 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
-int main(int argc, char const *argv[])
-{
-	STRING str;
+#include "libft.h"
 
-	ft_strlen(argv[0]);
-	ft_putstr_fd(str, 1);
-	return argc;
+int	ft_strlen(char const *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
