@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 13:37:37 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/09 11:46:07 by gchatain         ###   ########lyon.fr   */
+/*   Created: 2021/11/08 10:17:51 by gchatain          #+#    #+#             */
+/*   Updated: 2022/02/02 14:53:01 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstlast(t_list *lst)
 {
-	STRING					*str;
-	unsigned long int		i;
-
-	i = 0;
-	str = malloc(count * size);
-	if (!str)
+	if (!lst)
 		return (0);
-	while (i < count * size)
-	{
-		str[i] = 0;
-		i++;
-	}
-	return (str);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

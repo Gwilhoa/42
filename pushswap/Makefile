@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: guilheimchataing <guilheimchataing@stud    +#+  +:+       +#+         #
+#    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/03 22:37:39 by guilheimcha      ###   ########lyon.fr    #
+#    Updated: 2022/02/09 10:41:51 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 

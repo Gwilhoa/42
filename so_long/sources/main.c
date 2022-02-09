@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:06:03 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/08 12:28:57 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/09 11:43:54 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,19 +70,19 @@ int	complete_matrice(int fd, t_long **game, STRING str)
 	i = 0;
 	temp = *game;
 	temp->matrice = malloc((1 + temp->height) * sizeof(STRING *));
-	while (str)
+	while (ft_strlen(str) - 1 == temp->height)
 	{
-		if (ft_strlen(str) - 1 != temp->height)
-			return (0);
 		temp->matrice[i] = str;
 		str = get_next_line(fd);
 		i++;
 	}
-	temp->matrice[i] = NULL;
-	temp->width = i - 1;
-	*game = temp;
-	if (temp->height - 2 < temp->width)
+	temp->matrice[i] = str;
+	str = get_next_line(fd);
+	if (str != NULL)
 		return (0);
+	temp->matrice[i + 1] = NULL;
+	temp->width = i;
+	*game = temp;
 	return (1);
 }
 

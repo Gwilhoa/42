@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 13:37:37 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/09 11:46:07 by gchatain         ###   ########lyon.fr   */
+/*   Created: 2022/02/09 12:55:49 by gchatain          #+#    #+#             */
+/*   Updated: 2022/02/09 13:00:05 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PIPEX_H
+#define PIPEX_H
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	STRING					*str;
-	unsigned long int		i;
+# include "libft.h"
 
-	i = 0;
-	str = malloc(count * size);
-	if (!str)
-		return (0);
-	while (i < count * size)
-	{
-		str[i] = 0;
-		i++;
-	}
-	return (str);
-}
+#endif

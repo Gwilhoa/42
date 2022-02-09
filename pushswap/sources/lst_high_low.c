@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_high_low.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:14:57 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/02 16:11:24 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/09 14:19:37 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	lst_highest_index(t_list *lst)
 	high = INT_MIN;
 	while (lst)
 	{
-		if (lst->content > high)
+		if (lst->content >= high)
 		{
 			high = lst->content;
 			index = i;

@@ -6,10 +6,9 @@
 #    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/09 10:41:31 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/02/09 13:08:32 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
-
 
 ERASE		=	\033[2K\r
 GREY		=	\033[30m
@@ -25,20 +24,18 @@ UNDER		=	\033[4m
 SUR			=	\033[7m
 END			=	\033[0m
 
-LST_SRCS =  main.c get_next_line_bonus.c get_next_line_utils_bonus.c fen_disp.c\
-			moves.c
-INC = 0
+LST_SRCS =   main.c
 LST_OBJS = ${LST_SRCS:.c=.o}
-LIBRARY = libft/libft.a mlx/libmlx.a
+AR_LIBFT := libft/libft.a
+DIR_LIBFT	:= libft
 SRCS = $(addprefix sources/,$(LST_SRCS))
 OBJS = $(addprefix .objects/,$(LST_OBJS))
-INCLUDES    = includes/get_next_line_bonus.h libft/includes/libft.h includes/so_long.h mlx/mlx.h
+INCLUDES    = includes/pipex.h libft/includes/libft.h
 DIR_INCLUDES = $(sort $(addprefix -I, $(dir $(INCLUDES))))
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
-NAME        = so_long
+NAME        = pipex
 RM          = rm -f
-LIBX        = -I /usr/X11/include -g -L ./mlx -l mlx -framework OpenGL -framework AppKit
 NORM        = $(shell norminette sources | grep -c 'Error!')
 
 ifeq ($(NORM), 0)
@@ -46,38 +43,33 @@ ifeq ($(NORM), 0)
 else
 	NORM_RET = "${ERASE}${RED}[NORM]${END} ${NAME}"
 endif
-
 all:        ${NAME}
 
-.objects/%.o:		sources/%.c | .objects
-			${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
+.objects/%.o:	sources/%.c ${INCLUDES} | .objects
+			${CC} ${CFLAGS} -c $< -o $@ ${DIR_INCLUDES}
 			printf "${ERASE}${BLUE}[BUILD]${END} $<"
 
-${NAME}:	${OBJS} ${INCLUDES} Makefile libft/libft.a mlx/libmlx.a
-			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY} ${LIBX} $(DIR_INCLUDES)
+${NAME}:	${OBJS} ${INCLUDES} Makefile ${LIBRARY} $(AR_LIBFT)
+			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${AR_LIBFT} ${DIR_INCLUDES}
 			printf $(NORM_RET)
 
 clean:
 			${RM} ${OBJS}
-			${RM} -rf a.out.dSYM
-			make fclean -s -C libft
-			make clean -s -C mlx
-			printf "${RED}[DELETE]${END} *.o"
+			@make fclean -s -C libft
+			printf "${RED}[DELETE]${END} directory .objects"
 
 fclean:	clean
 			${RM} -r ${NAME} .objects
 			printf "${ERASE}${RED}[DELETE]${END} ${NAME}\n"
 
-re:		fclean all
-
-libft/libft.a:
-	make -s -C libft
-
-mlx/libmlx.a:
-	make -s -C mlx
+re:			fclean all
 
 .objects:
 			mkdir -p .objects
-.PHONY:	all clean fclean re
+
+$(AR_LIBFT):
+	$(MAKE) -C libft
+
+.PHONY:	all clean fclean re compilation
 
 .SILENT:

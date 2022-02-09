@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 13:37:37 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/09 11:46:07 by gchatain         ###   ########lyon.fr   */
+/*   Created: 2021/11/03 08:30:46 by gchatain          #+#    #+#             */
+/*   Updated: 2022/02/02 14:53:30 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_putchar_fd(char c, int fd)
 {
-	STRING					*str;
-	unsigned long int		i;
-
-	i = 0;
-	str = malloc(count * size);
-	if (!str)
-		return (0);
-	while (i < count * size)
-	{
-		str[i] = 0;
-		i++;
-	}
-	return (str);
+	write(fd, &c, 1);
+	return (1);
 }
