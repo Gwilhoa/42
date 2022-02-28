@@ -24,53 +24,53 @@ UNDER		=	\033[4m
 SUR			=	\033[7m
 END			=	\033[0m
 
-LST_SRCS_SRV =   main.c
-LST_OBJS_SRV = ${LST_SRCS_SRV:.c=.o}
-SRCS_SRV = $(addprefix sources/,$(LST_SRCS_SRV))
-OBJS_SRV = $(addprefix .objects/,$(LST_OBJS_SRV))
+LST_SRCS =   server.c
+LST_OBJS = ${LST_SRCS:.c=.o}
+SRCS = $(addprefix sources/,$(LST_SRCS))
+OBJS = $(addprefix .objects/,$(LST_OBJS))
 
-
-LST_SRCS_CLT =
-LST_OBJS_CLT = ${LST_SRCS_SRV:.c=.o}
+LST_SRCS_CLT =   client.c
+LST_OBJS_CLT = ${LST_SRCS_CLT:.c=.o}
 SRCS_CLT = $(addprefix sources/,$(LST_SRCS_CLT))
-OBJS_CLT = $(addprefix .objects/,$(LST_OBJS_SRV))
+OBJS_CLT = $(addprefix .objects/,$(LST_OBJS_CLT))
 
-
+INC = 0
+AR_LIBFT := libft/libft.a
+DIR_LIBFT	:= libft
 INCLUDES    = includes/minitalk.h libft/includes/libft.h
 DIR_INCLUDES = $(sort $(addprefix -I, $(dir $(INCLUDES))))
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
+NAME        = minitalk
 RM          = rm -f
 NORM        = $(shell norminette sources | grep -c 'Error!')
 
 ifeq ($(NORM), 0)
-	NORM_RET = "${ERASE}${GREEN}[DONE]${END} minitalk"
+	NORM_RET = "${ERASE}${GREEN}[DONE]${END} ${NAME}"
 else
-	NORM_RET = "${ERASE}${RED}[NORM]${END} minitalk"
+	NORM_RET = "${ERASE}${RED}[NORM]${END} ${NAME}"
 endif
-all:        server client
+all:        client server
 
 .objects/%.o:	sources/%.c ${INCLUDES} | .objects
 			${CC} ${CFLAGS} -c $< -o $@ ${DIR_INCLUDES}
 			printf "${ERASE}${BLUE}[BUILD]${END} $<"
 
-server:	${OBJS_SRV} ${INCLUDES} Makefile libft/libft.a 
-			${CC} ${CFLAGS} -o server ${OBJS_SRV} ${DIR_INCLUDES} libft/libft.a
+server:	${OBJS} ${INCLUDES} Makefile ${LIBRARY} $(AR_LIBFT)
+			${CC} ${CFLAGS} -o server ${OBJS} ${AR_LIBFT} ${DIR_INCLUDES}
 			printf $(NORM_RET)
 
-client:	${OBJS_SLT} ${INCLUDES} Makefile libft/libft.a 
-			${CC} ${CFLAGS} -o client ${OBJS} ${DIR_INCLUDES} libft/libft.a
+client:	${OBJS_CLT} ${INCLUDES} Makefile ${LIBRARY} $(AR_LIBFT)
+			${CC} ${CFLAGS} -o client ${OBJS_CLT} ${AR_LIBFT} ${DIR_INCLUDES}
 			printf $(NORM_RET)
 
 clean:
 			${RM} ${OBJS}
+			@make fclean -s -C libft
 			printf "${RED}[DELETE]${END} directory .objects"
-libft/libft.a:
-	make -s -C libft
 
 fclean:	clean
 			${RM} -r ${NAME} .objects
-			make fclean -s -C libft
 			printf "${ERASE}${RED}[DELETE]${END} ${NAME}\n"
 
 re:			fclean all
@@ -78,6 +78,10 @@ re:			fclean all
 .objects:
 			mkdir -p .objects
 
+$(AR_LIBFT):
+	$(MAKE) -C libft
+
 .PHONY:	all clean fclean re compilation
+
 
 .SILENT:

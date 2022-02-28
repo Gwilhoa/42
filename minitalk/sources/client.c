@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "minitalk.h"
 
 static void	action(int sig)
@@ -23,8 +20,7 @@ static void	action(int sig)
 		++received;
 	else
 	{
-		ft_putnbr_fd(received, 1);
-		ft_putchar_fd('\n', 1);
+		ft_putstr_fd("successfully received", 1);
 		exit(0);
 	}
 }
@@ -59,10 +55,6 @@ int	main(int argc, char **argv)
 {
 	if (argc != 3 || !ft_strlen(argv[2]))
 		return (1);
-	ft_putstr_fd("Sent    : ", 1);
-	ft_putnbr_fd(ft_strlen(argv[2]), 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("Received: ", 1);
 	signal(SIGUSR1, action);
 	signal(SIGUSR2, action);
 	mt_kill(ft_atoi(argv[1]), argv[2]);

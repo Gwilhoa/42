@@ -14,7 +14,8 @@
 # define MINITALK_H
 
 # include <stdio.h>
+# include <unistd.h>
+# include <signal.h>
 # include "libft.h"
-
 
 #endif

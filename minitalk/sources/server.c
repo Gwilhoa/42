@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <unistd.h>
-#include <signal.h>
 
 static void	action(int sig, siginfo_t *info, void *context)
 {
@@ -48,6 +46,7 @@ int	main(void)
 
 	pid = getpid();
 	ft_putnbr_fd(pid, 1);
+	ft_putchar_fd('\n', 1);
 	s_sigaction.sa_sigaction = action;
 	s_sigaction.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &s_sigaction, 0);
