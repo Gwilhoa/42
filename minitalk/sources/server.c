@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 12:56:27 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/17 09:54:02 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/01 09:34:31 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	action(int sig, siginfo_t *info, void *context)
 		kill(client_pid, SIGUSR1);
 	}
 	else
-		c <<= 1;
+		c = c << 1;
 }
 
 int	main(void)

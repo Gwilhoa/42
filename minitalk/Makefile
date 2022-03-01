@@ -6,7 +6,7 @@
 #    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/09 18:46:39 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/02/28 12:29:27 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,9 @@ ifeq ($(NORM), 0)
 else
 	NORM_RET = "${ERASE}${RED}[NORM]${END} ${NAME}"
 endif
-all:        client server
+all:       $(NAME)
+
+$(NAME):    client server
 
 .objects/%.o:	sources/%.c ${INCLUDES} | .objects
 			${CC} ${CFLAGS} -c $< -o $@ ${DIR_INCLUDES}
@@ -70,7 +72,7 @@ clean:
 			printf "${RED}[DELETE]${END} directory .objects"
 
 fclean:	clean
-			${RM} -r ${NAME} .objects
+			${RM} -r ${NAME} .objects server client
 			printf "${ERASE}${RED}[DELETE]${END} ${NAME}\n"
 
 re:			fclean all
@@ -81,7 +83,7 @@ re:			fclean all
 $(AR_LIBFT):
 	$(MAKE) -C libft
 
-.PHONY:	all clean fclean re compilation
+.PHONY:	all clean fclean re compilation $(NAME)
 
 
 .SILENT:

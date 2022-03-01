@@ -26,6 +26,7 @@
 		"cstdlib": "c",
 		"utility": "c",
 		"so_long.h": "c",
-		"minitalk.h": "c"
+		"minitalk.h": "c",
+		"__hash_table": "c"
 	}
 }
