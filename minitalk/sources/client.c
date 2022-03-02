@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 09:51:42 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/01 09:15:17 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/02 14:42:19 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,17 @@ static void	sender(int pid, char *str)
 
 int	main(int argc, char **argv)
 {
+	int		pid;
+	char	*temp;
+
 	if (argc != 3 || !ft_strlen(argv[2]))
-		return (1);
+		return (ft_putstr_fd("error args\nusage: ./client pid 'message'", 1));
 	signal(SIGUSR1, action);
 	signal(SIGUSR2, action);
-	if (ft_atoi(argv[1]) < 0)
-		return (ft_putstr_fd("le pid ne peut pas etre négatif", 1));
+	pid = ft_atoi(argv[1]);
+	temp = ft_itoa(pid);
+	if (ft_atoi(argv[1]) <= 0 || ft_strncmp(argv[1], temp, ft_strlen(temp)))
+		return (ft_putstr_fd("invalid PID", 1));
 	sender(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }

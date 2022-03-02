@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 12:56:27 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/01 09:34:31 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/02 15:53:26 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ static void	action(int sig, siginfo_t *info, void *context)
 	static unsigned char	c = 0;
 
 	(void)context;
-	if (!client_pid)
+	if (client_pid != info->si_pid)
+	{
+		i = 0;
+		c = 0;
 		client_pid = info->si_pid;
+	}
 	c |= (sig == SIGUSR2);
 	if (++i == 8)
 	{
