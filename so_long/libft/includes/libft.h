@@ -215,7 +215,7 @@ int				ft_putchar_fd(char c, int fd);
  * @param fd file descriptor
  * @return renvoie taille de la chaine de char 
  */
-int				ft_putstr_fd(const char *str, int fd);
+int			ft_putstr_fd(char *str, int fd)
 
 /**
  * @brief ecrite dans un file descriptor un nombre
