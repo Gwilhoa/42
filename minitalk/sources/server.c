@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 12:56:27 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/02 15:53:26 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/07 09:41:25 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,10 @@ static void	action(int sig, siginfo_t *info, void *context)
 		i = 0;
 		if (!c)
 		{
-			kill(client_pid, SIGUSR2);
-			client_pid = 0;
+			client_pid = kill(client_pid, SIGUSR2);
 			return ;
 		}
-		ft_putchar_fd(c, 1);
-		c = 0;
+		c = ft_putchar_fd(c, 1) - 1;
 		kill(client_pid, SIGUSR1);
 	}
 	else

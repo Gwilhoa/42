@@ -29,5 +29,6 @@
 		"minitalk.h": "c",
 		"__hash_table": "c",
 		"philosophers.h": "c"
-	}
+	},
+	"discord.enabled": true
 }

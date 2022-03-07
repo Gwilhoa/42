@@ -6,18 +6,54 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 10:49:24 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/06 14:21:41 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:04:44 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
-int main(int argc, char const *argv[])
+
+int	main(int argc, char const *argv[])
 {
-	if (argc == 4 || argc == 5)
+	t_table	table;
+
+	if (argc == 5 || argc == 6)
 	{
-		
-	} else {
-		return (ft_printf("./philo [number philo] [time_to_die] [time_to_eat] [time_to_sleep] [number_of_times_each_philosopher_must_eat]"));
+		if (!init(argv, &table))
+			return (ft_putstr_fd("error", 1));
 	}
+	else
+		return (ft_putstr_fd("./philo [number philo] [time_to_die] [time_to_eat] [time_to_sleep] [number_of_times_each_philosopher_must_eat]",1));
 	return (0);
+}
+
+int	init(const char **argv, t_table *table)
+{
+	int	i;
+
+	//verifier les args
+	table->number_philo = ft_atoi(argv[1]);
+	table->time_to_die = ft_atoi(argv[2]);
+	table->time_to_eat = ft_atoi(argv[3]);
+	table->time_to_sleep = ft_atoi(argv[4]);
+	table->each_time_to_eat = ft_atoi(argv[5]);
+	table->mutex;
+	pthread_mutex_init(&table->mutex, NULL);
+	pthread_mutex_lock(&table->mutex);
+	i = 0;
+	table->philos = malloc(table->number_philo * sizeof(t_philo));
+	while (i <= table->number_philo)
+	{
+		table->philos[i] = init_philo(&table);
+		i++;
+	}
+	return (1);
+}
+
+t_philo	init_philo(t_table **table)
+{
+	t_philo	philo;
+
+	philo.last_eat = 0;
+	philo.table = table;
+	return (philo);
 }

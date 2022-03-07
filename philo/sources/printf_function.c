@@ -6,11 +6,11 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 14:17:56 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/04 22:59:12 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:50:55 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "philosophers.h"
 
 int	ft_putunsigned(unsigned int nb, int fd)
 {
