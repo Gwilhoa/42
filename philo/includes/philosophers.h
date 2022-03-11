@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:16:54 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/07 17:11:10 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/11 08:47:35 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-typdef struct t_table;
+struct	s_table;
 
 typedef struct s_philosophers
 {
+	int				number;
 	int				last_eat;
 	pthread_t		thread;
 	t_table			*table;
-
+	pthread_mutex_t	fork;
 }	t_philo;
 
 typedef struct s_table
@@ -35,9 +36,8 @@ typedef struct s_table
 	int				time_to_die;
 	int				time_to_sleep;
 	int				each_time_to_eat;
-	pthread_mutex_t	mutex;
 
-	t_philo	*philos;
+	t_philo			*philos;
 
 }	t_table;
 
