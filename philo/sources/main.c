@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 10:49:24 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/11 15:54:01 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/15 14:53:16 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,99 @@
 
 int	main(int argc, char const *argv[])
 {
-	t_table	table;
+	t_table		table;
+	int			i;
+	int			nb;
 
+	i = 0;
+	nb = 0;
 	if ((argc == 5 || argc == 6) && verif_args(argv, argc) == 1)
 	{
-		if (!init(argv, &table, argc))
-			return (ft_putstr_fd("error", 1));
+		init(argv, &table, argc);
+		while (1)
+		{
+			if (verif_philo(&table.philos[i]) == 1)
+				return (stop(&table, i + 1));
+			if (verif_philo(&table.philos[i]) == 1)
+				return (stop(&table, -1));
+			i++;
+			if (i >= table.number_philo)
+				i = 0;
+		}
 	}
 	else
-		return (ft_putstr_fd("./philo [number philo] [time_to_die] [time_to_eat] [time_to_sleep] [number_of_times_each_philosopher_must_eat]", 1));
+	{
+		ft_putstr_fd("./philo [number philo] [time_to_die]", 1);
+		ft_putstr_fd("[time_to_eat] [time_to_sleep]", 1);
+		ft_putstr_fd("[number_of_times_each_philosopher_must_eat]", 1);
+	}
 	return (0);
 }
 
-int	init(const char **argv, t_table *table, int argc)
+int	stop(t_table *table, int philo)
 {
-	int	i;
+	int			i;
+	u_int64_t	time;
 
-	table->number_philo = ft_atoi(argv[1]);
-	table->time_to_die = ft_atoi(argv[2]);
-	table->time_to_eat = ft_atoi(argv[3]);
-	table->time_to_sleep = ft_atoi(argv[4]);
-	pthread_mutex_init(&table->talking, NULL);
-	if (argc == 5)
-		table->each_time_to_eat = -1;
+	time = get_time() - table->start_time;
+	table->start_time = (u_int64_t)-1;
+	i = 0;
+	while (i < table->number_philo)
+	{
+		pthread_mutex_unlock(&table->philos[i].fork);
+		pthread_join(table->philos[i].thread, NULL);
+		i++;
+	}
+	if (philo != -1)
+		ft_printf("[%i] philo %i died\n", time, philo);
 	else
-		table->each_time_to_eat = ft_atoi(argv[5]);
-	i = 0;
-	table->philos = malloc(table->number_philo * sizeof(t_philo));
-	while (i < table->number_philo)
-	{
-		table->philos[i] = init_philo(&table, i);
-		i++;
-	}
-	table->start_time = get_time();
-	i = 0;
-	while (i < table->number_philo)
-	{
-		pthread_create(&table->philos[i].thread, NULL, routine, &table->philos[i]);
-		i++;
-	}
-	while (1)
-	{
-	}
-	return (1);
+		ft_printf("[%i] dinner is over\n", time);
+	free(table->philos);
+	return (0);
 }
 
-t_philo	init_philo(t_table **table, int i)
+int	has_eaten(t_table *table)
 {
-	t_philo	philo;
+	int	nb;
+	int	i;
+	int	ret;
 
-	philo.last_eat = 0;
-	philo.number = i + 1;
-	pthread_mutex_init(&philo.fork, NULL);
-	philo.table = *table;
-	return (philo);
+	nb = table->number_philo;
+	i = 0;
+	ret = 0;
+	while (i < nb)
+	{
+		if (table->philos[i].each_eaten >= table->each_time_to_eat)
+			ret++;
+		i++;
+	}
+	return (ret);
+}
+
+void	launch_thread(t_table **table)
+{
+	t_table	*ret;
+	t_philo	*philo;
+	int		i;
+
+	i = 0;
+	ret = *table;
+	philo = ret->philos;
+	while (i < ret->number_philo)
+	{
+		if (i % 2 == 0)
+			pthread_create(&philo[i].thread, NULL, routine, &philo[i]);
+		i++;
+	}
+	i = 0;
+	usleep(100);
+	while (i < ret->number_philo)
+	{
+		if (i % 2 != 0)
+			pthread_create(&philo[i].thread, NULL, routine, &philo[i]);
+		i++;
+	}
+	*table = ret;
 }
 
 int	verif_args(const char **argv, int argc)

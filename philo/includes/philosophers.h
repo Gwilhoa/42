@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:16:54 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/11 16:21:33 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/15 14:52:38 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct s_table	t_table;
 typedef struct s_philosophers
 {
 	int				number;
-	int				last_eat;
+	int				each_eaten;
+	u_int64_t		last_eat;
 	pthread_t		thread;
 	t_table			*table;
 	pthread_mutex_t	fork;
@@ -43,7 +44,7 @@ typedef struct s_table
 	pthread_mutex_t	talking;
 	int				number_philo;
 	int				time_to_eat;
-	int				time_to_die;
+	uint64_t		time_to_die;
 	int				time_to_sleep;
 	int				each_time_to_eat;
 	uint64_t		start_time;
@@ -67,9 +68,15 @@ int			init(const char **argv, t_table *table, int argc);
 int			verif_args(const char **argv, int argc);
 int			ft_strlen(char const *str);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			eats(t_philo *philo);
+int			has_eaten(t_table *table);
+int			stop(t_table *table, int philo);
+int			verif_philo(t_philo *philo);
 char		*ft_itoa(int n);
 void		*routine(void *vargp);
-void		eats(t_philo *philo);
+void		taking_fork(t_philo *philo, pthread_mutex_t *fork);
+void		launch_thread(t_table **table);
+void		my_usleep(u_int64_t time);
 void		talking(t_philo *philo, int type);
 
 #endif

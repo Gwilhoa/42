@@ -6,7 +6,7 @@
 #    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 13:56:27 by gchatain          #+#    #+#              #
-#    Updated: 2022/03/11 14:58:06 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/03/15 13:57:01 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ CC			:= gcc
 LST_SRCS		:= ft_atoi.c ft_printf.c ft_putchar_fd.c\
 				ft_putnbr_fd.c ft_putstr_fd.c main.c \
 				printf_function.c ft_itoa.c ft_strlen.c \
-				ft_strncmp.c simulation.c
+				ft_strncmp.c simulation.c init.c
 
 LST_OBJS		:= $(LST_SRCS:.c=.o)
 OBJS			= $(addprefix .objects/,$(LST_OBJS))
@@ -69,5 +69,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all re fclean clean leak
+.PHONY: all re fclean clean
 .SILENT:
