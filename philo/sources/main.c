@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 10:49:24 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/15 14:53:16 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/16 12:44:13 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,16 @@ int	main(int argc, char const *argv[])
 
 	i = 0;
 	nb = 0;
-	if ((argc == 5 || argc == 6) && verif_args(argv, argc) == 1)
+	if ((argc == 5 || argc == 6))
 	{
+		if (verif_args(argv, argc) == 2)
+			return (usage(1));
 		init(argv, &table, argc);
 		while (1)
 		{
 			if (verif_philo(&table.philos[i]) == 1)
 				return (stop(&table, i + 1));
-			if (verif_philo(&table.philos[i]) == 1)
+			if (verif_philo(&table.philos[i]) == 2)
 				return (stop(&table, -1));
 			i++;
 			if (i >= table.number_philo)
@@ -35,11 +37,20 @@ int	main(int argc, char const *argv[])
 		}
 	}
 	else
+		return (usage(0));
+	return (0);
+}
+
+int	usage(int i)
+{
+	if (i == 0)
 	{
 		ft_putstr_fd("./philo [number philo] [time_to_die]", 1);
 		ft_putstr_fd("[time_to_eat] [time_to_sleep]", 1);
 		ft_putstr_fd("[number_of_times_each_philosopher_must_eat]", 1);
 	}
+	else
+		ft_putstr_fd("illegal or invalid argument", 1);
 	return (0);
 }
 
@@ -62,7 +73,7 @@ int	stop(t_table *table, int philo)
 	else
 		ft_printf("[%i] dinner is over\n", time);
 	free(table->philos);
-	return (0);
+	return (1);
 }
 
 int	has_eaten(t_table *table)
@@ -83,32 +94,6 @@ int	has_eaten(t_table *table)
 	return (ret);
 }
 
-void	launch_thread(t_table **table)
-{
-	t_table	*ret;
-	t_philo	*philo;
-	int		i;
-
-	i = 0;
-	ret = *table;
-	philo = ret->philos;
-	while (i < ret->number_philo)
-	{
-		if (i % 2 == 0)
-			pthread_create(&philo[i].thread, NULL, routine, &philo[i]);
-		i++;
-	}
-	i = 0;
-	usleep(100);
-	while (i < ret->number_philo)
-	{
-		if (i % 2 != 0)
-			pthread_create(&philo[i].thread, NULL, routine, &philo[i]);
-		i++;
-	}
-	*table = ret;
-}
-
 int	verif_args(const char **argv, int argc)
 {
 	int		i;
@@ -123,6 +108,8 @@ int	verif_args(const char **argv, int argc)
 			free(temp);
 			return (0);
 		}
+		if (ft_atoi(temp) <= 0)
+			return (2);
 		i++;
 		free(temp);
 	}

@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:16:54 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/15 14:52:38 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/16 12:40:22 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int			eats(t_philo *philo);
 int			has_eaten(t_table *table);
 int			stop(t_table *table, int philo);
 int			verif_philo(t_philo *philo);
+int			usage(int i);
 char		*ft_itoa(int n);
 void		*routine(void *vargp);
 void		taking_fork(t_philo *philo, pthread_mutex_t *fork);

@@ -6,7 +6,7 @@
 #    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 12:12:30 by gchatain          #+#    #+#              #
-#    Updated: 2022/02/09 10:41:31 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/03/16 12:52:21 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SUR			=	\033[7m
 END			=	\033[0m
 
 LST_SRCS =  main.c get_next_line_bonus.c get_next_line_utils_bonus.c fen_disp.c\
-			moves.c
+			moves.c init.c
 INC = 0
 LST_OBJS = ${LST_SRCS:.c=.o}
 LIBRARY = libft/libft.a mlx/libmlx.a

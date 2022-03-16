@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: gwilhoa <gwilhoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:07:18 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/02 19:20:50 by gchatain         ###   ########.fr       */
+/*   Updated: 2022/02/02 20:22:22 by gwilhoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_lstclear(t_list **lst)
 	while (*lst)
 	{
 		t = (*lst)->next;
-		free(lst);
+		free(*lst);
 		(*lst) = t;
 	}
 }

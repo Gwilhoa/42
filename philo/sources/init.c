@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:54:58 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/15 15:15:43 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/16 12:36:45 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,30 @@ int	verif_philo(t_philo *philo)
 		&& has_eaten(philo->table) == philo->table->number_philo)
 		return (2);
 	return (0);
+}
+
+void	launch_thread(t_table **table)
+{
+	t_table	*ret;
+	t_philo	*philo;
+	int		i;
+
+	i = 0;
+	ret = *table;
+	philo = ret->philos;
+	while (i < ret->number_philo)
+	{
+		if (i % 2 == 0)
+			pthread_create(&philo[i].thread, NULL, routine, &philo[i]);
+		i++;
+	}
+	i = 0;
+	usleep(100);
+	while (i < ret->number_philo)
+	{
+		if (i % 2 != 0)
+			pthread_create(&philo[i].thread, NULL, routine, &philo[i]);
+		i++;
+	}
+	*table = ret;
 }

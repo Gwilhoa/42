@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 22:36:51 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/02 14:52:17 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/02/09 11:45:58 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	*ft_bzero(void *s, size_t n)
 {
 	unsigned int	i;
-	char			*v;
+	STRING			v;
 
 	i = 0;
-	v = (char *) s;
+	v = (STRING) s;
 	while (i < n)
 	{
 		v[i] = 0;

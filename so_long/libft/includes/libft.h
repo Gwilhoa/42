@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:57:12 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/08 11:37:20 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/01 11:44:11 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,7 +215,7 @@ int				ft_putchar_fd(char c, int fd);
  * @param fd file descriptor
  * @return renvoie taille de la chaine de char 
  */
-int			ft_putstr_fd(char *str, int fd)
+int				ft_putstr_fd(const char *str, int fd);
 
 /**
  * @brief ecrite dans un file descriptor un nombre

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fen_disp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gchatain <gchatain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:06:11 by gchatain          #+#    #+#             */
-/*   Updated: 2022/02/08 09:10:32 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/16 13:10:03 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,21 @@ void	refresh(t_long *game)
 		}
 	}
 	put_image(game, game->perso, game->p_x, game->p_y);
+	put_enemy(game);
+}
+
+void	put_enemy(t_long *game)
+{
+	int	i;
+
+	i = 0;
+	if (game->enemies == NULL)
+		return ;
+	while (&game->enemies[i])
+	{
+		put_image(game, game->enemy, game->enemies[i].x, game->enemies[i].y);
+		i++;
+	}
 }
 
 void	init_image(t_long **game)
@@ -49,6 +64,7 @@ void	init_image(t_long **game)
 	temp->items = mlx_xpm_file_to_image(temp->link, "sprites/items.xpm", s, s);
 	temp->exit = mlx_xpm_file_to_image(temp->link, "sprites/exit.xpm", s, s);
 	temp->perso = mlx_xpm_file_to_image(temp->link, "sprites/perso.xpm", s, s);
+	temp->enemy = mlx_xpm_file_to_image(temp->link, "sprites/enemy.xpm", s, s);
 	*game = temp;
 }
 
