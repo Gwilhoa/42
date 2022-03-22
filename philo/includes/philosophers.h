@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:16:54 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/16 12:40:22 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/21 13:26:53 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ int			has_eaten(t_table *table);
 int			stop(t_table *table, int philo);
 int			verif_philo(t_philo *philo);
 int			usage(int i);
+int			talking(t_philo *philo, int type);
 char		*ft_itoa(int n);
 void		*routine(void *vargp);
 void		taking_fork(t_philo *philo, pthread_mutex_t *fork);
 void		launch_thread(t_table **table);
-void		my_usleep(u_int64_t time);
-void		talking(t_philo *philo, int type);
+void		my_usleep(u_int64_t time, int number);
 
 #endif

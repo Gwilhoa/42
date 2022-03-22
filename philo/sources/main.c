@@ -6,7 +6,7 @@
 /*   By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 10:49:24 by gchatain          #+#    #+#             */
-/*   Updated: 2022/03/16 12:44:13 by gchatain         ###   ########lyon.fr   */
+/*   Updated: 2022/03/22 09:04:14 by gchatain         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	main(int argc, char const *argv[])
 				return (stop(&table, i + 1));
 			if (verif_philo(&table.philos[i]) == 2)
 				return (stop(&table, -1));
-			i++;
-			if (i >= table.number_philo)
+			if (++i >= table.number_philo)
 				i = 0;
 		}
 	}
@@ -45,9 +44,9 @@ int	usage(int i)
 {
 	if (i == 0)
 	{
-		ft_putstr_fd("./philo [number philo] [time_to_die]", 1);
-		ft_putstr_fd("[time_to_eat] [time_to_sleep]", 1);
-		ft_putstr_fd("[number_of_times_each_philosopher_must_eat]", 1);
+		ft_putstr_fd("./philo [number philo] [time_to_die]", 2);
+		ft_putstr_fd("[time_to_eat] [time_to_sleep]", 2);
+		ft_putstr_fd("[number_of_times_each_philosopher_must_eat]", 2);
 	}
 	else
 		ft_putstr_fd("illegal or invalid argument", 1);
@@ -60,7 +59,9 @@ int	stop(t_table *table, int philo)
 	u_int64_t	time;
 
 	time = get_time() - table->start_time;
-	table->start_time = (u_int64_t)-1;
+	pthread_mutex_lock(&table->talking);
+	table->start_time = (u_int64_t) - 1;
+	pthread_mutex_unlock(&table->talking);
 	i = 0;
 	while (i < table->number_philo)
 	{
@@ -106,7 +107,7 @@ int	verif_args(const char **argv, int argc)
 		if (ft_strncmp(argv[i], temp, ft_strlen(argv[i])))
 		{
 			free(temp);
-			return (0);
+			return (2);
 		}
 		if (ft_atoi(temp) <= 0)
 			return (2);
