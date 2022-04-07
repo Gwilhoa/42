@@ -6,7 +6,7 @@
 #    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 10:03:39 by gchatain          #+#    #+#              #
-#    Updated: 2022/03/22 12:59:48 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/04/06 14:41:15 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ NAME		:= minishell
 FLAGS		:= -Werror -Wall -Wextra
 CC			:= gcc
 
-LST_SRCS		:= readline.c echo.c
+LST_SRCS		:= readline.c pwd.c
 
 LST_OBJS		:= $(LST_SRCS:.c=.o)
 OBJS			:= $(addprefix .objects/,$(LST_OBJS))
