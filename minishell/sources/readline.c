@@ -29,6 +29,7 @@ int	loop(void)
 {
 	STRING	line;
 	char	**args;
+	int		ret;
 	while (1)
 	{
 		line = readline("minishell >> ");
@@ -36,14 +37,16 @@ int	loop(void)
 		{	
 			add_history(line);
 			args = ft_split(line, ' ');
-			if (getcmd(args) == 0)
+			ret = getcmd(args);
+			if (ret == 0)
 			{
 				ft_printf("%sminishell: %s", RED, line);
 				ft_printf(" command not found\n%s", WHITE);
 			}
+			//penser a free args
+			else if (ret == -1)
+				return (0);
 		}
-		else
-			exit(EXIT_FAILURE);
 	}
 }
 
