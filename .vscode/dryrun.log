@@ -1,0 +1,18 @@
+make --dry-run --always-make --keep-going --print-directory
+fatal: destination path 'libft' already exists and is not an empty directory.
+fatal: destination path 'piscine_cpp' already exists and is not an empty directory.
+fatal: destination path 'push_swap' already exists and is not an empty directory.
+fatal: destination path 'so_long' already exists and is not an empty directory.
+fatal: destination path 'philosophers' already exists and is not an empty directory.
+
+fatal: destination path 'minitalk' already exists and is not an empty directory.
+
+fatal: destination path 'ft_printf' already exists and is not an empty directory.
+fatal: destination path 'piscine' already exists and is not an empty directory.
+fatal: destination path 'get_next_line' already exists and is not an empty directory.
+fatal: destination path 'minshell' already exists and is not an empty directory.
+
+make: Entering directory `/Users/gchatain/Documents/42'
+make: Nothing to be done for `42'.
+make: Leaving directory `/Users/gchatain/Documents/42'
+ 
