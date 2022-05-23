@@ -1,0 +1,3 @@
+[submodule "minshell"]
+	path = minshell
+	url = https://github.com/gwilhoa/minshell
