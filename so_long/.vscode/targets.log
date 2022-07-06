@@ -1,0 +1,533 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Tue May 24 09:43:59 2022
+
+# Variables
+
+ 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# makefile (from `Makefile', line 25)
+SUR = \033[7m
+# environment
+VSCODE_LOG_NATIVE = false
+# makefile (from `Makefile', line 32)
+LIBRARY = libft/libft.a mlx/libmlx.a
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from `Makefile', line 35)
+INCLUDES = includes/get_next_line_bonus.h libft/includes/libft.h includes/so_long.h mlx/mlx.h
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/gchatain/Documents/42/so_long
+# makefile (from `Makefile', line 20)
+PINK = \033[35m
+# makefile
+SHELL = /bin/sh
+# makefile (from `Makefile', line 40)
+RM = rm -f
+# makefile (from `Makefile', line 42)
+NORM = $(shell norminette sources | grep -c 'Error!')
+# environment
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/Users/gchatain/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/Users/gchatain/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/Users/gchatain/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/57fd6d0195bb9b9d1b49f6da5db789060795de47","_corruptedFile":"/Users/gchatain/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 38)
+CFLAGS = -Wall -Wextra -Werror
+# makefile (from `Makefile', line 19)
+BLUE = \033[34m
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# makefile (from `Makefile', line 33)
+SRCS = $(addprefix sources/,$(LST_SRCS))
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from `Makefile', line 34)
+OBJS = $(addprefix .objects/,$(LST_OBJS))
+# makefile (from `Makefile', line 28)
+LST_SRCS = main.c get_next_line_bonus.c get_next_line_utils_bonus.c fen_disp.c moves.c init.c
+# environment
+P9K_SSH = 0
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000b7c0002sv0/T/vscode-ipc-5f0c91e4-c45a-4911-8896-1a05511204b9.sock
+# environment
+VSCODE_CWD = /
+# environment
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.ZpuHZKRSLW/Render
+# environment
+PATH = /Users/gchatain/.brew/bin:/Users/gchatain/.brew/bin:/Users/gchatain/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/opt/X11/bin
+# makefile (from `Makefile', line 23)
+BOLD = \033[1m
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# makefile (from `Makefile', line 26)
+END = \033[0m
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.nxGHE5JCqI/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+HOMEBREW_TEMP = /tmp/gchatain/Homebrew/Temp
+# environment
+DISPLAY = /private/tmp/com.apple.launchd.j3jAetpdJq/org.xquartz:0
+# makefile (from `Makefile', line 47)
+NORM_RET = "${ERASE}${RED}[NORM]${END} ${NAME}"
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /Users/gchatain/Documents/42/so_long
+# makefile (from `Makefile', line 15)
+GREY = \033[30m
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# makefile (from `Makefile', line 17)
+GREEN = \033[32m
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/gchatain
+# default
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/gchatain/Library/Application Support/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
+# environment
+LOGNAME = gchatain
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+ZSH = /Users/gchatain/.oh-my-zsh
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+HOMEBREW_CACHE = /tmp/gchatain/Homebrew/Caches
+# environment
+SHLVL = 1
+# makefile (from `Makefile', line 22)
+WHITE = \033[37m
+# makefile (from `Makefile', line 37)
+CC = gcc
+# makefile (from `Makefile', line 14)
+ERASE = \033[2K\r
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = gchatain
+# makefile
+.DEFAULT_GOAL := all
+# makefile (from `Makefile', line 39)
+NAME = so_long
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# makefile (from `Makefile', line 30)
+INC = 0
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000b7c0002sv0/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/gchatain/Library/Application Support/Code/1.67.0-main.sock
+# makefile (from `Makefile', line 24)
+UNDER = \033[4m
+# makefile (from `Makefile', line 16)
+RED = \033[31m
+# makefile
+MAKEFLAGS = sRrqp
+# environment
+MFLAGS = -sRrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from `Makefile', line 18)
+YELLOW = \033[33m
+# makefile (from `Makefile', line 21)
+CYAN = \033[36m
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x16760:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# makefile (from `Makefile', line 36)
+DIR_INCLUDES = $(sort $(addprefix -I, $(dir $(INCLUDES))))
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# makefile (from `Makefile', line 31)
+LST_OBJS = ${LST_SRCS:.c=.o}
+# makefile (from `Makefile', line 41)
+LIBX = -I /usr/X11/include -g -L ./mlx -l mlx -framework OpenGL -framework AppKit
+# environment
+SECURITYSESSIONID = 186a8
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+VSCODE_PID = 82343
+# variable set hash-table stats:
+# Load=99/1024=10%, Rehash=0, Collisions=9/132=7%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777229, inode 1844660): 13 files, no impossibilities.
+# sources (device 16777229, inode 1844865): 8 files, no impossibilities so far.
+
+# 21 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+.objects/%.o: sources/%.c | .objects
+#  commands to execute (from `Makefile', line 53):
+	${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
+	printf "${ERASE}${BLUE}[BUILD]${END} $<"
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+.objects:
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-23 17:14:12
+#  File has been updated.
+#  Successfully updated.
+#  commands to execute (from `Makefile', line 80):
+	mkdir -p .objects
+	
+
+all: so_long
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+sources/get_next_line_utils_bonus.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.objects/init.o: sources/init.c | .objects
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `init'
+#  Last modified 2022-05-23 17:14:11
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 53):
+	${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
+	printf "${ERASE}${BLUE}[BUILD]${END} $<"
+	
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+ 
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+sources/init.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/includes/libft.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+libft/libft.a:
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+#  commands to execute (from `Makefile', line 74):
+	make -s -C libft
+	
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 68):
+	${RM} -r ${NAME} .objects
+	printf "${ERASE}${RED}[DELETE]${END} ${NAME}\n"
+	
+
+.objects/get_next_line_bonus.o: sources/get_next_line_bonus.c | .objects
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `get_next_line_bonus'
+#  Last modified 2022-05-23 17:14:11
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 53):
+	${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
+	printf "${ERASE}${BLUE}[BUILD]${END} $<"
+	
+
+.objects/moves.o: sources/moves.c | .objects
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `moves'
+#  Last modified 2022-05-23 17:14:11
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 53):
+	${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
+	printf "${ERASE}${BLUE}[BUILD]${END} $<"
+	
+
+.SILENT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+sources/get_next_line_bonus.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+sources/moves.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+mlx/libmlx.a:
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+#  commands to execute (from `Makefile', line 77):
+	make -s -C mlx
+	
+
+# Not a target:
+mlx/mlx.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.objects/fen_disp.o: sources/fen_disp.c | .objects
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `fen_disp'
+#  Last modified 2022-05-23 17:14:11
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 53):
+	${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
+	printf "${ERASE}${BLUE}[BUILD]${END} $<"
+	
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 61):
+	${RM} ${OBJS}
+	${RM} -rf a.out.dSYM
+	make fclean -s -C libft
+	make clean -s -C mlx
+	printf "${RED}[DELETE]${END} *.o"
+	
+
+# Not a target:
+includes/so_long.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+sources/fen_disp.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.objects/get_next_line_utils_bonus.o: sources/get_next_line_utils_bonus.c | .objects
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `get_next_line_utils_bonus'
+#  Last modified 2022-05-23 17:14:11
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 53):
+	${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
+	printf "${ERASE}${BLUE}[BUILD]${END} $<"
+	
+
+.objects/main.o: sources/main.c | .objects
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `main'
+#  Last modified 2022-05-23 17:14:11
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 53):
+	${CC} ${CFLAGS} -c $< -o $@ $(DIR_INCLUDES)
+	printf "${ERASE}${BLUE}[BUILD]${END} $<"
+	
+
+so_long: .objects/main.o .objects/get_next_line_bonus.o .objects/get_next_line_utils_bonus.o .objects/fen_disp.o .objects/moves.o .objects/init.o includes/get_next_line_bonus.h libft/includes/libft.h includes/so_long.h mlx/mlx.h Makefile libft/libft.a mlx/libmlx.a
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-23 17:14:12
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBRARY} ${LIBX} $(DIR_INCLUDES)
+	printf $(NORM_RET)
+	
+
+# Not a target:
+sources/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+includes/get_next_line_bonus.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 11:48:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# files hash-table stats:
+# Load=29/1024=3%, Rehash=0, Collisions=3/93=3%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Tue May 24 09:43:59 2022
+
+ 

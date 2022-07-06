@@ -1,0 +1,34 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/gchatain/Documents/42/philosophers'
+mkdir -p .objects
+gcc -Werror -Wall -Wextra -c sources/ft_atoi.c -o .objects/ft_atoi.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/ft_atoi.o"
+gcc -Werror -Wall -Wextra -c sources/ft_printf.c -o .objects/ft_printf.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/ft_printf.o"
+gcc -Werror -Wall -Wextra -c sources/ft_putchar_fd.c -o .objects/ft_putchar_fd.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/ft_putchar_fd.o"
+gcc -Werror -Wall -Wextra -c sources/ft_putnbr_fd.c -o .objects/ft_putnbr_fd.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/ft_putnbr_fd.o"
+gcc -Werror -Wall -Wextra -c sources/ft_putstr_fd.c -o .objects/ft_putstr_fd.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/ft_putstr_fd.o"
+gcc -Werror -Wall -Wextra -c sources/main.c -o .objects/main.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/main.o"
+gcc -Werror -Wall -Wextra -c sources/printf_function.c -o .objects/printf_function.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/printf_function.o"
+gcc -Werror -Wall -Wextra -c sources/ft_itoa.c -o .objects/ft_itoa.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/ft_itoa.o"
+gcc -Werror -Wall -Wextra -c sources/ft_strlen.c -o .objects/ft_strlen.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/ft_strlen.o"
+ 
+gcc -Werror -Wall -Wextra -c sources/ft_strncmp.c -o .objects/ft_strncmp.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/ft_strncmp.o"
+gcc -Werror -Wall -Wextra -c sources/simulation.c -o .objects/simulation.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/simulation.o"
+gcc -Werror -Wall -Wextra -c sources/init.c -o .objects/init.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/init.o"
+gcc -Werror -Wall -Wextra -c sources/utils.c -o .objects/utils.o -Iincludes/
+printf "\033[2K\r\033[35m[BUILD]\033[0m .objects/utils.o"
+gcc -Werror -Wall -Wextra -o philo .objects/ft_atoi.o .objects/ft_printf.o .objects/ft_putchar_fd.o .objects/ft_putnbr_fd.o .objects/ft_putstr_fd.o .objects/main.o .objects/printf_function.o .objects/ft_itoa.o .objects/ft_strlen.o .objects/ft_strncmp.o .objects/simulation.o .objects/init.o .objects/utils.o -Iincludes/
+printf "\033[2K\r\033[32m[DONE]\033[0m philo\n"
+make: Leaving directory `/Users/gchatain/Documents/42/philosophers'
+ 

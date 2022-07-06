@@ -1,3 +1,6 @@
 [submodule "minshell"]
 	path = minshell
 	url = https://github.com/gwilhoa/minshell
+[submodule "cub3d/mlx"]
+	path = cub3d/mlx
+	url = https://github.com/gwilhoa/mlx

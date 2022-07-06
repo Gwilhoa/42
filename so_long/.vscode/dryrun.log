@@ -1,0 +1,23 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/gchatain/Documents/42/so_long'
+mkdir -p .objects
+ 
+gcc -Wall -Wextra -Werror -c sources/main.c -o .objects/main.o -Iincludes/ -Ilibft/includes/ -Imlx/
+printf "\033[2K\r\033[34m[BUILD]\033[0m sources/main.c"
+gcc -Wall -Wextra -Werror -c sources/get_next_line_bonus.c -o .objects/get_next_line_bonus.o -Iincludes/ -Ilibft/includes/ -Imlx/
+printf "\033[2K\r\033[34m[BUILD]\033[0m sources/get_next_line_bonus.c"
+gcc -Wall -Wextra -Werror -c sources/get_next_line_utils_bonus.c -o .objects/get_next_line_utils_bonus.o -Iincludes/ -Ilibft/includes/ -Imlx/
+printf "\033[2K\r\033[34m[BUILD]\033[0m sources/get_next_line_utils_bonus.c"
+gcc -Wall -Wextra -Werror -c sources/fen_disp.c -o .objects/fen_disp.o -Iincludes/ -Ilibft/includes/ -Imlx/
+printf "\033[2K\r\033[34m[BUILD]\033[0m sources/fen_disp.c"
+gcc -Wall -Wextra -Werror -c sources/moves.c -o .objects/moves.o -Iincludes/ -Ilibft/includes/ -Imlx/
+printf "\033[2K\r\033[34m[BUILD]\033[0m sources/moves.c"
+ 
+gcc -Wall -Wextra -Werror -c sources/init.c -o .objects/init.o -Iincludes/ -Ilibft/includes/ -Imlx/
+printf "\033[2K\r\033[34m[BUILD]\033[0m sources/init.c"
+make -s -C libft
+make -s -C mlx
+gcc -Wall -Wextra -Werror -o so_long .objects/main.o .objects/get_next_line_bonus.o .objects/get_next_line_utils_bonus.o .objects/fen_disp.o .objects/moves.o .objects/init.o libft/libft.a mlx/libmlx.a -I /usr/X11/include -g -L ./mlx -l mlx -framework OpenGL -framework AppKit -Iincludes/ -Ilibft/includes/ -Imlx/
+printf "\033[2K\r\033[31m[NORM]\033[0m so_long"
+make: Leaving directory `/Users/gchatain/Documents/42/so_long'
+ 
