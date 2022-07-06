@@ -4,3 +4,6 @@
 [submodule "cub3d/mlx"]
 	path = cub3d/mlx
 	url = https://github.com/gwilhoa/mlx
+[submodule "so_long/mlx"]
+	path = so_long/mlx
+	url = https://github.com/gwilhoa/mlx
