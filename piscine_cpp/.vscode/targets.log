@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Wed Jul  6 10:49:11 2022
+# Make data base, printed on Mon Jul 11 15:05:08 2022
 
 # Variables
 
@@ -22,16 +22,17 @@ make: *** No rule to make target `all'.  Stop.
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+ 
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/gchatain/Documents/42/piscine_cpp
+CURDIR := /Users/guilheimchataing/42/piscine_cpp
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/Users/guilheimchataing/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/Users/guilheimchataing/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/Users/guilheimchataing/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/Users/guilheimchataing/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile
@@ -39,17 +40,15 @@ MAKEFILE_LIST :=
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-P9K_SSH = 0
+__CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000b7c0002sv0/T/vscode-ipc-6ff145cb-14a3-4550-810b-f8b0befab713.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/6c/0q1pqdhd1lq83cxm2c8c_xwc0000gn/T/vscode-ipc-61a7f069-9d3f-42d0-9157-9b36f70484be.sock
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.owhGS1M5OX/Render
+PATH = /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 # environment
-PATH = /Users/gchatain/.brew/bin:/Users/gchatain/.brew/bin:/Users/gchatain/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/opt/X11/bin
-# environment
-LSCOLORS = Gxfxcxdxbxegedabagacad
+LaunchInstanceID = 8C74B2AF-2101-4ACF-83BF-735F232D0036
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -57,33 +56,27 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.NLJ30R3TaM/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.yLGXrMnt1C/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-HOMEBREW_TEMP = /tmp/gchatain/Homebrew/Temp
-# environment
-DISPLAY = /private/tmp/com.apple.launchd.I5WI3OP22A/org.xquartz:0
-# environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/gchatain/Documents/42/piscine_cpp
+PWD = /Users/guilheimchataing/42/piscine_cpp
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /Users/gchatain
+HOME = /Users/guilheimchataing
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/gchatain/Library/Application Support/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
+VSCODE_CODE_CACHE_PATH = /Users/guilheimchataing/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
-LOGNAME = gchatain
+LOGNAME = guilheimchataing
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# environment
-ZSH = /Users/gchatain/.oh-my-zsh
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -95,17 +88,13 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-HOMEBREW_CACHE = /tmp/gchatain/Homebrew/Caches
-# environment
 SHLVL = 1
 # default
 MAKE_VERSION := 3.81
 # environment
-USER = gchatain
+USER = guilheimchataing
 # makefile
 .DEFAULT_GOAL := 
-# environment
-LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -113,11 +102,11 @@ MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # default
 .VARIABLES := 
 # environment
-TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000b7c0002sv0/T/
+TMPDIR = /var/folders/6c/0q1pqdhd1lq83cxm2c8c_xwc0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/gchatain/Library/Application Support/Code/1.67.0-main.sock
+VSCODE_IPC_HOOK = /Users/guilheimchataing/Library/Application Support/Code/1.67.2-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -125,35 +114,36 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.1288
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.13468772.13468778
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
-__CF_USER_TEXT_ENCODING = 0x16760:0x0:0x0
+__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x1
+# environment
+COMMAND_MODE = unix2003
 # default
+ 
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
 # environment
-PAGER = less
-# environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186ad
 # automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
-# default
-.INCLUDE_DIRS = /usr/local/include
 # environment
 MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 59638
+VSCODE_PID = 8757
 # variable set hash-table stats:
-# Load=69/1024=7%, Rehash=0, Collisions=1/90=1%
+# Load=63/1024=6%, Rehash=0, Collisions=1/83=1%
 
 # Pattern-specific Variable Values
 
@@ -161,7 +151,7 @@ VSCODE_PID = 59638
 
 # Directories
 
-# . (device 16777229, inode 1844185): 5 files, no impossibilities.
+# . (device 16777231, inode 14481128): 5 files, no impossibilities.
 
 # 5 files, no impossibilities in 1 directories.
 
@@ -208,6 +198,7 @@ makefile:
 
 # Not a target:
 .DEFAULT:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -235,6 +226,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Wed Jul  6 10:49:11 2022
+# Finished Make data base on Mon Jul 11 15:05:08 2022
 
  

@@ -6,7 +6,7 @@
 #    By: gchatain <gchatain@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 10:38:57 by gchatain          #+#    #+#              #
-#    Updated: 2022/07/06 10:48:46 by gchatain         ###   ########lyon.fr    #
+#    Updated: 2022/07/11 15:04:56 by gchatain         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,18 +24,18 @@ UNDER		=	\033[4m
 SUR			=	\033[7m
 END			=	\033[0m
 
-NAME		:= megaphone
+NAME		:= phonebook
 FLAGS		:= -std=c++98 -Werror -Wall -Wextra -g3
 CC			:= g++
 
 
-LST_SRCS	:= phonebook.cpp
+LST_SRCS	:= phonebook.cpp contact.cpp main.cpp
 
 LST_OBJS		:= $(LST_SRCS:.cpp=.o)
 OBJS			:= $(addprefix .objects/,$(LST_OBJS))
 SRCS			:= $(addprefix sources/,$(LST_SRCS))
 
-INCLUDES		:= 
+INCLUDES		:= includes/
 DIR_INCLUDES	:= $(sort $(addprefix -I, $(dir $(INCLUDES))))
 
 
