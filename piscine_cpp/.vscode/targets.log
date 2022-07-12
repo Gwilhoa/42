@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Mon Jul 11 15:05:08 2022
+# Make data base, printed on Tue Jul 12 14:14:46 2022
 
 # Variables
 
@@ -22,11 +22,11 @@ make: *** No rule to make target `all'.  Stop.
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
- 
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
 @F = $(notdir $@)
+ 
 # makefile
 CURDIR := /Users/guilheimchataing/42/piscine_cpp
 # makefile
@@ -124,7 +124,6 @@ __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x1
 # environment
 COMMAND_MODE = unix2003
 # default
- 
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
@@ -151,9 +150,9 @@ VSCODE_PID = 8757
 
 # Directories
 
-# . (device 16777231, inode 14481128): 5 files, no impossibilities.
+# . (device 16777231, inode 14481128): 6 files, no impossibilities.
 
-# 5 files, no impossibilities in 1 directories.
+# 6 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -198,7 +197,6 @@ makefile:
 
 # Not a target:
 .DEFAULT:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -226,6 +224,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Mon Jul 11 15:05:08 2022
+# Finished Make data base on Tue Jul 12 14:14:46 2022
 
  
